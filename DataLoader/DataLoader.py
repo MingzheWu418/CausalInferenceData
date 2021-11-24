@@ -38,7 +38,6 @@ class DataHandler:
         self.filename = "../datasets/" + name + "/"
 
         # Have to hard code each dataset, given each dataset has different structure
-        # TWINS has both 0 and 1 for treatment, so T would be 2D array
         if self.dataset == "TWINS":
             self.data = self.__load_TWINS()
         elif self.dataset == "IHDP":
@@ -56,15 +55,9 @@ class DataHandler:
         :return: the preprocessed dataset
         """
 
-        # Sometimes we do not include "Y" as a column,
-        # Because when both T0 and T1 are observed,
-        # we do not have a factual vs counter factual scenario.
-        # We would like to inform the user when this happens.
-        try:
-            Y_transformer.fit(self.data["Y"])
-            self.data["Y"] = Y_transformer.transform(self.data["Y"])
-        except KeyError:
-            print("This dataset has both Y0 and Y1 as factual outcome.")
+        # I am assuming we only need to transform Y and X here.
+        Y_transformer.fit(self.data["Y"])
+        self.data["Y"] = Y_transformer.transform(self.data["Y"])
 
         Y_transformer.fit(self.data["Y0"])
         self.data["Y0"] = Y_transformer.transform(self.data["Y0"])
