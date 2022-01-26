@@ -1,4 +1,4 @@
-import ast
+# import ast
 
 import pandas as pd
 import numpy as np
@@ -21,7 +21,7 @@ class DataHandler:
         # Y0 and Y1 the potential outcome with T==0 or 1,
         # X being the other variables, and
         # raw indicating if each of the previous parts is raw or simulated
-        self.data = {"T": [], "Y": [], "Y0": [], "Y1": [], "X": [], "raw": {}}
+        self.data = {"t": [], "y": [], "y0": [], "y1": [], "x": [], "dim": [], "n" : []}
         self.dataset = ""
         self.filename = ""
 
@@ -56,17 +56,17 @@ class DataHandler:
         """
 
         # I am assuming we only need to transform Y and X here.
-        Y_transformer.fit(self.data["Y"])
-        self.data["Y"] = Y_transformer.transform(self.data["Y"])
+        Y_transformer.fit(self.data["y"])
+        self.data["y"] = Y_transformer.transform(self.data["y"])
 
-        Y_transformer.fit(self.data["Y0"])
-        self.data["Y0"] = Y_transformer.transform(self.data["Y0"])
+        Y_transformer.fit(self.data["y0"])
+        self.data["y0"] = Y_transformer.transform(self.data["y0"])
 
-        Y_transformer.fit(self.data["Y1"])
-        self.data["Y1"] = Y_transformer.transform(self.data["Y1"])
+        Y_transformer.fit(self.data["y1"])
+        self.data["y1"] = Y_transformer.transform(self.data["y1"])
 
-        X_transformer.fit(self.data["X"])
-        self.data["X"] = X_transformer.transform(self.data["X"])
+        X_transformer.fit(self.data["x"])
+        self.data["x"] = X_transformer.transform(self.data["x"])
         return self.data
 
     def data_simulate(self, mode):
@@ -87,16 +87,16 @@ class DataHandler:
         # Store T as 2Nx1 np array, and T0, T1.
         # Here T is saved as binary values,
         # while T0 and T1 contains the weights of infants
-        data["T"] = np.append(np.zeros(len(t["dbirwt_0"])), np.ones(len(t["dbirwt_1"]))).reshape(-1,1)
-        data["T0"] = t["dbirwt_0"].to_numpy().reshape(-1,1)
-        data["T1"] = t["dbirwt_1"].to_numpy().reshape(-1,1)
+        data["t"] = np.append(np.zeros(len(t["dbirwt_0"])), np.ones(len(t["dbirwt_1"]))).reshape(-1,1)
+        data["t0"] = t["dbirwt_0"].to_numpy().reshape(-1,1)
+        data["t1"] = t["dbirwt_1"].to_numpy().reshape(-1,1)
 
         # Read in outcome
         y = pd.read_csv(self.filename + "twin_pairs_Y_3years_samesex.csv")
         # Store Y as 2Nx1 np array, and Y0, Y1
-        data["Y"] = np.append(y["mort_0"].to_numpy(), y["mort_1"].to_numpy()).reshape(-1,1)
-        data["Y0"] = y["mort_0"].to_numpy().reshape(-1,1)
-        data["Y1"] = y["mort_1"].to_numpy().reshape(-1,1)
+        data["y"] = np.append(y["mort_0"].to_numpy(), y["mort_1"].to_numpy()).reshape(-1,1)
+        data["y0"] = y["mort_0"].to_numpy().reshape(-1,1)
+        data["y1"] = y["mort_1"].to_numpy().reshape(-1,1)
 
         # Read in other factors
         x = pd.read_csv(self.filename + "twin_pairs_X_3years_samesex.csv")
@@ -109,10 +109,10 @@ class DataHandler:
         x0 = x0.rename(columns={"infant_id_0": "infant_id", "bord_0": "bord"})
         x1 = x1.rename(columns={"infant_id_1": "infant_id", "bord_1": "bord"})
         x_concat = pd.concat([x0, x1], ignore_index=True)
-        data["X"] = x_concat.to_numpy()
+        data["x"] = x_concat.to_numpy()
 
         # We also keep the label for each row
-        data["X_label"] = x.columns.to_numpy()
+        data["x_label"] = x_concat.columns.to_numpy()
 
         """
         # This part served as keeping track of the type of each variable:
@@ -126,7 +126,8 @@ class DataHandler:
         """
 
         # Have to manually input this part based on prior knowledge
-        data["raw"] = {"T": 1, "Y0": 1, "Y1": 1, "Y": 1, "X": 1}
+        # data["raw"] = {"T": 1, "Y0": 1, "Y1": 1, "Y": 1, "X": 1}
+        data["HAVE_TRUTH"] = True
         return data
 
     def __load_IHDP(self):
@@ -151,8 +152,8 @@ class DataHandler:
 
         # Directly store T, Y, and X from the dataset
         # Also store them as Nx1 numpy array
-        data["T"] = dataset["treatment"].to_numpy().reshape(-1,1)
-        data["Y"] = dataset["y_factual"].to_numpy().reshape(-1,1)
+        data["t"] = dataset["treatment"].to_numpy().reshape(-1,1)
+        data["y"] = dataset["y_factual"].to_numpy().reshape(-1,1)
 
         # If T == 0, then y_factual is y0 and y_cfactual is y1.
         # vice versa
@@ -165,28 +166,32 @@ class DataHandler:
             else:
                 y0.append([dataset["y_cfactual"][i]])
                 y1.append([dataset["y_factual"][i]])
-        data["Y0"] = np.asarray(y0)
-        data["Y1"] = np.asarray(y1)
+        data["y0"] = np.asarray(y0)
+        data["y1"] = np.asarray(y1)
 
         # numpy array, each row is one instance, each column is one variable
         # i.e. data["X"][0] returns the all variables for the 0th patient
         x = dataset.iloc[:, 5:]
-        data["X"] = x.to_numpy()
+        data["x"] = x.to_numpy()
 
         # Record the label
-        data["X_label"] = np.array(col[5:])
+        data["x_label"] = np.array(col[5:])
 
         # Have to manually input this part based on prior knowledge
-        data["raw"] = {"T": 1, "Y0": 0, "Y1": 0, "Y": 1, "X": 1}
+        # data["raw"] = {"T": 1, "Y0": 0, "Y1": 0, "Y": 1, "X": 1}
+        data["HAVE_TRUTH"] = True
         return data
 
 
 if __name__ == "__main__":
     loader = DataHandler()
-    loader.load_data("IHDP")
-    pipe = Pipeline([('imputer', SimpleImputer()), ('scaler', Normalizer())])
-    print(loader.data_processing(Y_transformer=StandardScaler(), X_transformer=pipe))
+    loader.load_data("TWINS")
+    pipeline = Pipeline([('imputer', SimpleImputer()), ('scaler', Normalizer())])
+    print(loader.data_processing(Y_transformer=StandardScaler(), X_transformer=pipeline))
 
     # Verify if the data is correctly loaded
     for key, item in loader.data.items():
         print(key, item.shape)
+
+    # save the data
+
