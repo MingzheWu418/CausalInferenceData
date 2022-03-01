@@ -154,79 +154,12 @@ class format_processor:
 
 if __name__ == "__main__":
     loader = format_processor()
-    # loader.load_data("IHDP")
-    # dct = loader.data
-    # np.savez("./datasets/ihdp_npci_1-100", **dct)
+    loader.load_data("IHDP")
+    dct = loader.data
+    np.savez("./datasets/ihdp_npci_1-100", **dct)
     loader.load_data("JOBS")
     dct = loader.data
     np.savez("./datasets/jobs_DW_bin", **dct)
-    # loader.load_data("TWINS")
-    # dct = loader.data
-    # np.savez("./datasets/twins", **dct)
-    # for key, value in dct.items():
-    #     print(key, value.shape)
-    # print(dct)
-
-    # reshape TWINS into batches
-    # dct_train = {}
-    # dct_test = {}
-    # idx = np.random.permutation(1140)
-    # train_rate = 0.9
-    # train_idx = idx[:int(train_rate * 1140)]
-    # test_idx = idx[int(train_rate * 1140):]
-    # for key, item in loader.data.items():
-    #     if key == "x":
-    #
-    #         dct_train[key] = item.reshape(-1, 30, 10)[train_idx,:,:].reshape(-1,30)
-    #
-    #         dct_test[key] = item.reshape(-1, 30, 10)[test_idx,:,:].reshape(-1,30)
-    #     else:
-    #         dct_train[key] = item.reshape(-1, 10)[train_idx,:].reshape(-1,1)
-    #         dct_test[key] = item.reshape(-1, 10)[test_idx,:].reshape(-1,1)
-    #     # print("-----")
-    #     print(key, dct[key].shape)
-    #     print(key, dct_train[key].shape)
-    #     print(key, dct_test[key].shape)
-
-    # dct_train = {}
-    # dct_test = {}
-    # no = dct["x"].shape[0]
-    # idx = np.random.permutation(no)
-    # train_rate = 0.8
-    # train_idx = idx[:int(train_rate * no)]
-    # test_idx = idx[int(train_rate * no):]
-    #
-    # # reshape TWINS into batches
-    # for key, item in loader.data.items():
-    #     if key == "x":
-    #         dct_train[key] = item[train_idx,:].reshape(-1, 30, 1)
-    #
-    #         dct_test[key] = item[test_idx,:].reshape(-1, 30, 1)
-    #     else:
-    #         dct_train[key] = item[train_idx].reshape(-1, 1)
-    #         dct_test[key] = item[test_idx].reshape(-1,1)
-    #     # print("-----")
-    #     print(key, dct[key].shape)
-    #     print(key, dct_train[key].shape)
-    #     print(key, dct_test[key].shape)
-
-    # reshape ihdp into batches
-    # dct_train = {}
-    # dct_test = {}
-    # for key, item in loader.data.items():
-    #     if key == "x":
-    #         dct_train[key] = item.reshape(-1, 25, num_batch)[:,:,:80]
-    #         dct_test[key] = item.reshape(-1, 25, num_batch)[:,:,80:]
-    #     else:
-    #         dct_train[key] = item.reshape(-1, num_batch)[:,:80]
-    #         dct_test[key] = item.reshape(-1, num_batch)[:,80:]
-    #     # print("-----")
-    #     print(key, dct[key].shape)
-    #     print(key, dct_train[key].shape)
-    #     print(key, dct_test[key].shape)
-
-    # np.savez("./raw_data/TWINS/twins_test", **dct_test)
-    # x = np.load("../raw_data/JOBS/jobs_DW_bin.train.npz")
-    # x = np.load("../raw_data/TWINS/twins_test_preprocessed.npz")
-    # for key in x:
-    #     print(key, x[key].shape)
+    loader.load_data("TWINS")
+    dct = loader.data
+    np.savez("./datasets/twins", **dct)
