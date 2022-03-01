@@ -1,0 +1,31 @@
+iteration: 200
+batch_size: 100
+optimizer: 'Adam'
+output_delay: 200
+optim:
+  lrate: 0.001
+  lrate_decay: 0.97
+  iter_per_decay: 100
+  decay: 0.3
+loss:
+  loss: 'l2'
+  p_pddm: 0.1
+  p_mid_point_mini: 10.0
+  p_lambda: 0
+  reweight_sample: 1
+model:
+  n_in: 3
+  n_out: 3
+  dropout_in: 0.1
+  dropout_out: 0.1
+  dim_in: 200
+  dim_out: 100
+  dim_pddm: 200
+  dim_c: 200
+  dim_s: 100
+  weight_init: 0.1
+  split_output: 1
+  nonlin: 'elu'
+  varsel: 0
+  batch_norm: 0
+  normalization: 'divide'

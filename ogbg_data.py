@@ -35,10 +35,10 @@ def show_num_edges(d_name, num_bins=200, stat='density'):
     # plt.ylabel('Frequency')
     # plt.show()
     try:
-        plt.savefig('./output/' + d_name + '/num_edges_' + stat + '_' + d_name + '.png')
+        plt.savefig('./datasets/' + d_name + '/num_edges_' + stat + '_' + d_name + '.png')
     except FileNotFoundError:
-        os.makedirs('./output/' + d_name + '/')
-        plt.savefig('./output/' + d_name + '/num_edges_' + stat + '_' + d_name + '.png')
+        os.makedirs('./datasets/' + d_name + '/')
+        plt.savefig('./datasets/' + d_name + '/num_edges_' + stat + '_' + d_name + '.png')
 
     # print(np.quantile(edge_distrib, 0.0))
     # print(np.quantile(edge_distrib, 0.25))
@@ -63,10 +63,10 @@ def show_num_nodes(d_name, num_bins=200, stat='density'):
     plt.xlabel('Number of Nodes')
     # plt.show()
     try:
-        plt.savefig('./output/' + d_name + '/num_nodes_' + stat + '_' + d_name + '.png')
+        plt.savefig('./datasets/' + d_name + '/num_nodes_' + stat + '_' + d_name + '.png')
     except FileNotFoundError:
-        os.makedirs('./output/' + d_name + '/')
-        plt.savefig('./output/' + d_name + '/num_nodes_' + stat + '_' + d_name + '.png')
+        os.makedirs('./datasets/' + d_name + '/')
+        plt.savefig('./datasets/' + d_name + '/num_nodes_' + stat + '_' + d_name + '.png')
     plt.clf()
     return node_distrib
 
@@ -76,10 +76,10 @@ def save_quantile(data_dict, name):
     ax = sns.boxplot(data=df, orient="v", whis=[5,95])
     plt.title("Distribution of " + name)
     try:
-        plt.savefig('./output/' + name + '_quantile.png')
+        plt.savefig('./datasets/' + name + '_quantile.png')
     except FileNotFoundError:
-        os.makedirs('./output/')
-        plt.savefig('./output/' + name + '_quantile.png')
+        os.makedirs('datasets/')
+        plt.savefig('./datasets/' + name + '_quantile.png')
     # plt.show()
     plt.clf()
     return df.describe()
@@ -95,18 +95,18 @@ if __name__ == "__main__":
         # print(item.ntypes)
 
 
-    # datasets = ["ogbg-molhiv"]
+    # raw_data = ["ogbg-molhiv"]
     # edge_dict = {}
     # node_dict = {}
-    # for data in datasets:
+    # for data in raw_data:
     #     num_edges = show_num_edges(data, stat='count')
     #     num_nodes = show_num_nodes(data, stat='count')
     #     show_num_edges(data, stat='density')
     #     show_num_nodes(data, stat='density')
     #     edge_dict[data] = num_edges
     #     node_dict[data] = num_nodes
-    # save_quantile(edge_dict, "num_edges").to_csv("./output/num_edges_describe.csv")
-    # save_quantile(node_dict, "num_nodes").to_csv("./output/num_edges_describe.csv")
+    # save_quantile(edge_dict, "num_edges").to_csv("./datasets/num_edges_describe.csv")
+    # save_quantile(node_dict, "num_nodes").to_csv("./datasets/num_edges_describe.csv")
 
 
 
