@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/CausalInference.iml" filepath="$PROJECT_DIR$/.idea/CausalInference.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../bartpy/.idea/bartpy.iml" filepath="$PROJECT_DIR$/../bartpy/.idea/bartpy.iml" />
     </modules>
   </component>
 </project>

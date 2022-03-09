@@ -66,9 +66,9 @@ def ganite(train_x, train_t, train_yf, parameters):
     # I_loss = I_loss1 + I_loss2
 
     ## Solver
-    G_solver = torch.optim.Adam(cf_gen.parameters())
-    D_solver = torch.optim.Adam(cf_dis.parameters())
-    I_solver = torch.optim.Adam(inf.parameters())
+    G_solver = torch.optim.Adam(cf_gen.parameters(), lr=3e-3)
+    D_solver = torch.optim.Adam(cf_dis.parameters(), lr=3e-3)
+    I_solver = torch.optim.Adam(inf.parameters(), lr=3e-3)
 
     ## GANITE training
 

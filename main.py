@@ -7,9 +7,14 @@ import argparse
 from GANITE.metrics import PEHE, ATE, policy_val
 from GANITE.train_pytorch import ganite, ganite_predict
 from SITE.site_net_train_pytorch import site, site_predict
+from eval.evaluator import Evaluator
 from utils.utils_pytorch import comb_potential_outcome
 from data.data_loader import split, cross_val_index, load_data
+from bartpy.sklearnmodel import SklearnModel
+from econml.grf import CausalForest, MultiOutputGRF
+
 import yaml
+
 
 def main(args):
     npzfile = args.outdir + 'result'
@@ -41,7 +46,7 @@ def main(args):
     print(args.data_name + ' dataset is ready.')
 
     # print(d)
-    train_dataset, test_dataset = split(d, args.train_rate) # 0.8 train 0.2 test
+    train_dataset, test_dataset = split(d, args.train_rate)  # 0.8 train 0.2 test
 
     test_x = test_dataset['x']
     test_yf = test_dataset['yf']
@@ -61,7 +66,8 @@ def main(args):
             parameters = yaml.safe_load(stream)
         except yaml.YAMLError as exc:
             print(exc)
-    parameters["propensity_dir"] = './SITE/propensity_score/' + args.data_name + '_propensity_model.sav'
+    # print
+
     # print(parameters)
 
     for fold, I_val in enumerate(indexes):
@@ -90,6 +96,7 @@ def main(args):
             # either yf ycf. outcome of shape n*1
             print('Finish GANITE training and potential outcome estimations')
         elif args.model == "site":
+            parameters["propensity_dir"] = './SITE/propensity_score/' + args.data_name + '_propensity_model.sav'
             model = site(train_x, train_t, train_yf, d['dim'], parameters)
             # site_predict(model, x, t)
             train_y0_pred, train_y1_pred = site_predict(model, train_x, train_t)
@@ -97,47 +104,80 @@ def main(args):
             val_y0_pred, val_y1_pred = site_predict(model, val_x, val_t)
             # print(model)
             print('Finish SITE training and potential outcome estimations')
+        elif args.model == "bart":
+            model = SklearnModel()  # Use default parameters
+            train_xt = np.concatenate((train_x, train_t.reshape(-1, 1)), axis=1)
+            test_xt = np.concatenate((test_x, test_t.reshape(-1, 1)), axis=1)
+            val_xt = np.concatenate((val_x, val_t.reshape(-1, 1)), axis=1)
+            model.fit(train_xt, train_yf)  # Fit the model
+            train_yf_pred = model.predict(train_xt)  # Make predictions on the train set
+            test_yf_pred = model.predict(test_xt)  # Make predictions on new data
+            val_yf_pred = model.predict(val_xt)  # Make predictions on new data
 
-            ## Performance metrics
+            model = SklearnModel()  # Use default parameters
+            model.fit(train_xt, train_ycf)  # Fit the model
+            train_ycf_pred = model.predict(train_xt)  # Make predictions on the train set
+            test_ycf_pred = model.predict(test_xt)  # Make predictions on new data
+            val_ycf_pred = model.predict(val_xt)  # Make predictions on new data
 
-            # class, evaluator
+            train_y0_pred, train_y1_pred = comb_potential_outcome(train_yf_pred, train_ycf_pred, train_t)
+            val_y0_pred, val_y1_pred = comb_potential_outcome(val_yf_pred, val_ycf_pred, val_t)
+            test_y0_pred, test_y1_pred = comb_potential_outcome(test_yf_pred, test_ycf_pred, test_t)
+
+        elif args.model == "grf":
+            forest = MultiOutputGRF(CausalForest())
+            # print(train_y0)
+            # print(np.concatenate((train_y0, train_y1), axis=1))
+            forest.fit(train_x, train_t, np.concatenate((train_y0, train_y1), axis=1))
+            train_y_pred = forest.predict(train_x)
+            val_y_pred = forest.predict(val_x)
+            test_y_pred = forest.predict(test_x)
+            train_y0_pred = train_y_pred[:, 0]
+            train_y1_pred = train_y_pred[:, 1]
+            val_y0_pred = val_y_pred[:, 0]
+            val_y1_pred = val_y_pred[:, 1]
+            test_y0_pred = test_y_pred[:, 0]
+            test_y1_pred = test_y_pred[:, 1]
+
+        eval = Evaluator()
+        ## Performance metrics
         try:
             # 1. PEHE
-            test_PEHE = PEHE(test_y0, test_y1, test_y0_pred, test_y1_pred)
+            test_PEHE = eval.PEHE(test_y0, test_y1, test_y0_pred, test_y1_pred)
             metric_results['PEHE_TEST'].append(np.round(test_PEHE, 4))
 
-            train_PEHE = PEHE(train_y0, train_y1, train_y0_pred, train_y1_pred)
+            train_PEHE = eval.PEHE(train_y0, train_y1, train_y0_pred, train_y1_pred)
             metric_results['PEHE_TRAIN'].append(np.round(train_PEHE, 4))
 
-            val_PEHE = PEHE(val_y0, val_y1, val_y0_pred, val_y1_pred)
+            val_PEHE = eval.PEHE(val_y0, val_y1, val_y0_pred, val_y1_pred)
             metric_results['PEHE_VAL'].append(np.round(val_PEHE, 4))
             # 2. ATE
-            test_ATE = ATE(test_y0, test_y1, test_y0_pred, test_y1_pred)
+            test_ATE = eval.ATE(test_y0, test_y1, test_y0_pred, test_y1_pred)
             metric_results['ATE_TEST'].append(np.round(test_ATE, 4))
 
-            train_ATE = ATE(train_y0, train_y1, train_y0_pred, train_y1_pred)
+            train_ATE = eval.ATE(train_y0, train_y1, train_y0_pred, train_y1_pred)
             metric_results['ATE_TRAIN'].append(np.round(train_ATE, 4))
 
-            val_ATE = ATE(val_y0, val_y1, val_y0_pred, val_y1_pred)
+            val_ATE = eval.ATE(val_y0, val_y1, val_y0_pred, val_y1_pred)
             metric_results['ATE_VAL'].append(np.round(val_ATE, 4))
         except UnboundLocalError:
-            test_p_value, test_policy_curve = policy_val(test_t, test_yf, test_y0_pred, test_y1_pred)
-            metric_results['P_RISK_TEST'].append(np.round(1-test_p_value, 4))
+            test_p_value, test_policy_curve = eval.policy_val(test_t, test_yf, test_y0_pred, test_y1_pred)
+            metric_results['P_RISK_TEST'].append(np.round(1 - test_p_value, 4))
 
-            train_p_value, train_policy_curve = policy_val(train_t, train_yf, train_y0_pred, train_y1_pred)
-            metric_results['P_RISK_TRAIN'].append(np.round(1-train_p_value, 4))
+            train_p_value, train_policy_curve = eval.policy_val(train_t, train_yf, train_y0_pred, train_y1_pred)
+            metric_results['P_RISK_TRAIN'].append(np.round(1 - train_p_value, 4))
 
-            val_p_value, val_policy_curve = policy_val(val_t, val_yf, val_y0_pred, val_y1_pred)
-            metric_results['P_RISK_VAL'].append(np.round(1-val_p_value, 4))
+            val_p_value, val_policy_curve = eval.policy_val(val_t, val_yf, val_y0_pred, val_y1_pred)
+            metric_results['P_RISK_VAL'].append(np.round(1 - val_p_value, 4))
 
         print(metric_results)
     for key, item in metric_results.items():
         try:
-            metric_results[key] = (np.round(np.mean(item), 4), np.round(np.std(item),4))
+            metric_results[key] = (np.round(np.mean(item), 4), np.round(np.std(item), 4))
         except:
             pass
     print(metric_results)
-
+    # torch.dump()
     # # Set network parameters
     # parameters = dict()
     # parameters['h_dim'] = args.h_dim
@@ -147,11 +187,10 @@ def main(args):
 
 
 if __name__ == '__main__':
-
     parser = argparse.ArgumentParser()
     parser.add_argument(
         '--model',
-        choices=['ganite', 'site'],
+        choices=['ganite', 'site', 'bart', 'grf'],
         default='ganite',
         type=str
     )
@@ -167,7 +206,7 @@ if __name__ == '__main__':
     parser.add_argument(
         '--folds',
         help='Number of folds for cross-validation',
-        default=10,
+        default=5,
         type=int)
     parser.add_argument(
         '--train_rate',

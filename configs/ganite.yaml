@@ -1,4 +1,4 @@
-h_dim: 50
-iteration: 10000
+h_dim: 15
+iteration: 20000
 batch_size: 256
-alpha: 1.0
+alpha: 1
