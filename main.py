@@ -9,9 +9,11 @@ from GANITE.train_pytorch import ganite, ganite_predict
 from SITE.site_net_train_pytorch import site, site_predict
 from eval.evaluator import Evaluator
 from utils.utils_pytorch import comb_potential_outcome
-from data.data_loader import split, cross_val_index, load_data
+from data.data_loader import split, cross_val_index, load_data, load_batch
 from bartpy.sklearnmodel import SklearnModel
-from econml.grf import CausalForest, MultiOutputGRF
+from bartpy.extensions.baseestimator import ResidualBART
+from econml.grf import CausalForest, CausalIVForest, MultiOutputGRF
+from econml.dml import CausalForestDML
 
 import yaml
 
@@ -29,6 +31,7 @@ def main(args):
     if args.data_name == "jobs":
         data_path = "./datasets/jobs_DW_bin.npz"
     d = load_data(data_path)
+    print(d)
     # d['x'], yf, t, ycf ...
 
     # Output initialization
@@ -47,6 +50,9 @@ def main(args):
 
     # print(d)
     train_dataset, test_dataset = split(d, args.train_rate)  # 0.8 train 0.2 test
+
+    if args.data_name == "ihdp": # Currently only loading ihdp into batchs because it is too large
+        train_dataset = load_batch(train_dataset, args.batch_size)
 
     test_x = test_dataset['x']
     test_yf = test_dataset['yf']
@@ -71,21 +77,37 @@ def main(args):
     # print(parameters)
 
     for fold, I_val in enumerate(indexes):
-        I_train = np.setdiff1d(np.arange(train_dataset['t'].shape[0]), I_val)
-        train_x = train_dataset['x'][I_train, :]
-        train_t = train_dataset['t'][I_train]
-        train_yf = train_dataset['yf'][I_train]
-        val_x = train_dataset['x'][I_val, :]
-        val_t = train_dataset['t'][I_val]
-        val_yf = train_dataset['yf'][I_val]
+        if args.data_name == 'ihdp':
+            batch = np.random.randint(low=0, high=args.batch_size, size=1)
+            I_train = np.setdiff1d(np.arange(train_dataset['t'].shape[0]), I_val)
+            train_x = train_dataset['x'][I_train, :, batch]
+            # print(train_x.shape)
+            train_t = train_dataset['t'][I_train, batch]
+            train_yf = train_dataset['yf'][I_train, batch]
+            val_x = train_dataset['x'][I_val, :, batch]
+            val_t = train_dataset['t'][I_val, batch]
+            val_yf = train_dataset['yf'][I_val, batch]
 
-        try:
-            train_ycf = train_dataset['ycf'][I_train]
+            train_ycf = train_dataset['ycf'][I_train, batch]
             train_y0, train_y1 = comb_potential_outcome(train_yf, train_ycf, train_t)
-            val_ycf = train_dataset['ycf'][I_val]
+            val_ycf = train_dataset['ycf'][I_val, batch]
             val_y0, val_y1 = comb_potential_outcome(val_yf, val_ycf, val_t)
-        except:
-            print("No Counterfactual data Available")
+        else:
+            I_train = np.setdiff1d(np.arange(train_dataset['t'].shape[0]), I_val)
+            train_x = train_dataset['x'][I_train, :]
+            train_t = train_dataset['t'][I_train]
+            train_yf = train_dataset['yf'][I_train]
+            val_x = train_dataset['x'][I_val, :]
+            val_t = train_dataset['t'][I_val]
+            val_yf = train_dataset['yf'][I_val]
+
+            try:
+                train_ycf = train_dataset['ycf'][I_train]
+                train_y0, train_y1 = comb_potential_outcome(train_yf, train_ycf, train_t)
+                val_ycf = train_dataset['ycf'][I_val]
+                val_y0, val_y1 = comb_potential_outcome(val_yf, val_ycf, val_t)
+            except:
+                print("No Counterfactual data Available")
 
         if args.model == "ganite":
             # print(train_x)
@@ -105,7 +127,8 @@ def main(args):
             # print(model)
             print('Finish SITE training and potential outcome estimations')
         elif args.model == "bart":
-            model = SklearnModel()  # Use default parameters
+            # model = SklearnModel()  # Use default parameters
+            model = ResidualBART()
             train_xt = np.concatenate((train_x, train_t.reshape(-1, 1)), axis=1)
             test_xt = np.concatenate((test_x, test_t.reshape(-1, 1)), axis=1)
             val_xt = np.concatenate((val_x, val_t.reshape(-1, 1)), axis=1)
@@ -114,7 +137,8 @@ def main(args):
             test_yf_pred = model.predict(test_xt)  # Make predictions on new data
             val_yf_pred = model.predict(val_xt)  # Make predictions on new data
 
-            model = SklearnModel()  # Use default parameters
+            # model = SklearnModel()  # Use default parameters
+            model = ResidualBART()
             model.fit(train_xt, train_ycf)  # Fit the model
             train_ycf_pred = model.predict(train_xt)  # Make predictions on the train set
             test_ycf_pred = model.predict(test_xt)  # Make predictions on new data
@@ -125,19 +149,58 @@ def main(args):
             test_y0_pred, test_y1_pred = comb_potential_outcome(test_yf_pred, test_ycf_pred, test_t)
 
         elif args.model == "grf":
-            forest = MultiOutputGRF(CausalForest())
+
             # print(train_y0)
             # print(np.concatenate((train_y0, train_y1), axis=1))
-            forest.fit(train_x, train_t, np.concatenate((train_y0, train_y1), axis=1))
-            train_y_pred = forest.predict(train_x)
-            val_y_pred = forest.predict(val_x)
-            test_y_pred = forest.predict(test_x)
-            train_y0_pred = train_y_pred[:, 0]
-            train_y1_pred = train_y_pred[:, 1]
-            val_y0_pred = val_y_pred[:, 0]
-            val_y1_pred = val_y_pred[:, 1]
-            test_y0_pred = test_y_pred[:, 0]
-            test_y1_pred = test_y_pred[:, 1]
+            try:
+                # Base model
+                forest = MultiOutputGRF(CausalForest())
+                forest.fit(train_x, train_t, np.concatenate((train_y0, train_y1), axis=1))
+                train_y_pred = forest.predict(train_x)
+                val_y_pred = forest.predict(val_x)
+                test_y_pred = forest.predict(test_x)
+                train_y0_pred = train_y_pred[:, 0]
+                train_y1_pred = train_y_pred[:, 1]
+                val_y0_pred = val_y_pred[:, 0]
+                val_y1_pred = val_y_pred[:, 1]
+                test_y0_pred = test_y_pred[:, 0]
+                test_y1_pred = test_y_pred[:, 1]
+            except UnboundLocalError:
+                forest = CausalForest()
+                forest.fit(train_x, train_t, train_yf)
+                train_yf_pred = forest.predict(train_x)
+                val_yf_pred = forest.predict(val_x)
+                test_yf_pred = forest.predict(test_x)
+
+                forest.fit(train_x, 1-train_t, train_yf)
+                train_ycf_pred = forest.predict(train_x)
+                val_ycf_pred = forest.predict(val_x)
+                test_ycf_pred = forest.predict(test_x)
+
+                train_y0_pred, train_y1_pred = comb_potential_outcome(train_yf_pred, train_ycf_pred, train_t)
+                val_y0_pred, val_y1_pred = comb_potential_outcome(val_yf_pred, val_ycf_pred, val_t)
+                test_y0_pred, test_y1_pred = comb_potential_outcome(test_yf_pred, test_ycf_pred, test_t)
+
+            # TODO: Double Machine Learning
+            # forest = CausalForestDML()
+            # train_xt = np.concatenate((train_x, train_t.reshape(-1, 1)), axis=1)
+            # test_xt = np.concatenate((test_x, test_t.reshape(-1, 1)), axis=1)
+            # val_xt = np.concatenate((val_x, val_t.reshape(-1, 1)), axis=1)
+            # forest.fit(train_xt, train_yf)  # Fit the model
+            # train_yf_pred = forest.predict(train_xt)  # Make predictions on the train set
+            # test_yf_pred = forest.predict(test_xt)  # Make predictions on new data
+            # val_yf_pred = forest.predict(val_xt)  # Make predictions on new data
+            #
+            # # model = SklearnModel()  # Use default parameters
+            # forest = CausalForestDML()
+            # forest.fit(train_xt, train_ycf)  # Fit the model
+            # train_ycf_pred = forest.predict(train_t)  # Make predictions on the train set
+            # test_ycf_pred = forest.predict(test_xt)  # Make predictions on new data
+            # val_ycf_pred = forest.predict(val_xt)  # Make predictions on new data
+            #
+            # train_y0_pred, train_y1_pred = comb_potential_outcome(train_yf_pred, train_ycf_pred, train_t)
+            # val_y0_pred, val_y1_pred = comb_potential_outcome(val_yf_pred, val_ycf_pred, val_t)
+            # test_y0_pred, test_y1_pred = comb_potential_outcome(test_yf_pred, test_ycf_pred, test_t)
 
         eval = Evaluator()
         ## Performance metrics
@@ -191,13 +254,13 @@ if __name__ == '__main__':
     parser.add_argument(
         '--model',
         choices=['ganite', 'site', 'bart', 'grf'],
-        default='ganite',
+        default='grf',
         type=str
     )
     parser.add_argument(
         '--data_name',
         choices=['twins', 'ihdp', 'jobs'],
-        default='twins',
+        default='jobs',
         type=str)
     parser.add_argument(
         '--outdir',
@@ -223,11 +286,11 @@ if __name__ == '__main__':
     #     help='Training iterations (should be optimized)',
     #     default=10000,
     #     type=int)
-    # parser.add_argument(
-    #     '--batch_size',
-    #     help='the number of samples in mini-batch (should be optimized)',
-    #     default=256,
-    #     type=int)
+    parser.add_argument(
+        '--batch_size',
+        help='the number of samples in mini-batch (should be optimized)',
+        default=100,
+        type=int)
     # parser.add_argument(
     #     '--alpha',
     #     help='hyper-parameter to adjust the loss importance (should be optimized)',

@@ -105,6 +105,7 @@ def load_batch(dataset, batch_size=1):
                     .reshape(-1, dataset["dim"], batch_size)
             except:
                 result[key] = dataset[key][:batch_size * batch_num].reshape(-1, batch_size)
+    result['n'] = result['n']//100
     return result
 
 
