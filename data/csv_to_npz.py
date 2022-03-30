@@ -36,7 +36,7 @@ class format_processor:
         """
 
         name = dataset.upper()
-        assert name in ["TWINS", "IHDP", "JOBS"]
+        assert name in ["TWINS", "IHDP", "JOBS", "ACIC", "LALONDE"]
         self.dataset = name
         self.filename = "./raw_data/" + name + "/"
 
@@ -48,8 +48,13 @@ class format_processor:
             # print(self.data)
         elif self.dataset == "JOBS":
             self.data = self.__load_JOBS()
+        elif self.dataset == 'ACIC':
+            self.data = self.__load_ACIC()
+        elif self.dataset == 'LALONDE':
+            self.data = self.__load_lalonde()
         else:
             pass
+
         return self.data
 
     def data_simulate(self, mode):
@@ -77,7 +82,7 @@ class format_processor:
         potential_y = ori_data[:, 30:]
         # Die within 1 year = 1, otherwise = 0
         potential_y = np.array(potential_y < 9999, dtype=float)
-        print(potential_y)
+        # print(potential_y)
 
         ## Assign treatment
         coef = np.random.uniform(-0.01, 0.01, size=[dim, 1])
@@ -152,7 +157,85 @@ class format_processor:
         return data
 
 
+    def __load_ACIC(self):
+        """
+        Private helper to load IHDP
+        :return: the data loaded
+        """
+
+        # Read in raw_data
+
+        cov_data = np.loadtxt("../raw_data/ACIC2019/highDim_testdataset3.csv", delimiter=",", skiprows=1)
+        # print(cov_data.shape)
+        treatment = cov_data[:, 1].astype(int)
+        print(treatment)
+        covariates = cov_data[:, 2:-1]
+        # print(covariates)
+        # print(covariates.shape)
+        outcome = np.loadtxt("../raw_data/ACIC2019/highDim_testdataset3_cf.csv", delimiter=",", skiprows=1)
+        y1 = outcome[:, 2]
+        y0 = outcome[:, 1]
+        ycf = y1 * treatment + y0 * (1-treatment)
+        yf = y0 * treatment + y1 * (1-treatment)
+        data = {'x': covariates,
+                't': treatment.reshape(-1,1),
+                'yf': yf.reshape(-1,1),
+                'ycf': ycf.reshape(-1,1),
+                }
+        return data
+
+    def __load_lalonde(self):
+        """
+        Private helper to load IHDP
+        :return: the data loaded
+        """
+
+        # Read in raw_data
+        data = []
+        with open("../raw_data/LaLonde/nsw_control.txt") as f:
+            lines = f.readlines()
+            for item in lines:
+                data.append(item.strip("\n").split("  ")[1:])
+        with open("../raw_data/LaLonde/nsw_treated.txt") as f:
+            lines = f.readlines()
+            for item in lines:
+                data.append(item.strip("\n").split("  ")[1:])
+
+        for patient in data:
+            for i in range(len(patient)):
+                list_string = patient[i].split("e+")
+                patient[i] = float(list_string[0]) * np.power(10, int(list_string[1]))
+
+        data = np.asarray(data)
+        treatment = data[:, 0]
+        covariates = data[:, 1:-1]
+        yf = data[:, -1]
+
+        # control_group = np.loadtxt("../raw_data/LaLonde/nsw_control.txt", delimiter="  ")
+        # treatment_group = np.loadtxt("../raw_data/LaLonde/nsw_treated.txt", delimiter="  ")
+        # print(control_group)
+        # # print(cov_data.shape)
+        # treatment = cov_data[:, 1].astype(int)
+        # print(treatment)
+        # covariates = cov_data[:, 2:-1]
+        # # print(covariates)
+        # # print(covariates.shape)
+        # outcome = np.loadtxt("../raw_data/LaLonde/highDim_testdataset3_cf.csv", delimiter=",", skiprows=1)
+        # y1 = outcome[:, 2]
+        # y0 = outcome[:, 1]
+        # ycf = y1 * treatment + y0 * (1-treatment)
+        # yf = y0 * treatment + y1 * (1-treatment)
+        # print(covariates.shape)
+        # print(treatment.shape)
+        data = {'x': covariates,
+                't': treatment.reshape(-1,1),
+                'yf': yf.reshape(-1,1),
+                # 'ycf': ycf.reshape(-1,1),
+                }
+        return data
+
 if __name__ == "__main__":
+    """
     loader = format_processor()
     loader.load_data("IHDP")
     dct = loader.data
@@ -163,3 +246,9 @@ if __name__ == "__main__":
     loader.load_data("TWINS")
     dct = loader.data
     np.savez("./datasets/twins", **dct)
+    """
+    loader = format_processor()
+    loader.load_data("LaLonde")
+    dct = loader.data
+    print(dct)
+    np.savez("../datasets/lalonde", **dct)

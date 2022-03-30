@@ -57,17 +57,29 @@ class Evaluator:
 
     def policy_val(self, t, yf, y0_pred, y1_pred):
         """ Computes the value of the policy defined by predicted effect """
-
-        y_pred_f = t * y1_pred + (1 - t) * y0_pred
-        y_pred_cf = (1 - t) * y1_pred + t * y0_pred
+        t = t.reshape(-1,)
+        y_pred_f = t * y1_pred.reshape(-1,) + (1 - t) * y0_pred.reshape(-1,)
+        y_pred_cf = (1 - t) * y1_pred.reshape(-1,) + t * y0_pred.reshape(-1,)
+        # print(t.shape)
+        # print(y1_pred.shape)
+        # print(y_pred_cf.shape)
+        # print((t * y1_pred).shape)
+        # print(y_pred_f.shape)
         eff_pred = y_pred_f - y_pred_cf
         if np.any(np.isnan(eff_pred)):
             return np.nan, np.nan
 
         policy = eff_pred > 0
         treat_overlap = (policy == t) * (t > 0)
+        # print(treat_overlap.shape)
+        # print(yf.shape)
         control_overlap = (policy == t) * (t < 1)
-        print(treat_overlap.shape)
+        # print(eff_pred.shape)
+        # print(policy.shape)
+        # print(t.shape)
+        # print((policy == t).shape)
+        # print((t < 1).shape)
+        # print(treat_overlap.shape)
         if np.sum(treat_overlap) == 0:
             treat_value = 0
         else:
@@ -82,4 +94,5 @@ class Evaluator:
         policy_value = pit * treat_value + (1 - pit) * control_value
 
         # 1- policy_value is policy risk
+        # print(policy_value)
         return policy_value

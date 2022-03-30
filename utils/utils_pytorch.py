@@ -60,7 +60,10 @@ def batch_generator(x, t, y, size):
 
 
 def comb_potential_outcome(yf, ycf, t):
-    y0 = yf * (1 - t) + ycf * t
-    y1 = yf * t + ycf * (1 - t)
+    y0 = yf.reshape(-1,) * (1 - t.reshape(-1,)) + ycf.reshape(-1,) * t.reshape(-1,)
+    # print(yf.shape)
+    # print((1 - t).shape)
+    # print((yf * (1 - t)).shape)
+    y1 = yf.reshape(-1,) * t.reshape(-1,) + ycf.reshape(-1,) * (1 - t.reshape(-1,))
     return y0.reshape(-1, 1), y1.reshape(-1, 1)
     #return np.concatenate((y0.reshape(-1, 1), y1.reshape(-1, 1)), 1)

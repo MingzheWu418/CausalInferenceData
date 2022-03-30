@@ -341,7 +341,7 @@ def train(model, optimizer, scheduler, lossCalculator, x_train, t_train, yf_trai
     # print(T2-T1)
     # three_pairs_valid, _, _, _, three_pairs_simi_valid = three_pair_extration(
     #     x_val, t_val, yf_val, parameters["propensity_dir"])
-    for i in range(parameters['iteration']):
+    for i in range(parameters['iterations']):
         # print(i)
         ''' Fetch sample '''
         t_index = 0
@@ -380,7 +380,7 @@ def train(model, optimizer, scheduler, lossCalculator, x_train, t_train, yf_trai
             for param in model.parameters():
                 param.requires_grad = False
 
-        if i % parameters['output_delay'] == 0 or i == parameters['iteration'] - 1:
+        if i % parameters['output_delay'] == 0 or i == parameters['iterations'] - 1:
 
             ''' Make a prediction '''
             y_pred_f, rep = model(torch.Tensor(x_train), torch.Tensor(t_train))
@@ -449,12 +449,17 @@ def train(model, optimizer, scheduler, lossCalculator, x_train, t_train, yf_trai
 
 
 def site_predict(model, x, t):
-    yf, _ = model(x, t)
-    ycf, _ = model(x, 1-t)
-    y0 = yf * (1 - t) + ycf * t
-    y1 = yf * t + ycf * (1 - t)
-    # y_hat = torch.cat((yf, ycf), 1)
-    return y0.detach().numpy(), y1.detach().numpy()
+    y_pred, _ = model(x, t)
+    return y_pred.detach().numpy()
+
+
+# def site_predict(model, x, t):
+#     yf, _ = model(x, t)
+#     ycf, _ = model(x, 1-t)
+#     y0 = yf.reshape(-1,) * (1 - t) + ycf.reshape(-1,) * t
+#     y1 = yf.reshape(-1,) * t + ycf.reshape(-1,) * (1 - t)
+#     # y_hat = torch.cat((yf, ycf), 1)
+#     return y0.detach().numpy(), y1.detach().numpy()
 
 def run(outdir):
     """ Runs an experiment and stores result in outdir """

@@ -7,6 +7,7 @@ import argparse
 from GANITE.metrics import PEHE, ATE, policy_val
 from GANITE.train_pytorch import ganite, ganite_predict
 from SITE.site_net_train_pytorch import site, site_predict
+from CFR.train import cfrnet
 from eval.evaluator import Evaluator
 from utils.utils_pytorch import comb_potential_outcome
 from data.data_loader import split, cross_val_index, load_data, load_batch
@@ -30,8 +31,12 @@ def main(args):
         data_path = "./datasets/ihdp_npci_1-100.npz"
     if args.data_name == "jobs":
         data_path = "./datasets/jobs_DW_bin.npz"
+    if args.data_name == "acic":
+        data_path = "./datasets/acic.npz"
+    if args.data_name == "lalonde":
+        data_path = "./datasets/lalonde.npz"
     d = load_data(data_path)
-    print(d)
+    # print(d)
     # d['x'], yf, t, ycf ...
 
     # Output initialization
@@ -51,9 +56,11 @@ def main(args):
     # print(d)
     train_dataset, test_dataset = split(d, args.train_rate)  # 0.8 train 0.2 test
 
-    if args.data_name == "ihdp": # Currently only loading ihdp into batchs because it is too large
+    if args.data_name == "ihdp":  # Currently only loading ihdp into batchs because it is too large
         train_dataset = load_batch(train_dataset, args.batch_size)
+        test_dataset = load_batch(test_dataset, args.batch_size)
 
+    # batch = np.random.randint(low=0, high=args.batch_size, size=1)
     test_x = test_dataset['x']
     test_yf = test_dataset['yf']
     test_t = test_dataset['t']
@@ -61,7 +68,6 @@ def main(args):
         test_ycf = test_dataset['ycf']
         test_y0, test_y1 = comb_potential_outcome(test_yf, test_ycf, test_t)
     except:
-        # print("123")
         print("No Counterfactual data Available")
 
     indexes = cross_val_index(train_dataset, args.folds)
@@ -78,6 +84,8 @@ def main(args):
 
     for fold, I_val in enumerate(indexes):
         if args.data_name == 'ihdp':
+            # print(train_dataset['x'].shape)
+            # print(test_dataset['x'].shape)
             batch = np.random.randint(low=0, high=args.batch_size, size=1)
             I_train = np.setdiff1d(np.arange(train_dataset['t'].shape[0]), I_val)
             train_x = train_dataset['x'][I_train, :, batch]
@@ -87,11 +95,20 @@ def main(args):
             val_x = train_dataset['x'][I_val, :, batch]
             val_t = train_dataset['t'][I_val, batch]
             val_yf = train_dataset['yf'][I_val, batch]
+            # print(test_t.shape)
+            test_x = np.squeeze(test_dataset['x'][:, :, batch])
+            test_t = np.squeeze(test_dataset['t'][:, batch])
+            # print(test_t.shape)
 
             train_ycf = train_dataset['ycf'][I_train, batch]
             train_y0, train_y1 = comb_potential_outcome(train_yf, train_ycf, train_t)
             val_ycf = train_dataset['ycf'][I_val, batch]
             val_y0, val_y1 = comb_potential_outcome(val_yf, val_ycf, val_t)
+            # print(test_yf.shape)
+            test_yf = np.squeeze(test_dataset['yf'][:, batch])
+            # print(test_yf.shape)
+            test_ycf = np.squeeze(test_dataset['ycf'][:, batch])
+            test_y0, test_y1 = comb_potential_outcome(test_yf, test_ycf, test_t)
         else:
             I_train = np.setdiff1d(np.arange(train_dataset['t'].shape[0]), I_val)
             train_x = train_dataset['x'][I_train, :]
@@ -117,36 +134,103 @@ def main(args):
             val_y0_pred, val_y1_pred = ganite_predict(model, val_x)
             # either yf ycf. outcome of shape n*1
             print('Finish GANITE training and potential outcome estimations')
+        elif args.model == "cfrnet":
+            # (x_train, t_train, yf_train, dim, parameters)
+            train_t_cfr = train_t.reshape(-1, 1)
+            val_t_cfr = val_t.reshape(-1, 1)
+            test_t_cfr = test_t.reshape(-1, 1)
+            model = cfrnet(train_x, train_t_cfr, train_yf, d['dim'], parameters)
+            # site_predict(model, x, t)
+            # print(train_x)
+            # print(train_x.shape)
+            train_yf_pred = site_predict(model, train_x, train_t_cfr)
+            # print(test_x)
+            # print(test_x.shape)
+            test_yf_pred = site_predict(model, test_x, test_t_cfr)
+            val_yf_pred = site_predict(model, val_x, val_t_cfr)
+
+            model = cfrnet(train_x, 1 - train_t_cfr, train_yf, d['dim'], parameters)
+            train_ycf_pred = site_predict(model, train_x, 1 - train_t_cfr)
+            test_ycf_pred = site_predict(model, test_x, 1 - test_t_cfr)
+            val_ycf_pred = site_predict(model, val_x, 1 - val_t_cfr)
+
+            train_y0_pred, train_y1_pred = comb_potential_outcome(train_yf_pred, train_ycf_pred, train_t_cfr)
+            val_y0_pred, val_y1_pred = comb_potential_outcome(val_yf_pred, val_ycf_pred, val_t_cfr)
+            test_y0_pred, test_y1_pred = comb_potential_outcome(test_yf_pred, test_ycf_pred, test_t_cfr)
+
+            # print(model)
+            print('Finish CFR training and potential outcome estimations')
         elif args.model == "site":
             parameters["propensity_dir"] = './SITE/propensity_score/' + args.data_name + '_propensity_model.sav'
             model = site(train_x, train_t, train_yf, d['dim'], parameters)
             # site_predict(model, x, t)
-            train_y0_pred, train_y1_pred = site_predict(model, train_x, train_t)
-            test_y0_pred, test_y1_pred = site_predict(model, test_x, test_t)
-            val_y0_pred, val_y1_pred = site_predict(model, val_x, val_t)
-            # print(model)
-            print('Finish SITE training and potential outcome estimations')
-        elif args.model == "bart":
-            # model = SklearnModel()  # Use default parameters
-            model = ResidualBART()
-            train_xt = np.concatenate((train_x, train_t.reshape(-1, 1)), axis=1)
-            test_xt = np.concatenate((test_x, test_t.reshape(-1, 1)), axis=1)
-            val_xt = np.concatenate((val_x, val_t.reshape(-1, 1)), axis=1)
-            model.fit(train_xt, train_yf)  # Fit the model
-            train_yf_pred = model.predict(train_xt)  # Make predictions on the train set
-            test_yf_pred = model.predict(test_xt)  # Make predictions on new data
-            val_yf_pred = model.predict(val_xt)  # Make predictions on new data
+            train_yf_pred = site_predict(model, train_x, train_t)
+            test_yf_pred = site_predict(model, test_x, test_t)
+            val_yf_pred = site_predict(model, val_x, val_t)
 
-            # model = SklearnModel()  # Use default parameters
-            model = ResidualBART()
-            model.fit(train_xt, train_ycf)  # Fit the model
-            train_ycf_pred = model.predict(train_xt)  # Make predictions on the train set
-            test_ycf_pred = model.predict(test_xt)  # Make predictions on new data
-            val_ycf_pred = model.predict(val_xt)  # Make predictions on new data
+            model = site(train_x, 1 - train_t, train_yf, d['dim'], parameters)
+            train_ycf_pred = site_predict(model, train_x, 1 - train_t)
+            test_ycf_pred = site_predict(model, test_x, 1 - test_t)
+            val_ycf_pred = site_predict(model, val_x, 1 - val_t)
 
             train_y0_pred, train_y1_pred = comb_potential_outcome(train_yf_pred, train_ycf_pred, train_t)
             val_y0_pred, val_y1_pred = comb_potential_outcome(val_yf_pred, val_ycf_pred, val_t)
             test_y0_pred, test_y1_pred = comb_potential_outcome(test_yf_pred, test_ycf_pred, test_t)
+
+            # print(model)
+            print('Finish SITE training and potential outcome estimations')
+        elif args.model == "bart":
+            try:
+                model = SklearnModel()  # Use default parameters
+                # model = ResidualBART()
+                train_xt = np.concatenate((train_x, train_t.reshape(-1, 1)), axis=1)
+                test_xt = np.concatenate((test_x, test_t.reshape(-1, 1)), axis=1)
+                val_xt = np.concatenate((val_x, val_t.reshape(-1, 1)), axis=1)
+                # print(train_xt.shape, train_yf.shape)
+                # print("123")
+                # print(train_xt.shape)
+                # print(train_yf.shape)
+                model.fit(train_xt, train_yf.reshape(-1,))  # Fit the model
+                train_yf_pred = model.predict(train_xt)  # Make predictions on the train set
+                test_yf_pred = model.predict(test_xt)  # Make predictions on new data
+                val_yf_pred = model.predict(val_xt)  # Make predictions on new data
+
+                model = SklearnModel()  # Use default parameters
+                # model = ResidualBART()
+                model.fit(train_xt, train_ycf.reshape(-1,))  # Fit the model
+                print("123")
+                train_ycf_pred = model.predict(train_xt)  # Make predictions on the train set
+                test_ycf_pred = model.predict(test_xt)  # Make predictions on new data
+                val_ycf_pred = model.predict(val_xt)  # Make predictions on new data
+                print("123")
+                train_y0_pred, train_y1_pred = comb_potential_outcome(train_yf_pred, train_ycf_pred, train_t)
+                val_y0_pred, val_y1_pred = comb_potential_outcome(val_yf_pred, val_ycf_pred, val_t)
+                test_y0_pred, test_y1_pred = comb_potential_outcome(test_yf_pred, test_ycf_pred, test_t)
+            except:
+                model = SklearnModel()  # Use default parameters
+                # model = ResidualBART()
+                train_xt = np.concatenate((train_x, train_t.reshape(-1, 1)), axis=1)
+                test_xt = np.concatenate((test_x, test_t.reshape(-1, 1)), axis=1)
+                val_xt = np.concatenate((val_x, val_t.reshape(-1, 1)), axis=1)
+
+                model.fit(train_xt, train_yf.reshape(-1,))  # Fit the model
+                train_yf_pred = model.predict(train_xt)  # Make predictions on the train set
+                test_yf_pred = model.predict(test_xt)  # Make predictions on new data
+                val_yf_pred = model.predict(val_xt)  # Make predictions on new data
+
+                model = SklearnModel()  # Use default parameters
+                # model = ResidualBART()
+                train_xt_cf = np.concatenate((train_x, 1 - train_t.reshape(-1, 1)), axis=1)
+                test_xt_cf = np.concatenate((test_x, 1 - test_t.reshape(-1, 1)), axis=1)
+                val_xt_cf = np.concatenate((val_x, 1 - val_t.reshape(-1, 1)), axis=1)
+                model.fit(train_xt_cf, train_yf.reshape(-1,))  # Fit the model
+                train_ycf_pred = model.predict(train_xt_cf)  # Make predictions on the train set
+                test_ycf_pred = model.predict(test_xt_cf)  # Make predictions on new data
+                val_ycf_pred = model.predict(val_xt_cf)  # Make predictions on new data
+
+                train_y0_pred, train_y1_pred = comb_potential_outcome(train_yf_pred, train_ycf_pred, train_t)
+                val_y0_pred, val_y1_pred = comb_potential_outcome(val_yf_pred, val_ycf_pred, val_t)
+                test_y0_pred, test_y1_pred = comb_potential_outcome(test_yf_pred, test_ycf_pred, test_t)
 
         elif args.model == "grf":
 
@@ -166,13 +250,14 @@ def main(args):
                 test_y0_pred = test_y_pred[:, 0]
                 test_y1_pred = test_y_pred[:, 1]
             except UnboundLocalError:
+                # If counter factual is missing
                 forest = CausalForest()
                 forest.fit(train_x, train_t, train_yf)
                 train_yf_pred = forest.predict(train_x)
                 val_yf_pred = forest.predict(val_x)
                 test_yf_pred = forest.predict(test_x)
 
-                forest.fit(train_x, 1-train_t, train_yf)
+                forest.fit(train_x, 1 - train_t, train_yf)
                 train_ycf_pred = forest.predict(train_x)
                 val_ycf_pred = forest.predict(val_x)
                 test_ycf_pred = forest.predict(test_x)
@@ -180,27 +265,9 @@ def main(args):
                 train_y0_pred, train_y1_pred = comb_potential_outcome(train_yf_pred, train_ycf_pred, train_t)
                 val_y0_pred, val_y1_pred = comb_potential_outcome(val_yf_pred, val_ycf_pred, val_t)
                 test_y0_pred, test_y1_pred = comb_potential_outcome(test_yf_pred, test_ycf_pred, test_t)
-
-            # TODO: Double Machine Learning
-            # forest = CausalForestDML()
-            # train_xt = np.concatenate((train_x, train_t.reshape(-1, 1)), axis=1)
-            # test_xt = np.concatenate((test_x, test_t.reshape(-1, 1)), axis=1)
-            # val_xt = np.concatenate((val_x, val_t.reshape(-1, 1)), axis=1)
-            # forest.fit(train_xt, train_yf)  # Fit the model
-            # train_yf_pred = forest.predict(train_xt)  # Make predictions on the train set
-            # test_yf_pred = forest.predict(test_xt)  # Make predictions on new data
-            # val_yf_pred = forest.predict(val_xt)  # Make predictions on new data
-            #
-            # # model = SklearnModel()  # Use default parameters
-            # forest = CausalForestDML()
-            # forest.fit(train_xt, train_ycf)  # Fit the model
-            # train_ycf_pred = forest.predict(train_t)  # Make predictions on the train set
-            # test_ycf_pred = forest.predict(test_xt)  # Make predictions on new data
-            # val_ycf_pred = forest.predict(val_xt)  # Make predictions on new data
-            #
-            # train_y0_pred, train_y1_pred = comb_potential_outcome(train_yf_pred, train_ycf_pred, train_t)
-            # val_y0_pred, val_y1_pred = comb_potential_outcome(val_yf_pred, val_ycf_pred, val_t)
-            # test_y0_pred, test_y1_pred = comb_potential_outcome(test_yf_pred, test_ycf_pred, test_t)
+                # print(test_yf_pred.shape)
+                # print(test_ycf_pred.shape)
+                # print(test_y0_pred.shape)
 
         eval = Evaluator()
         ## Performance metrics
@@ -224,13 +291,16 @@ def main(args):
             val_ATE = eval.ATE(val_y0, val_y1, val_y0_pred, val_y1_pred)
             metric_results['ATE_VAL'].append(np.round(val_ATE, 4))
         except UnboundLocalError:
-            test_p_value, test_policy_curve = eval.policy_val(test_t, test_yf, test_y0_pred, test_y1_pred)
+            # print(test_t.shape)
+            # print(test_yf.shape)
+            # print(test_y0_pred.shape)
+            test_p_value = eval.policy_val(test_t, test_yf, test_y0_pred, test_y1_pred)
             metric_results['P_RISK_TEST'].append(np.round(1 - test_p_value, 4))
 
-            train_p_value, train_policy_curve = eval.policy_val(train_t, train_yf, train_y0_pred, train_y1_pred)
+            train_p_value = eval.policy_val(train_t, train_yf, train_y0_pred, train_y1_pred)
             metric_results['P_RISK_TRAIN'].append(np.round(1 - train_p_value, 4))
 
-            val_p_value, val_policy_curve = eval.policy_val(val_t, val_yf, val_y0_pred, val_y1_pred)
+            val_p_value = eval.policy_val(val_t, val_yf, val_y0_pred, val_y1_pred)
             metric_results['P_RISK_VAL'].append(np.round(1 - val_p_value, 4))
 
         print(metric_results)
@@ -253,14 +323,14 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument(
         '--model',
-        choices=['ganite', 'site', 'bart', 'grf'],
-        default='grf',
+        choices=['ganite', 'site', 'bart', 'grf', 'cfrnet'],
+        default='bart',
         type=str
     )
     parser.add_argument(
         '--data_name',
-        choices=['twins', 'ihdp', 'jobs'],
-        default='jobs',
+        choices=['twins', 'ihdp', 'jobs', 'acic', 'lalonde'],
+        default='acic',
         type=str)
     parser.add_argument(
         '--outdir',

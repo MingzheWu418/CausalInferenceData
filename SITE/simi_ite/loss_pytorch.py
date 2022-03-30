@@ -13,7 +13,6 @@ class lossCalc:
         self.pddm_loss = 0
         self.tot_loss = 0
         self.pred_loss = 0
-        # self.x_i, self.x_j, self.x_k, self.x_l, self.x_m, self.x_n = 0, 0, 0, 0, 0, 0
 
     def calc_loss(self, t, p_t, y_, y, pddm_loss, mid_loss):
         # print(y)

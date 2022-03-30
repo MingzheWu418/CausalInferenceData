@@ -112,7 +112,6 @@ class RescalingLayer(nn.Module):
         self.size_in, self.size_out = size_in, size_out
         weights = 1.0 / size_in * torch.ones([size_in])
         self.weights = nn.Parameter(weights)
-        self.bias.requires_grad = False
 
     def forward(self, x):
         return torch.mm(x, self.weights.t())
@@ -126,11 +125,12 @@ class MyLinearLayer(nn.Module):
     def __init__(self, size_in, size_out, weight_init):
         super(MyLinearLayer, self).__init__()
         self.size_in, self.size_out = size_in, size_out
-        weights = torch.Tensor(size_out, size_in)
+        weights = torch.empty(size_out, size_in)
         self.weights = nn.Parameter(weights)
-        bias = torch.zeros(1, size_out)
+        bias = torch.empty(1, size_out)
         self.bias = nn.Parameter(bias)
         nn.init.normal_(self.weights, std=weight_init / np.sqrt(size_in))
+        nn.init.zeros_(self.bias)
 
     def forward(self, x):
         w_mul_x = torch.mm(x, self.weights.t())

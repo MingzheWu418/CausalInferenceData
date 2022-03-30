@@ -5,7 +5,6 @@ from util import *
 
 class site_net(object):
 
-
     def __init__(self, x, t, y_ , p_t, FLAGS, r_lambda, do_in, do_out, dims, three_pairs, three_pairs_simi, r_mid_point_mini, r_pddm):
         self.variables = {}
         self.wd_loss = 0
@@ -135,7 +134,6 @@ class site_net(object):
 
         ''' Construct ouput layers '''
         y, weights_out, weights_pred = self._build_output_graph(h_rep_norm, t, dim_in, dim_out, do_out, FLAGS)
-
 
         ''' Compute sample reweighting '''
         if FLAGS.reweight_sample:

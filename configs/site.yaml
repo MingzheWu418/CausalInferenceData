@@ -1,4 +1,4 @@
-iteration: 1000
+iterations: 1000
 batch_size: 100
 optimizer: 'Adam'
 output_delay: 200
