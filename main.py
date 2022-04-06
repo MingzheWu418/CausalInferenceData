@@ -15,6 +15,7 @@ from bartpy.sklearnmodel import SklearnModel
 from bartpy.extensions.baseestimator import ResidualBART
 from econml.grf import CausalForest, CausalIVForest, MultiOutputGRF
 from econml.dml import CausalForestDML
+from subprocess import call
 
 import yaml
 
@@ -29,6 +30,8 @@ def main(args):
         data_path = "./datasets/twins.npz"
     if args.data_name == "ihdp":
         data_path = "./datasets/ihdp_npci_1-100.npz"
+        train_data_path = "./datasets/ihdp_npci_1-100.train.npz"
+        test_data_path = "./datasets/ihdp_npci_1-100.test.npz"
     if args.data_name == "jobs":
         data_path = "./datasets/jobs_DW_bin.npz"
     if args.data_name == "acic":
@@ -57,8 +60,14 @@ def main(args):
     train_dataset, test_dataset = split(d, args.train_rate)  # 0.8 train 0.2 test
 
     if args.data_name == "ihdp":  # Currently only loading ihdp into batchs because it is too large
-        train_dataset = load_batch(train_dataset, args.batch_size)
-        test_dataset = load_batch(test_dataset, args.batch_size)
+        train_dataset = load_data(train_data_path) # 672 samples
+        test_dataset = load_data(test_data_path) # 75 samples
+        print(train_dataset['x'].shape)
+        print(test_dataset['x'].shape)
+        # train_dataset = load_batch(train_dataset, args.batch_size)
+        # test_dataset = load_batch(test_dataset, args.batch_size)
+        # print(train_dataset)
+        # print(test_dataset)
 
     # batch = np.random.randint(low=0, high=args.batch_size, size=1)
     test_x = test_dataset['x']
@@ -83,6 +92,8 @@ def main(args):
     # print(parameters)
 
     for fold, I_val in enumerate(indexes):
+
+        # Handle ihdp separately because
         if args.data_name == 'ihdp':
             # print(train_dataset['x'].shape)
             # print(test_dataset['x'].shape)
@@ -126,6 +137,7 @@ def main(args):
             except:
                 print("No Counterfactual data Available")
 
+        # train models based on configuration
         if args.model == "ganite":
             # print(train_x)
             model = ganite(train_x, train_t, train_yf, parameters)
@@ -161,6 +173,11 @@ def main(args):
             # print(model)
             print('Finish CFR training and potential outcome estimations')
         elif args.model == "site":
+            propensity_dir = "./propensity_score/" + args.data_name + "_propensity_model.sav"
+            if args.data_name == 'ihdp':
+                call('python propensity_score_calculation.py %s %s' % (train_data_path, propensity_dir), shell=True)
+            else:
+                call('python propensity_score_calculation.py %s %s' % (train_data_path, propensity_dir), shell=True)
             parameters["propensity_dir"] = './SITE/propensity_score/' + args.data_name + '_propensity_model.sav'
             model = site(train_x, train_t, train_yf, d['dim'], parameters)
             # site_predict(model, x, t)
@@ -324,13 +341,13 @@ if __name__ == '__main__':
     parser.add_argument(
         '--model',
         choices=['ganite', 'site', 'bart', 'grf', 'cfrnet'],
-        default='bart',
+        default='site',
         type=str
     )
     parser.add_argument(
         '--data_name',
         choices=['twins', 'ihdp', 'jobs', 'acic', 'lalonde'],
-        default='acic',
+        default='ihdp',
         type=str)
     parser.add_argument(
         '--outdir',
@@ -339,37 +356,22 @@ if __name__ == '__main__':
     parser.add_argument(
         '--folds',
         help='Number of folds for cross-validation',
-        default=5,
+        default=10,
         type=int)
     parser.add_argument(
         '--train_rate',
         help='the ratio of training data',
         default=0.8,
         type=float)
-    # parser.add_argument(
-    #     '--h_dim',
-    #     help='hidden state dimensions (should be optimized)',
-    #     default=30,
-    #     type=int)
-    # parser.add_argument(
-    #     '--iteration',
-    #     help='Training iterations (should be optimized)',
-    #     default=10000,
-    #     type=int)
     parser.add_argument(
         '--batch_size',
         help='the number of samples in mini-batch (should be optimized)',
         default=100,
         type=int)
-    # parser.add_argument(
-    #     '--alpha',
-    #     help='hyper-parameter to adjust the loss importance (should be optimized)',
-    #     default=1,
-    #     type=int)
     parser.add_argument(
         '--seed',
         help='random seed',
-        default=1,
+        default=42,
         type=int)
 
     args = parser.parse_args()
