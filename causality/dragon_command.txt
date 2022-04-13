@@ -1,0 +1,1 @@
+python ihdp_main_pytorch.py --data_base_dir /home/mint/Desktop/dragonnet/dat/ihdp/csv --knob dragonnet --output_base_dir /home/mint/Desktop/causality/result/ihdp

@@ -1,0 +1,17 @@
+two-sample t-test of psm result comparisons
+
+    mine vs (https://github.com/akelleh/causality/tree/master/causality/estimation)
+    t-test code in: compare_psm.py
+    modifications: in parametric.py, changed the Logit model (from statsmodels) to the LogisticRegression model (from sklearn)
+    2 t-tests were conducted, where each test has a sample size of 100
+    dimension of X for each sample data is N x d, where N (number of instance) = 100 and d (feature dimension) = 25
+
+t statistics:0.0
+p value:1.0
+my psm mean:3.1318, var:5.6347
+reference psm mean:3.1318, var:5.6347
+
+t statistics:0.0
+p value:1.0
+my psm mean:2.5727, var:5.0425
+reference psm mean:2.5727, var:5.0425

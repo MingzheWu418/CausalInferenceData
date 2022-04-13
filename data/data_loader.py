@@ -41,7 +41,6 @@ def cross_val_index(dataset, folds):
         idx = np.arange(no)
     else:
         idx = np.arange(no - no % folds)
-
     np.random.shuffle(idx)
     idx = idx.reshape(folds, -1)
     return idx
@@ -119,6 +118,14 @@ def load_data(filename):
         except:
             print("Counterfactual not available")
             data['ycf'] = None
+
+        try:
+            data['mu0'] = data_in['mu0']
+            data['mu1'] = data_in['mu1']
+        except:
+            print("No MU available")
+            mu0s = None
+            mu1s = None
 
     data['HAVE_TRUTH'] = not data['ycf'] is None
 

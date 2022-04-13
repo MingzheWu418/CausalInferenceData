@@ -33,5 +33,5 @@ def main(dataform, propensity_dir):
 
 
 if __name__ == "__main__":
-    main("../datasets/acic.npz", "./propensity_score/acic_propensity_model.sav")
-    # main(sys.argv[1], sys.argv[2])
+    # main("../datasets/acic.npz", "./propensity_score/acic_propensity_model.sav")
+    main(sys.argv[1], sys.argv[2])

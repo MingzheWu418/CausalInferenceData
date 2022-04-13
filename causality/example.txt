@@ -1,0 +1,2210 @@
+the dragon is dragonnet
+currently running file 0 /home/mint/Desktop/dragonnet/dat/ihdp/csv/ihdp_npci_1.csv
+Is targeted regularization: True
+I am here making dragonnet
+binary accuracy for epoch 0  is: tensor(81.1918)
+running loss for epoch 0  is: 111.31088023715549
+binary accuracy for epoch 1  is: tensor(79.1434)
+running loss for epoch 1  is: 69.68336444430881
+binary accuracy for epoch 2  is: tensor(80.8194)
+running loss for epoch 2  is: 61.527367697821724
+binary accuracy for epoch 3  is: tensor(80.2607)
+running loss for epoch 3  is: 60.115237130059135
+binary accuracy for epoch 4  is: tensor(80.4469)
+running loss for epoch 4  is: 56.173248079088
+binary accuracy for epoch 5  is: tensor(80.2607)
+running loss for epoch 5  is: 53.53995556301541
+binary accuracy for epoch 6  is: tensor(80.4469)
+running loss for epoch 6  is: 51.718353483412
+binary accuracy for epoch 7  is: tensor(80.6331)
+running loss for epoch 7  is: 51.50248357984755
+binary accuracy for epoch 8  is: tensor(80.4469)
+running loss for epoch 8  is: 49.84755939907498
+binary accuracy for epoch 9  is: tensor(80.6331)
+running loss for epoch 9  is: 49.56368849012587
+binary accuracy for epoch 10  is: tensor(80.6331)
+running loss for epoch 10  is: 48.88820012410482
+binary accuracy for epoch 11  is: tensor(80.8194)
+running loss for epoch 11  is: 48.90893088446723
+binary accuracy for epoch 12  is: tensor(80.6331)
+running loss for epoch 12  is: 48.71063232421875
+binary accuracy for epoch 13  is: tensor(80.8194)
+running loss for epoch 13  is: 48.652548260158966
+early stopping at epoch 13
+second training loop binary accuracy for epoch 0  is: tensor(81.0056)
+second training loop running loss for epoch 0  is: 48.19292661878798
+second training loop binary accuracy for epoch 1  is: tensor(81.0056)
+second training loop running loss for epoch 1  is: 48.15132183498807
+second training loop binary accuracy for epoch 2  is: tensor(81.0056)
+second training loop running loss for epoch 2  is: 48.13334316677518
+second training loop binary accuracy for epoch 3  is: tensor(80.8194)
+second training loop running loss for epoch 3  is: 48.13081063164605
+second training loop binary accuracy for epoch 4  is: tensor(81.0056)
+second training loop running loss for epoch 4  is: 48.12696329752604
+second training loop binary accuracy for epoch 5  is: tensor(81.0056)
+second training loop running loss for epoch 5  is: 48.12029457092285
+second training loop binary accuracy for epoch 6  is: tensor(80.8194)
+second training loop running loss for epoch 6  is: 48.113912158542206
+second training loop binary accuracy for epoch 7  is: tensor(80.8194)
+second training loop running loss for epoch 7  is: 48.08004167344835
+second training loop binary accuracy for epoch 8  is: tensor(80.8194)
+second training loop running loss for epoch 8  is: 48.07817628648546
+second training loop binary accuracy for epoch 9  is: tensor(80.8194)
+second training loop running loss for epoch 9  is: 48.07498868306478
+second training loop binary accuracy for epoch 10  is: tensor(80.8194)
+second training loop running loss for epoch 10  is: 48.07178666856554
+second training loop binary accuracy for epoch 11  is: tensor(80.8194)
+second training loop running loss for epoch 11  is: 48.06902249654134
+second training loop binary accuracy for epoch 12  is: tensor(80.8194)
+second training loop running loss for epoch 12  is: 48.06664530436198
+second training loop binary accuracy for epoch 13  is: tensor(80.8194)
+second training loop running loss for epoch 13  is: 48.04983372158475
+second training loop binary accuracy for epoch 14  is: tensor(80.8194)
+second training loop running loss for epoch 14  is: 48.04894998338487
+second training loop binary accuracy for epoch 15  is: tensor(80.8194)
+second training loop running loss for epoch 15  is: 48.04772822062174
+second training loop binary accuracy for epoch 16  is: tensor(80.8194)
+second training loop running loss for epoch 16  is: 48.04641681247287
+second training loop binary accuracy for epoch 17  is: tensor(80.8194)
+second training loop running loss for epoch 17  is: 48.04512235853407
+second training loop binary accuracy for epoch 18  is: tensor(80.8194)
+second training loop running loss for epoch 18  is: 48.04388025071886
+second training loop binary accuracy for epoch 19  is: tensor(80.8194)
+second training loop running loss for epoch 19  is: 48.0353151957194
+second training loop binary accuracy for epoch 20  is: tensor(80.8194)
+second training loop running loss for epoch 20  is: 48.034810384114586
+second training loop binary accuracy for epoch 21  is: tensor(80.8194)
+second training loop running loss for epoch 21  is: 48.034245596991646
+second training loop binary accuracy for epoch 22  is: tensor(80.8194)
+second training loop running loss for epoch 22  is: 48.03366131252713
+second training loop binary accuracy for epoch 23  is: tensor(80.8194)
+second training loop running loss for epoch 23  is: 48.03307109408908
+second training loop binary accuracy for epoch 24  is: tensor(80.8194)
+second training loop running loss for epoch 24  is: 48.03248426649306
+second training loop binary accuracy for epoch 25  is: tensor(80.8194)
+second training loop running loss for epoch 25  is: 48.02818934122721
+second training loop binary accuracy for epoch 26  is: tensor(80.8194)
+second training loop running loss for epoch 26  is: 48.027923795912
+second training loop binary accuracy for epoch 27  is: tensor(80.8194)
+second training loop running loss for epoch 27  is: 48.027645111083984
+second training loop binary accuracy for epoch 28  is: tensor(80.8194)
+second training loop running loss for epoch 28  is: 48.02736133999295
+second training loop binary accuracy for epoch 29  is: tensor(80.8194)
+second training loop running loss for epoch 29  is: 48.02707650926378
+second training loop binary accuracy for epoch 30  is: tensor(80.8194)
+second training loop running loss for epoch 30  is: 48.02679146660699
+second training loop binary accuracy for epoch 31  is: tensor(80.8194)
+second training loop running loss for epoch 31  is: 48.024642096625435
+second training loop binary accuracy for epoch 32  is: tensor(80.8194)
+second training loop running loss for epoch 32  is: 48.02450646294488
+second training loop binary accuracy for epoch 33  is: tensor(80.8194)
+second training loop running loss for epoch 33  is: 48.02436531914605
+second training loop binary accuracy for epoch 34  is: tensor(80.8194)
+second training loop running loss for epoch 34  is: 48.02422544691298
+second training loop binary accuracy for epoch 35  is: tensor(80.8194)
+second training loop running loss for epoch 35  is: 48.02408536275228
+second training loop binary accuracy for epoch 36  is: tensor(80.8194)
+second training loop running loss for epoch 36  is: 48.0239454905192
+second training loop binary accuracy for epoch 37  is: tensor(80.8194)
+second training loop running loss for epoch 37  is: 48.022869957817925
+second training loop binary accuracy for epoch 38  is: tensor(80.8194)
+second training loop running loss for epoch 38  is: 48.02280192905002
+second training loop binary accuracy for epoch 39  is: tensor(80.8194)
+second training loop running loss for epoch 39  is: 48.02273326449924
+second training loop binary accuracy for epoch 40  is: tensor(80.8194)
+second training loop running loss for epoch 40  is: 48.02266417609321
+second training loop early stopping at epoch 40
+here is the evaluation results for training+validation dataset:
+epsilon ate: 2.1846579287181664
+pehe: 5.7487860083212325
+ps for treated and control: 0.28632924 0.17547572
+
+here is the evaluation results for test dataset:
+epsilon ate: 2.262333525047533
+pehe: 5.8452097293819945
+ps for treated and control: 0.21529025 0.17351119
+
+Is targeted regularization: False
+I am here making dragonnet
+binary accuracy for epoch 0  is: tensor(77.8399)
+running loss for epoch 0  is: 71.09811019897461
+binary accuracy for epoch 1  is: tensor(78.9572)
+running loss for epoch 1  is: 50.59179793463813
+binary accuracy for epoch 2  is: tensor(80.8194)
+running loss for epoch 2  is: 45.84410709804959
+binary accuracy for epoch 3  is: tensor(80.8194)
+running loss for epoch 3  is: 42.73006396823459
+binary accuracy for epoch 4  is: tensor(80.6331)
+running loss for epoch 4  is: 40.7478879292806
+binary accuracy for epoch 5  is: tensor(81.0056)
+running loss for epoch 5  is: 40.32448302374946
+binary accuracy for epoch 6  is: tensor(80.6331)
+running loss for epoch 6  is: 39.33719359503852
+binary accuracy for epoch 7  is: tensor(81.0056)
+running loss for epoch 7  is: 38.95849821302626
+binary accuracy for epoch 8  is: tensor(80.2607)
+running loss for epoch 8  is: 38.40367296006944
+binary accuracy for epoch 9  is: tensor(80.8194)
+running loss for epoch 9  is: 37.8381167517768
+binary accuracy for epoch 10  is: tensor(80.8194)
+running loss for epoch 10  is: 37.56745296054416
+early stopping at epoch 10
+second training loop binary accuracy for epoch 0  is: tensor(80.8194)
+second training loop running loss for epoch 0  is: 37.253478580050995
+second training loop binary accuracy for epoch 1  is: tensor(81.0056)
+second training loop running loss for epoch 1  is: 37.232116275363495
+second training loop binary accuracy for epoch 2  is: tensor(81.0056)
+second training loop running loss for epoch 2  is: 37.2169500986735
+second training loop binary accuracy for epoch 3  is: tensor(80.8194)
+second training loop running loss for epoch 3  is: 37.20710139804416
+second training loop binary accuracy for epoch 4  is: tensor(80.8194)
+second training loop running loss for epoch 4  is: 37.20022010803223
+second training loop binary accuracy for epoch 5  is: tensor(80.8194)
+second training loop running loss for epoch 5  is: 37.19492997063531
+second training loop binary accuracy for epoch 6  is: tensor(80.8194)
+second training loop running loss for epoch 6  is: 37.190415700276695
+second training loop binary accuracy for epoch 7  is: tensor(80.8194)
+second training loop running loss for epoch 7  is: 37.17536481221517
+second training loop binary accuracy for epoch 8  is: tensor(80.8194)
+second training loop running loss for epoch 8  is: 37.173377990722656
+second training loop binary accuracy for epoch 9  is: tensor(80.8194)
+second training loop running loss for epoch 9  is: 37.17125362820096
+second training loop binary accuracy for epoch 10  is: tensor(80.8194)
+second training loop running loss for epoch 10  is: 37.16909048292372
+second training loop binary accuracy for epoch 11  is: tensor(80.8194)
+second training loop running loss for epoch 11  is: 37.166932847764755
+second training loop binary accuracy for epoch 12  is: tensor(80.8194)
+second training loop running loss for epoch 12  is: 37.16480170355903
+second training loop binary accuracy for epoch 13  is: tensor(80.8194)
+second training loop running loss for epoch 13  is: 37.15716785854764
+second training loop binary accuracy for epoch 14  is: tensor(80.8194)
+second training loop running loss for epoch 14  is: 37.156159506903755
+second training loop binary accuracy for epoch 15  is: tensor(80.8194)
+second training loop running loss for epoch 15  is: 37.15513186984592
+second training loop binary accuracy for epoch 16  is: tensor(80.8194)
+second training loop running loss for epoch 16  is: 37.1540953318278
+second training loop binary accuracy for epoch 17  is: tensor(80.8194)
+second training loop running loss for epoch 17  is: 37.15306366814507
+second training loop binary accuracy for epoch 18  is: tensor(80.8194)
+second training loop running loss for epoch 18  is: 37.15203603108724
+second training loop binary accuracy for epoch 19  is: tensor(80.8194)
+second training loop running loss for epoch 19  is: 37.148229387071396
+second training loop binary accuracy for epoch 20  is: tensor(80.8194)
+second training loop running loss for epoch 20  is: 37.14772944980197
+second training loop binary accuracy for epoch 21  is: tensor(80.8194)
+second training loop running loss for epoch 21  is: 37.14722294277615
+second training loop binary accuracy for epoch 22  is: tensor(80.8194)
+second training loop running loss for epoch 22  is: 37.146715799967446
+second training loop binary accuracy for epoch 23  is: tensor(80.8194)
+second training loop running loss for epoch 23  is: 37.14620961083306
+second training loop binary accuracy for epoch 24  is: tensor(80.8194)
+second training loop running loss for epoch 24  is: 37.14570543501112
+second training loop binary accuracy for epoch 25  is: tensor(80.8194)
+second training loop running loss for epoch 25  is: 37.143805821736656
+second training loop binary accuracy for epoch 26  is: tensor(81.0056)
+second training loop running loss for epoch 26  is: 37.14355595906576
+second training loop binary accuracy for epoch 27  is: tensor(81.0056)
+second training loop running loss for epoch 27  is: 37.14330630832248
+second training loop binary accuracy for epoch 28  is: tensor(81.0056)
+second training loop running loss for epoch 28  is: 37.1430541144477
+second training loop binary accuracy for epoch 29  is: tensor(81.0056)
+second training loop running loss for epoch 29  is: 37.14280467563205
+second training loop binary accuracy for epoch 30  is: tensor(81.0056)
+second training loop running loss for epoch 30  is: 37.14255375332303
+second training loop binary accuracy for epoch 31  is: tensor(81.0056)
+second training loop running loss for epoch 31  is: 37.14160569508871
+second training loop binary accuracy for epoch 32  is: tensor(81.0056)
+second training loop running loss for epoch 32  is: 37.141480339898
+second training loop binary accuracy for epoch 33  is: tensor(81.0056)
+second training loop running loss for epoch 33  is: 37.14135615030924
+second training loop binary accuracy for epoch 34  is: tensor(81.0056)
+second training loop running loss for epoch 34  is: 37.14123100704617
+second training loop binary accuracy for epoch 35  is: tensor(81.0056)
+second training loop running loss for epoch 35  is: 37.14110649956597
+second training loop binary accuracy for epoch 36  is: tensor(81.0056)
+second training loop running loss for epoch 36  is: 37.14098294576009
+second training loop binary accuracy for epoch 37  is: tensor(81.0056)
+second training loop running loss for epoch 37  is: 37.14050812191434
+second training loop binary accuracy for epoch 38  is: tensor(81.0056)
+second training loop running loss for epoch 38  is: 37.140446450975205
+second training loop binary accuracy for epoch 39  is: tensor(81.0056)
+second training loop running loss for epoch 39  is: 37.14038393232558
+second training loop binary accuracy for epoch 40  is: tensor(81.0056)
+second training loop running loss for epoch 40  is: 37.140321519639755
+second training loop early stopping at epoch 40
+here is the evaluation results for training+validation dataset:
+epsilon ate: 2.1919811142322927
+pehe: 5.770959964939522
+ps for treated and control: 0.28520414 0.17591451
+
+here is the evaluation results for test dataset:
+epsilon ate: 2.267357753143541
+pehe: 5.86013009871991
+ps for treated and control: 0.21642171 0.17293456
+
+currently running file 1 /home/mint/Desktop/dragonnet/dat/ihdp/csv/ihdp_npci_10.csv
+Is targeted regularization: True
+I am here making dragonnet
+binary accuracy for epoch 0  is: tensor(80.8194)
+running loss for epoch 0  is: 132.6798095703125
+binary accuracy for epoch 1  is: tensor(79.8883)
+running loss for epoch 1  is: 70.48397254943848
+binary accuracy for epoch 2  is: tensor(80.8194)
+running loss for epoch 2  is: 53.565591388278534
+binary accuracy for epoch 3  is: tensor(80.8194)
+running loss for epoch 3  is: 44.64824189080132
+binary accuracy for epoch 4  is: tensor(80.6331)
+running loss for epoch 4  is: 39.911333084106445
+binary accuracy for epoch 5  is: tensor(80.8194)
+running loss for epoch 5  is: 36.47552278306749
+binary accuracy for epoch 6  is: tensor(80.8194)
+running loss for epoch 6  is: 35.24356566535102
+binary accuracy for epoch 7  is: tensor(80.4469)
+running loss for epoch 7  is: 34.302315923902725
+binary accuracy for epoch 8  is: tensor(80.4469)
+running loss for epoch 8  is: 33.728473875257706
+binary accuracy for epoch 9  is: tensor(80.4469)
+running loss for epoch 9  is: 33.38830407460531
+binary accuracy for epoch 10  is: tensor(80.8194)
+running loss for epoch 10  is: 32.65957260131836
+early stopping at epoch 10
+second training loop binary accuracy for epoch 0  is: tensor(80.8194)
+second training loop running loss for epoch 0  is: 32.10826608869765
+second training loop binary accuracy for epoch 1  is: tensor(80.8194)
+second training loop running loss for epoch 1  is: 31.972078535291885
+second training loop binary accuracy for epoch 2  is: tensor(80.8194)
+second training loop running loss for epoch 2  is: 31.922664854261612
+second training loop binary accuracy for epoch 3  is: tensor(80.8194)
+second training loop running loss for epoch 3  is: 31.879050254821777
+second training loop binary accuracy for epoch 4  is: tensor(80.8194)
+second training loop running loss for epoch 4  is: 31.83397939470079
+second training loop binary accuracy for epoch 5  is: tensor(80.8194)
+second training loop running loss for epoch 5  is: 31.79208257463243
+second training loop binary accuracy for epoch 6  is: tensor(80.8194)
+second training loop running loss for epoch 6  is: 31.74819638994005
+second training loop binary accuracy for epoch 7  is: tensor(80.8194)
+second training loop running loss for epoch 7  is: 31.70569356282552
+second training loop binary accuracy for epoch 8  is: tensor(80.8194)
+second training loop running loss for epoch 8  is: 31.663955794440376
+second training loop binary accuracy for epoch 9  is: tensor(80.8194)
+second training loop running loss for epoch 9  is: 31.622642093234592
+second training loop binary accuracy for epoch 10  is: tensor(80.8194)
+second training loop running loss for epoch 10  is: 31.581827481587727
+second training loop binary accuracy for epoch 11  is: tensor(80.8194)
+second training loop running loss for epoch 11  is: 31.541393491956924
+second training loop binary accuracy for epoch 12  is: tensor(80.8194)
+second training loop running loss for epoch 12  is: 31.501368628607857
+second training loop binary accuracy for epoch 13  is: tensor(80.8194)
+second training loop running loss for epoch 13  is: 31.461720784505207
+second training loop binary accuracy for epoch 14  is: tensor(80.8194)
+second training loop running loss for epoch 14  is: 31.422417322794598
+second training loop binary accuracy for epoch 15  is: tensor(80.8194)
+second training loop running loss for epoch 15  is: 31.383446587456596
+second training loop binary accuracy for epoch 16  is: tensor(80.8194)
+second training loop running loss for epoch 16  is: 31.344801478915745
+second training loop binary accuracy for epoch 17  is: tensor(80.8194)
+second training loop running loss for epoch 17  is: 31.30647850036621
+second training loop binary accuracy for epoch 18  is: tensor(80.8194)
+second training loop running loss for epoch 18  is: 31.268470022413467
+second training loop binary accuracy for epoch 19  is: tensor(80.8194)
+second training loop running loss for epoch 19  is: 31.230770111083984
+second training loop binary accuracy for epoch 20  is: tensor(80.8194)
+second training loop running loss for epoch 20  is: 31.19336944156223
+second training loop binary accuracy for epoch 21  is: tensor(80.8194)
+second training loop running loss for epoch 21  is: 31.156263669331867
+second training loop binary accuracy for epoch 22  is: tensor(80.8194)
+second training loop running loss for epoch 22  is: 31.11945131089952
+second training loop binary accuracy for epoch 23  is: tensor(80.8194)
+second training loop running loss for epoch 23  is: 31.082925266689724
+second training loop binary accuracy for epoch 24  is: tensor(80.8194)
+second training loop running loss for epoch 24  is: 31.046684371100532
+second training loop binary accuracy for epoch 25  is: tensor(80.8194)
+second training loop running loss for epoch 25  is: 31.0107266108195
+second training loop binary accuracy for epoch 26  is: tensor(80.8194)
+second training loop running loss for epoch 26  is: 30.975049018859863
+second training loop binary accuracy for epoch 27  is: tensor(80.8194)
+second training loop running loss for epoch 27  is: 30.93964746263292
+second training loop binary accuracy for epoch 28  is: tensor(80.8194)
+second training loop running loss for epoch 28  is: 30.904521200391983
+second training loop binary accuracy for epoch 29  is: tensor(80.8194)
+second training loop running loss for epoch 29  is: 30.869670232137043
+second training loop binary accuracy for epoch 30  is: tensor(80.8194)
+second training loop running loss for epoch 30  is: 30.83508915371365
+second training loop binary accuracy for epoch 31  is: tensor(80.8194)
+second training loop running loss for epoch 31  is: 30.800777753194172
+second training loop binary accuracy for epoch 32  is: tensor(80.8194)
+second training loop running loss for epoch 32  is: 30.76673698425293
+second training loop binary accuracy for epoch 33  is: tensor(80.8194)
+second training loop running loss for epoch 33  is: 30.732961866590713
+second training loop binary accuracy for epoch 34  is: tensor(80.8194)
+second training loop running loss for epoch 34  is: 30.69945314195421
+second training loop binary accuracy for epoch 35  is: tensor(80.8194)
+second training loop running loss for epoch 35  is: 30.666209750705296
+second training loop binary accuracy for epoch 36  is: tensor(80.8194)
+second training loop running loss for epoch 36  is: 30.633229785495335
+second training loop binary accuracy for epoch 37  is: tensor(80.8194)
+second training loop running loss for epoch 37  is: 30.6005121866862
+second training loop binary accuracy for epoch 38  is: tensor(80.8194)
+second training loop running loss for epoch 38  is: 30.56805674235026
+second training loop binary accuracy for epoch 39  is: tensor(80.8194)
+second training loop running loss for epoch 39  is: 30.535861333211262
+second training loop binary accuracy for epoch 40  is: tensor(80.8194)
+second training loop running loss for epoch 40  is: 30.50392945607503
+second training loop early stopping at epoch 40
+here is the evaluation results for training+validation dataset:
+epsilon ate: 4.006652028811678
+pehe: 96.50479144942702
+ps for treated and control: 0.27878946 0.17306523
+
+here is the evaluation results for test dataset:
+epsilon ate: 4.446341880005539
+pehe: 95.25848091826232
+ps for treated and control: 0.21359058 0.17113297
+
+Is targeted regularization: False
+I am here making dragonnet
+binary accuracy for epoch 0  is: tensor(75.0466)
+running loss for epoch 0  is: 80.72436862521701
+binary accuracy for epoch 1  is: tensor(80.8194)
+running loss for epoch 1  is: 47.9518068101671
+binary accuracy for epoch 2  is: tensor(80.2607)
+running loss for epoch 2  is: 39.32348685794406
+binary accuracy for epoch 3  is: tensor(80.6331)
+running loss for epoch 3  is: 35.63950623406304
+binary accuracy for epoch 4  is: tensor(80.6331)
+running loss for epoch 4  is: 32.893944634331596
+binary accuracy for epoch 5  is: tensor(80.4469)
+running loss for epoch 5  is: 31.630839347839355
+binary accuracy for epoch 6  is: tensor(80.4469)
+running loss for epoch 6  is: 30.79038291507297
+binary accuracy for epoch 7  is: tensor(80.6331)
+running loss for epoch 7  is: 30.440766864352756
+binary accuracy for epoch 8  is: tensor(80.6331)
+running loss for epoch 8  is: 30.200950304667156
+early stopping at epoch 8
+second training loop binary accuracy for epoch 0  is: tensor(80.8194)
+second training loop running loss for epoch 0  is: 29.679488288031685
+second training loop binary accuracy for epoch 1  is: tensor(80.8194)
+second training loop running loss for epoch 1  is: 29.497857093811035
+second training loop binary accuracy for epoch 2  is: tensor(80.6331)
+second training loop running loss for epoch 2  is: 29.459053887261284
+second training loop binary accuracy for epoch 3  is: tensor(80.6331)
+second training loop running loss for epoch 3  is: 29.432637532552082
+second training loop binary accuracy for epoch 4  is: tensor(80.6331)
+second training loop running loss for epoch 4  is: 29.416331715053982
+second training loop binary accuracy for epoch 5  is: tensor(80.6331)
+second training loop running loss for epoch 5  is: 29.398156483968098
+second training loop binary accuracy for epoch 6  is: tensor(80.6331)
+second training loop running loss for epoch 6  is: 29.381983121236164
+second training loop binary accuracy for epoch 7  is: tensor(80.6331)
+second training loop running loss for epoch 7  is: 29.35833199818929
+second training loop binary accuracy for epoch 8  is: tensor(80.6331)
+second training loop running loss for epoch 8  is: 29.35113016764323
+second training loop binary accuracy for epoch 9  is: tensor(80.6331)
+second training loop running loss for epoch 9  is: 29.343880653381348
+second training loop binary accuracy for epoch 10  is: tensor(80.6331)
+second training loop running loss for epoch 10  is: 29.336687088012695
+second training loop binary accuracy for epoch 11  is: tensor(80.6331)
+second training loop running loss for epoch 11  is: 29.32958221435547
+second training loop binary accuracy for epoch 12  is: tensor(80.6331)
+second training loop running loss for epoch 12  is: 29.32255458831787
+second training loop binary accuracy for epoch 13  is: tensor(80.6331)
+second training loop running loss for epoch 13  is: 29.31117121378581
+second training loop binary accuracy for epoch 14  is: tensor(80.6331)
+second training loop running loss for epoch 14  is: 29.307717853122288
+second training loop binary accuracy for epoch 15  is: tensor(80.6331)
+second training loop running loss for epoch 15  is: 29.30425919426812
+second training loop binary accuracy for epoch 16  is: tensor(80.6331)
+second training loop running loss for epoch 16  is: 29.30080721113417
+second training loop binary accuracy for epoch 17  is: tensor(80.6331)
+second training loop running loss for epoch 17  is: 29.29736402299669
+second training loop binary accuracy for epoch 18  is: tensor(80.6331)
+second training loop running loss for epoch 18  is: 29.293931431240505
+second training loop binary accuracy for epoch 19  is: tensor(80.6331)
+second training loop running loss for epoch 19  is: 29.288305706448025
+second training loop binary accuracy for epoch 20  is: tensor(80.6331)
+second training loop running loss for epoch 20  is: 29.28660519917806
+second training loop binary accuracy for epoch 21  is: tensor(80.6331)
+second training loop running loss for epoch 21  is: 29.284900771247017
+second training loop binary accuracy for epoch 22  is: tensor(80.6331)
+second training loop running loss for epoch 22  is: 29.283198886447483
+second training loop binary accuracy for epoch 23  is: tensor(80.6331)
+second training loop running loss for epoch 23  is: 29.281499968634712
+second training loop binary accuracy for epoch 24  is: tensor(80.6331)
+second training loop running loss for epoch 24  is: 29.279800203111435
+second training loop binary accuracy for epoch 25  is: tensor(80.6331)
+second training loop running loss for epoch 25  is: 29.27700360616048
+second training loop binary accuracy for epoch 26  is: tensor(80.6331)
+second training loop running loss for epoch 26  is: 29.276157061258953
+second training loop binary accuracy for epoch 27  is: tensor(80.6331)
+second training loop running loss for epoch 27  is: 29.275311681959366
+second training loop binary accuracy for epoch 28  is: tensor(80.6331)
+second training loop running loss for epoch 28  is: 29.274466620551216
+second training loop binary accuracy for epoch 29  is: tensor(80.6331)
+second training loop running loss for epoch 29  is: 29.273620075649685
+second training loop binary accuracy for epoch 30  is: tensor(80.6331)
+second training loop running loss for epoch 30  is: 29.272776073879665
+second training loop binary accuracy for epoch 31  is: tensor(80.6331)
+second training loop running loss for epoch 31  is: 29.271380318535698
+second training loop binary accuracy for epoch 32  is: tensor(80.6331)
+second training loop running loss for epoch 32  is: 29.270958370632595
+second training loop binary accuracy for epoch 33  is: tensor(80.6331)
+second training loop running loss for epoch 33  is: 29.27053737640381
+second training loop binary accuracy for epoch 34  is: tensor(80.6331)
+second training loop running loss for epoch 34  is: 29.270115852355957
+second training loop binary accuracy for epoch 35  is: tensor(80.6331)
+second training loop running loss for epoch 35  is: 29.269695387946236
+second training loop binary accuracy for epoch 36  is: tensor(80.6331)
+second training loop running loss for epoch 36  is: 29.269273546006943
+second training loop binary accuracy for epoch 37  is: tensor(80.6331)
+second training loop running loss for epoch 37  is: 29.268576939900715
+second training loop binary accuracy for epoch 38  is: tensor(80.6331)
+second training loop running loss for epoch 38  is: 29.268365754021538
+second training loop binary accuracy for epoch 39  is: tensor(80.6331)
+second training loop running loss for epoch 39  is: 29.26815562778049
+second training loop binary accuracy for epoch 40  is: tensor(80.6331)
+second training loop running loss for epoch 40  is: 29.267945501539444
+second training loop early stopping at epoch 40
+here is the evaluation results for training+validation dataset:
+epsilon ate: 4.006008688495299
+pehe: 96.45189310063675
+ps for treated and control: 0.27925318 0.17452507
+
+here is the evaluation results for test dataset:
+epsilon ate: 4.4530456815579935
+pehe: 95.2681993045727
+ps for treated and control: 0.21156949 0.17230637
+
+currently running file 2 /home/mint/Desktop/dragonnet/dat/ihdp/csv/ihdp_npci_11.csv
+Is targeted regularization: True
+I am here making dragonnet
+binary accuracy for epoch 0  is: tensor(80.6331)
+running loss for epoch 0  is: 125.01292080349393
+binary accuracy for epoch 1  is: tensor(79.7020)
+running loss for epoch 1  is: 75.05276489257812
+binary accuracy for epoch 2  is: tensor(80.8194)
+running loss for epoch 2  is: 60.33549457126193
+binary accuracy for epoch 3  is: tensor(80.8194)
+running loss for epoch 3  is: 55.484383477105034
+binary accuracy for epoch 4  is: tensor(80.6331)
+running loss for epoch 4  is: 53.18499332004123
+binary accuracy for epoch 5  is: tensor(80.8194)
+running loss for epoch 5  is: 48.59455235799154
+binary accuracy for epoch 6  is: tensor(80.6331)
+running loss for epoch 6  is: 45.216661877102325
+binary accuracy for epoch 7  is: tensor(80.8194)
+running loss for epoch 7  is: 43.8114505343967
+binary accuracy for epoch 8  is: tensor(80.6331)
+running loss for epoch 8  is: 42.90766694810655
+binary accuracy for epoch 9  is: tensor(80.8194)
+running loss for epoch 9  is: 42.38644896613227
+binary accuracy for epoch 10  is: tensor(80.8194)
+running loss for epoch 10  is: 42.412745793660484
+binary accuracy for epoch 11  is: tensor(81.0056)
+running loss for epoch 11  is: 42.093647215101456
+binary accuracy for epoch 12  is: tensor(81.1918)
+running loss for epoch 12  is: 41.50189675225152
+early stopping at epoch 12
+second training loop binary accuracy for epoch 0  is: tensor(81.0056)
+second training loop running loss for epoch 0  is: 40.34747505187988
+second training loop binary accuracy for epoch 1  is: tensor(81.0056)
+second training loop running loss for epoch 1  is: 40.10539521111382
+second training loop binary accuracy for epoch 2  is: tensor(81.1918)
+second training loop running loss for epoch 2  is: 40.04604254828559
+second training loop binary accuracy for epoch 3  is: tensor(81.1918)
+second training loop running loss for epoch 3  is: 39.98933029174805
+second training loop binary accuracy for epoch 4  is: tensor(81.0056)
+second training loop running loss for epoch 4  is: 39.937064700656464
+second training loop binary accuracy for epoch 5  is: tensor(81.0056)
+second training loop running loss for epoch 5  is: 39.899950451321075
+second training loop binary accuracy for epoch 6  is: tensor(81.0056)
+second training loop running loss for epoch 6  is: 39.8641906314426
+second training loop binary accuracy for epoch 7  is: tensor(81.0056)
+second training loop running loss for epoch 7  is: 39.82992638481988
+second training loop binary accuracy for epoch 8  is: tensor(81.0056)
+second training loop running loss for epoch 8  is: 39.797355228000214
+second training loop binary accuracy for epoch 9  is: tensor(81.0056)
+second training loop running loss for epoch 9  is: 39.72057914733887
+second training loop binary accuracy for epoch 10  is: tensor(81.0056)
+second training loop running loss for epoch 10  is: 39.70470958285861
+second training loop binary accuracy for epoch 11  is: tensor(81.0056)
+second training loop running loss for epoch 11  is: 39.68858167860243
+second training loop binary accuracy for epoch 12  is: tensor(81.0056)
+second training loop running loss for epoch 12  is: 39.67308044433594
+second training loop binary accuracy for epoch 13  is: tensor(81.0056)
+second training loop running loss for epoch 13  is: 39.65788459777832
+second training loop binary accuracy for epoch 14  is: tensor(81.0056)
+second training loop running loss for epoch 14  is: 39.64268451266818
+second training loop binary accuracy for epoch 15  is: tensor(81.0056)
+second training loop running loss for epoch 15  is: 39.605767991807724
+second training loop binary accuracy for epoch 16  is: tensor(81.0056)
+second training loop running loss for epoch 16  is: 39.59830305311415
+second training loop binary accuracy for epoch 17  is: tensor(81.0056)
+second training loop running loss for epoch 17  is: 39.590699937608505
+second training loop binary accuracy for epoch 18  is: tensor(81.0056)
+second training loop running loss for epoch 18  is: 39.58313666449653
+second training loop binary accuracy for epoch 19  is: tensor(81.0056)
+second training loop running loss for epoch 19  is: 39.575656467013886
+second training loop binary accuracy for epoch 20  is: tensor(81.0056)
+second training loop running loss for epoch 20  is: 39.568232430352104
+second training loop binary accuracy for epoch 21  is: tensor(81.0056)
+second training loop running loss for epoch 21  is: 39.55009184943305
+second training loop binary accuracy for epoch 22  is: tensor(81.0056)
+second training loop running loss for epoch 22  is: 39.546417236328125
+second training loop binary accuracy for epoch 23  is: tensor(81.0056)
+second training loop running loss for epoch 23  is: 39.54270786709256
+second training loop binary accuracy for epoch 24  is: tensor(81.0056)
+second training loop running loss for epoch 24  is: 39.53899108039008
+second training loop binary accuracy for epoch 25  is: tensor(81.0056)
+second training loop running loss for epoch 25  is: 39.53528743320041
+second training loop binary accuracy for epoch 26  is: tensor(81.0056)
+second training loop running loss for epoch 26  is: 39.5315973493788
+second training loop binary accuracy for epoch 27  is: tensor(81.0056)
+second training loop running loss for epoch 27  is: 39.522583643595375
+second training loop binary accuracy for epoch 28  is: tensor(81.0056)
+second training loop running loss for epoch 28  is: 39.52075513203939
+second training loop binary accuracy for epoch 29  is: tensor(81.0056)
+second training loop running loss for epoch 29  is: 39.518919203016495
+second training loop binary accuracy for epoch 30  is: tensor(81.0056)
+second training loop running loss for epoch 30  is: 39.51707988315158
+second training loop binary accuracy for epoch 31  is: tensor(81.0056)
+second training loop running loss for epoch 31  is: 39.51524225870768
+second training loop binary accuracy for epoch 32  is: tensor(81.0056)
+second training loop running loss for epoch 32  is: 39.513405905829536
+second training loop binary accuracy for epoch 33  is: tensor(81.0056)
+second training loop running loss for epoch 33  is: 39.50891431172689
+second training loop binary accuracy for epoch 34  is: tensor(81.0056)
+second training loop running loss for epoch 34  is: 39.50800111558702
+second training loop binary accuracy for epoch 35  is: tensor(81.0056)
+second training loop running loss for epoch 35  is: 39.50708516438802
+second training loop binary accuracy for epoch 36  is: tensor(81.0056)
+second training loop running loss for epoch 36  is: 39.50617027282715
+second training loop binary accuracy for epoch 37  is: tensor(81.0056)
+second training loop running loss for epoch 37  is: 39.50525262620714
+second training loop binary accuracy for epoch 38  is: tensor(81.0056)
+second training loop running loss for epoch 38  is: 39.50433752271864
+second training loop binary accuracy for epoch 39  is: tensor(81.0056)
+second training loop running loss for epoch 39  is: 39.502097023857964
+second training loop binary accuracy for epoch 40  is: tensor(81.0056)
+second training loop running loss for epoch 40  is: 39.501638412475586
+second training loop binary accuracy for epoch 41  is: tensor(81.0056)
+second training loop running loss for epoch 41  is: 39.50118276807997
+second training loop early stopping at epoch 41
+here is the evaluation results for training+validation dataset:
+epsilon ate: 2.6235214314199142
+pehe: 11.917223033101116
+ps for treated and control: 0.28141505 0.17235522
+
+here is the evaluation results for test dataset:
+epsilon ate: 2.6333778860678025
+pehe: 11.470346791950833
+ps for treated and control: 0.21349977 0.17090456
+
+Is targeted regularization: False
+I am here making dragonnet
+binary accuracy for epoch 0  is: tensor(75.6052)
+running loss for epoch 0  is: 80.98935487535265
+binary accuracy for epoch 1  is: tensor(79.8883)
+running loss for epoch 1  is: 52.36877865261502
+binary accuracy for epoch 2  is: tensor(81.0056)
+running loss for epoch 2  is: 42.734343846639
+binary accuracy for epoch 3  is: tensor(80.8194)
+running loss for epoch 3  is: 40.52735137939453
+binary accuracy for epoch 4  is: tensor(80.4469)
+running loss for epoch 4  is: 38.329900953504776
+binary accuracy for epoch 5  is: tensor(80.6331)
+running loss for epoch 5  is: 36.441124810112846
+binary accuracy for epoch 6  is: tensor(80.8194)
+running loss for epoch 6  is: 35.248136944241
+binary accuracy for epoch 7  is: tensor(81.0056)
+running loss for epoch 7  is: 34.736579471164276
+binary accuracy for epoch 8  is: tensor(81.1918)
+running loss for epoch 8  is: 34.353803634643555
+binary accuracy for epoch 9  is: tensor(81.1918)
+running loss for epoch 9  is: 34.06158362494575
+binary accuracy for epoch 10  is: tensor(81.1918)
+running loss for epoch 10  is: 33.91360240512424
+binary accuracy for epoch 11  is: tensor(81.1918)
+running loss for epoch 11  is: 33.847388161553276
+early stopping at epoch 11
+second training loop binary accuracy for epoch 0  is: tensor(81.1918)
+second training loop running loss for epoch 0  is: 33.22295697530111
+second training loop binary accuracy for epoch 1  is: tensor(81.1918)
+second training loop running loss for epoch 1  is: 33.02562173207601
+second training loop binary accuracy for epoch 2  is: tensor(81.0056)
+second training loop running loss for epoch 2  is: 32.98691993289523
+second training loop binary accuracy for epoch 3  is: tensor(81.0056)
+second training loop running loss for epoch 3  is: 32.958305782741974
+second training loop binary accuracy for epoch 4  is: tensor(81.0056)
+second training loop running loss for epoch 4  is: 32.948961363898384
+second training loop binary accuracy for epoch 5  is: tensor(81.0056)
+second training loop running loss for epoch 5  is: 32.9342041015625
+second training loop binary accuracy for epoch 6  is: tensor(81.0056)
+second training loop running loss for epoch 6  is: 32.92059114244249
+second training loop binary accuracy for epoch 7  is: tensor(81.0056)
+second training loop running loss for epoch 7  is: 32.90917354159885
+second training loop binary accuracy for epoch 8  is: tensor(81.0056)
+second training loop running loss for epoch 8  is: 32.899100091722275
+second training loop binary accuracy for epoch 9  is: tensor(81.0056)
+second training loop running loss for epoch 9  is: 32.889123068915474
+second training loop binary accuracy for epoch 10  is: tensor(81.0056)
+second training loop running loss for epoch 10  is: 32.86652649773492
+second training loop binary accuracy for epoch 11  is: tensor(81.0056)
+second training loop running loss for epoch 11  is: 32.861696031358505
+second training loop binary accuracy for epoch 12  is: tensor(81.0056)
+second training loop running loss for epoch 12  is: 32.85683875613742
+second training loop binary accuracy for epoch 13  is: tensor(81.0056)
+second training loop running loss for epoch 13  is: 32.85202778710259
+second training loop binary accuracy for epoch 14  is: tensor(81.0056)
+second training loop running loss for epoch 14  is: 32.847277111477325
+second training loop binary accuracy for epoch 15  is: tensor(81.0056)
+second training loop running loss for epoch 15  is: 32.842572106255425
+second training loop binary accuracy for epoch 16  is: tensor(81.0056)
+second training loop running loss for epoch 16  is: 32.83160760667589
+second training loop binary accuracy for epoch 17  is: tensor(81.0056)
+second training loop running loss for epoch 17  is: 32.82929547627767
+second training loop binary accuracy for epoch 18  is: tensor(81.0056)
+second training loop running loss for epoch 18  is: 32.82696406046549
+second training loop binary accuracy for epoch 19  is: tensor(81.0056)
+second training loop running loss for epoch 19  is: 32.82463158501519
+second training loop binary accuracy for epoch 20  is: tensor(81.0056)
+second training loop running loss for epoch 20  is: 32.82230790456136
+second training loop binary accuracy for epoch 21  is: tensor(81.0056)
+second training loop running loss for epoch 21  is: 32.81999418470595
+second training loop binary accuracy for epoch 22  is: tensor(81.0056)
+second training loop running loss for epoch 22  is: 32.81455368465848
+second training loop binary accuracy for epoch 23  is: tensor(81.0056)
+second training loop running loss for epoch 23  is: 32.81341128879123
+second training loop binary accuracy for epoch 24  is: tensor(81.0056)
+second training loop running loss for epoch 24  is: 32.81226232316759
+second training loop binary accuracy for epoch 25  is: tensor(81.0056)
+second training loop running loss for epoch 25  is: 32.811115476820206
+second training loop binary accuracy for epoch 26  is: tensor(81.0056)
+second training loop running loss for epoch 26  is: 32.809966723124184
+second training loop binary accuracy for epoch 27  is: tensor(81.0056)
+second training loop running loss for epoch 27  is: 32.80882157219781
+second training loop binary accuracy for epoch 28  is: tensor(81.0056)
+second training loop running loss for epoch 28  is: 32.8061097462972
+second training loop binary accuracy for epoch 29  is: tensor(81.0056)
+second training loop running loss for epoch 29  is: 32.80554072062174
+second training loop binary accuracy for epoch 30  is: tensor(81.0056)
+second training loop running loss for epoch 30  is: 32.80496862199571
+second training loop binary accuracy for epoch 31  is: tensor(81.0056)
+second training loop running loss for epoch 31  is: 32.80439864264594
+second training loop binary accuracy for epoch 32  is: tensor(81.0056)
+second training loop running loss for epoch 32  is: 32.8038272857666
+second training loop binary accuracy for epoch 33  is: tensor(81.0056)
+second training loop running loss for epoch 33  is: 32.80325751834445
+second training loop binary accuracy for epoch 34  is: tensor(81.0056)
+second training loop running loss for epoch 34  is: 32.80190510219998
+second training loop binary accuracy for epoch 35  is: tensor(81.0056)
+second training loop running loss for epoch 35  is: 32.80161952972412
+second training loop binary accuracy for epoch 36  is: tensor(81.0056)
+second training loop running loss for epoch 36  is: 32.80133533477783
+second training loop binary accuracy for epoch 37  is: tensor(81.0056)
+second training loop running loss for epoch 37  is: 32.80105061001248
+second training loop binary accuracy for epoch 38  is: tensor(81.0056)
+second training loop running loss for epoch 38  is: 32.80076673295763
+second training loop binary accuracy for epoch 39  is: tensor(81.0056)
+second training loop running loss for epoch 39  is: 32.800483067830406
+second training loop binary accuracy for epoch 40  is: tensor(81.0056)
+second training loop running loss for epoch 40  is: 32.79980627695719
+second training loop early stopping at epoch 40
+here is the evaluation results for training+validation dataset:
+epsilon ate: 2.59192198694968
+pehe: 11.747421270711992
+ps for treated and control: 0.28494704 0.17328714
+
+here is the evaluation results for test dataset:
+epsilon ate: 2.594745971611117
+pehe: 11.249284880632212
+ps for treated and control: 0.2176532 0.17269798
+
+currently running file 3 /home/mint/Desktop/dragonnet/dat/ihdp/csv/ihdp_npci_12.csv
+Is targeted regularization: True
+I am here making dragonnet
+binary accuracy for epoch 0  is: tensor(79.3296)
+running loss for epoch 0  is: 124.61203257242839
+binary accuracy for epoch 1  is: tensor(80.8194)
+running loss for epoch 1  is: 71.99122746785481
+binary accuracy for epoch 2  is: tensor(80.2607)
+running loss for epoch 2  is: 59.419752756754555
+binary accuracy for epoch 3  is: tensor(80.4469)
+running loss for epoch 3  is: 50.45336469014486
+binary accuracy for epoch 4  is: tensor(80.2607)
+running loss for epoch 4  is: 43.08340835571289
+binary accuracy for epoch 5  is: tensor(80.4469)
+running loss for epoch 5  is: 40.935231102837456
+binary accuracy for epoch 6  is: tensor(80.6331)
+running loss for epoch 6  is: 40.740156173706055
+binary accuracy for epoch 7  is: tensor(80.2607)
+running loss for epoch 7  is: 40.55837059020996
+binary accuracy for epoch 8  is: tensor(80.0745)
+running loss for epoch 8  is: 39.31126573350694
+binary accuracy for epoch 9  is: tensor(80.4469)
+running loss for epoch 9  is: 38.29724979400635
+binary accuracy for epoch 10  is: tensor(80.6331)
+running loss for epoch 10  is: 38.02616214752197
+binary accuracy for epoch 11  is: tensor(80.8194)
+running loss for epoch 11  is: 38.344814724392364
+early stopping at epoch 11
+second training loop binary accuracy for epoch 0  is: tensor(81.0056)
+second training loop running loss for epoch 0  is: 37.0726957321167
+second training loop binary accuracy for epoch 1  is: tensor(81.0056)
+second training loop running loss for epoch 1  is: 36.03726355234782
+second training loop binary accuracy for epoch 2  is: tensor(81.0056)
+second training loop running loss for epoch 2  is: 35.68016507890489
+second training loop binary accuracy for epoch 3  is: tensor(81.0056)
+second training loop running loss for epoch 3  is: 35.688947995503746
+second training loop binary accuracy for epoch 4  is: tensor(81.0056)
+second training loop running loss for epoch 4  is: 35.58839639027914
+second training loop binary accuracy for epoch 5  is: tensor(81.1918)
+second training loop running loss for epoch 5  is: 35.52900981903076
+second training loop binary accuracy for epoch 6  is: tensor(81.1918)
+second training loop running loss for epoch 6  is: 35.48822911580404
+second training loop binary accuracy for epoch 7  is: tensor(81.1918)
+second training loop running loss for epoch 7  is: 35.43404780493842
+second training loop binary accuracy for epoch 8  is: tensor(81.1918)
+second training loop running loss for epoch 8  is: 35.38329611884223
+second training loop binary accuracy for epoch 9  is: tensor(81.1918)
+second training loop running loss for epoch 9  is: 35.33457512325711
+second training loop binary accuracy for epoch 10  is: tensor(81.1918)
+second training loop running loss for epoch 10  is: 35.28473546769884
+second training loop binary accuracy for epoch 11  is: tensor(81.1918)
+second training loop running loss for epoch 11  is: 35.235802014668785
+second training loop binary accuracy for epoch 12  is: tensor(81.1918)
+second training loop running loss for epoch 12  is: 35.18756230672201
+second training loop binary accuracy for epoch 13  is: tensor(81.1918)
+second training loop running loss for epoch 13  is: 35.139637311299644
+second training loop binary accuracy for epoch 14  is: tensor(81.1918)
+second training loop running loss for epoch 14  is: 35.09221161736382
+second training loop binary accuracy for epoch 15  is: tensor(81.1918)
+second training loop running loss for epoch 15  is: 35.04521793789334
+second training loop binary accuracy for epoch 16  is: tensor(81.1918)
+second training loop running loss for epoch 16  is: 34.99857987297906
+second training loop binary accuracy for epoch 17  is: tensor(81.1918)
+second training loop running loss for epoch 17  is: 34.952304946051704
+second training loop binary accuracy for epoch 18  is: tensor(81.0056)
+second training loop running loss for epoch 18  is: 34.906374507480194
+second training loop binary accuracy for epoch 19  is: tensor(81.0056)
+second training loop running loss for epoch 19  is: 34.86076598697238
+second training loop binary accuracy for epoch 20  is: tensor(81.0056)
+second training loop running loss for epoch 20  is: 34.815477477179634
+second training loop binary accuracy for epoch 21  is: tensor(81.0056)
+second training loop running loss for epoch 21  is: 34.77050304412842
+second training loop binary accuracy for epoch 22  is: tensor(81.0056)
+second training loop running loss for epoch 22  is: 34.725838873121475
+second training loop binary accuracy for epoch 23  is: tensor(81.0056)
+second training loop running loss for epoch 23  is: 34.68147871229384
+second training loop binary accuracy for epoch 24  is: tensor(81.0056)
+second training loop running loss for epoch 24  is: 34.63741800520155
+second training loop binary accuracy for epoch 25  is: tensor(81.0056)
+second training loop running loss for epoch 25  is: 34.593655586242676
+second training loop binary accuracy for epoch 26  is: tensor(81.0056)
+second training loop running loss for epoch 26  is: 34.55019177330865
+second training loop binary accuracy for epoch 27  is: tensor(81.0056)
+second training loop running loss for epoch 27  is: 34.507029639350044
+second training loop binary accuracy for epoch 28  is: tensor(81.0056)
+second training loop running loss for epoch 28  is: 34.46417109171549
+second training loop binary accuracy for epoch 29  is: tensor(81.0056)
+second training loop running loss for epoch 29  is: 34.42161178588867
+second training loop binary accuracy for epoch 30  is: tensor(81.0056)
+second training loop running loss for epoch 30  is: 34.37935574849447
+second training loop binary accuracy for epoch 31  is: tensor(81.0056)
+second training loop running loss for epoch 31  is: 34.337401919894745
+second training loop binary accuracy for epoch 32  is: tensor(81.0056)
+second training loop running loss for epoch 32  is: 34.29575326707628
+second training loop binary accuracy for epoch 33  is: tensor(81.0056)
+second training loop running loss for epoch 33  is: 34.25441307491727
+second training loop binary accuracy for epoch 34  is: tensor(81.0056)
+second training loop running loss for epoch 34  is: 34.2133780585395
+second training loop binary accuracy for epoch 35  is: tensor(81.0056)
+second training loop running loss for epoch 35  is: 34.172644509209526
+second training loop binary accuracy for epoch 36  is: tensor(81.0056)
+second training loop running loss for epoch 36  is: 34.13221475813124
+second training loop binary accuracy for epoch 37  is: tensor(81.0056)
+second training loop running loss for epoch 37  is: 34.09208795759413
+second training loop binary accuracy for epoch 38  is: tensor(81.0056)
+second training loop running loss for epoch 38  is: 34.052268240186905
+second training loop binary accuracy for epoch 39  is: tensor(81.0056)
+second training loop running loss for epoch 39  is: 34.01275613572862
+second training loop binary accuracy for epoch 40  is: tensor(81.0056)
+second training loop running loss for epoch 40  is: 33.973550690544975
+second training loop early stopping at epoch 40
+here is the evaluation results for training+validation dataset:
+epsilon ate: 3.274801256323601
+pehe: 30.115369992466867
+ps for treated and control: 0.27931908 0.17295554
+
+here is the evaluation results for test dataset:
+epsilon ate: 3.455202077921277
+pehe: 28.627368388431645
+ps for treated and control: 0.21016203 0.1707729
+
+Is targeted regularization: False
+I am here making dragonnet
+binary accuracy for epoch 0  is: tensor(74.3017)
+running loss for epoch 0  is: 80.82388008965387
+binary accuracy for epoch 1  is: tensor(79.8883)
+running loss for epoch 1  is: 51.45656988355849
+binary accuracy for epoch 2  is: tensor(80.8194)
+running loss for epoch 2  is: 41.64280531141493
+binary accuracy for epoch 3  is: tensor(80.6331)
+running loss for epoch 3  is: 38.185934914482964
+binary accuracy for epoch 4  is: tensor(80.2607)
+running loss for epoch 4  is: 36.285429848564995
+binary accuracy for epoch 5  is: tensor(80.4469)
+running loss for epoch 5  is: 33.702780405680336
+binary accuracy for epoch 6  is: tensor(80.8194)
+running loss for epoch 6  is: 32.83683384789361
+binary accuracy for epoch 7  is: tensor(80.6331)
+running loss for epoch 7  is: 32.672948625352646
+binary accuracy for epoch 8  is: tensor(80.8194)
+running loss for epoch 8  is: 32.97662787967258
+early stopping at epoch 8
+second training loop binary accuracy for epoch 0  is: tensor(81.1918)
+second training loop running loss for epoch 0  is: 32.13972653283013
+second training loop binary accuracy for epoch 1  is: tensor(81.0056)
+second training loop running loss for epoch 1  is: 31.58894379933675
+second training loop binary accuracy for epoch 2  is: tensor(81.0056)
+second training loop running loss for epoch 2  is: 31.535945680406357
+second training loop binary accuracy for epoch 3  is: tensor(81.1918)
+second training loop running loss for epoch 3  is: 31.461833741929794
+second training loop binary accuracy for epoch 4  is: tensor(81.1918)
+second training loop running loss for epoch 4  is: 31.461985058254665
+second training loop binary accuracy for epoch 5  is: tensor(81.1918)
+second training loop running loss for epoch 5  is: 31.44637139638265
+second training loop binary accuracy for epoch 6  is: tensor(81.1918)
+second training loop running loss for epoch 6  is: 31.42683611975776
+second training loop binary accuracy for epoch 7  is: tensor(81.1918)
+second training loop running loss for epoch 7  is: 31.398463990953232
+second training loop binary accuracy for epoch 8  is: tensor(81.1918)
+second training loop running loss for epoch 8  is: 31.39168357849121
+second training loop binary accuracy for epoch 9  is: tensor(81.1918)
+second training loop running loss for epoch 9  is: 31.38491768307156
+second training loop binary accuracy for epoch 10  is: tensor(81.1918)
+second training loop running loss for epoch 10  is: 31.378041797214085
+second training loop binary accuracy for epoch 11  is: tensor(81.1918)
+second training loop running loss for epoch 11  is: 31.371102650960285
+second training loop binary accuracy for epoch 12  is: tensor(81.1918)
+second training loop running loss for epoch 12  is: 31.364174630906845
+second training loop binary accuracy for epoch 13  is: tensor(81.1918)
+second training loop running loss for epoch 13  is: 31.35104380713569
+second training loop binary accuracy for epoch 14  is: tensor(81.1918)
+second training loop running loss for epoch 14  is: 31.347677760654026
+second training loop binary accuracy for epoch 15  is: tensor(81.1918)
+second training loop running loss for epoch 15  is: 31.34423870510525
+second training loop binary accuracy for epoch 16  is: tensor(81.1918)
+second training loop running loss for epoch 16  is: 31.340787145826553
+second training loop binary accuracy for epoch 17  is: tensor(81.1918)
+second training loop running loss for epoch 17  is: 31.33734925587972
+second training loop binary accuracy for epoch 18  is: tensor(81.1918)
+second training loop running loss for epoch 18  is: 31.333930015563965
+second training loop binary accuracy for epoch 19  is: tensor(81.1918)
+second training loop running loss for epoch 19  is: 31.32740200890435
+second training loop binary accuracy for epoch 20  is: tensor(81.1918)
+second training loop running loss for epoch 20  is: 31.325724919637043
+second training loop binary accuracy for epoch 21  is: tensor(81.1918)
+second training loop running loss for epoch 21  is: 31.324029604593914
+second training loop binary accuracy for epoch 22  is: tensor(81.1918)
+second training loop running loss for epoch 22  is: 31.322333971659344
+second training loop binary accuracy for epoch 23  is: tensor(81.1918)
+second training loop running loss for epoch 23  is: 31.320635689629448
+second training loop binary accuracy for epoch 24  is: tensor(81.1918)
+second training loop running loss for epoch 24  is: 31.318940056694878
+second training loop binary accuracy for epoch 25  is: tensor(81.1918)
+second training loop running loss for epoch 25  is: 31.315681139628094
+second training loop binary accuracy for epoch 26  is: tensor(81.1918)
+second training loop running loss for epoch 26  is: 31.314839680989582
+second training loop binary accuracy for epoch 27  is: tensor(81.1918)
+second training loop running loss for epoch 27  is: 31.313997480604385
+second training loop binary accuracy for epoch 28  is: tensor(81.1918)
+second training loop running loss for epoch 28  is: 31.313152843051487
+second training loop binary accuracy for epoch 29  is: tensor(81.1918)
+second training loop running loss for epoch 29  is: 31.312307781643337
+second training loop binary accuracy for epoch 30  is: tensor(81.1918)
+second training loop running loss for epoch 30  is: 31.31146462758382
+second training loop binary accuracy for epoch 31  is: tensor(81.1918)
+second training loop running loss for epoch 31  is: 31.309836705525715
+second training loop binary accuracy for epoch 32  is: tensor(81.1918)
+second training loop running loss for epoch 32  is: 31.309418042500813
+second training loop binary accuracy for epoch 33  is: tensor(81.1918)
+second training loop running loss for epoch 33  is: 31.308997048272026
+second training loop binary accuracy for epoch 34  is: tensor(81.1918)
+second training loop running loss for epoch 34  is: 31.308574358622234
+second training loop binary accuracy for epoch 35  is: tensor(81.1918)
+second training loop running loss for epoch 35  is: 31.30815389421251
+second training loop binary accuracy for epoch 36  is: tensor(81.1918)
+second training loop running loss for epoch 36  is: 31.3077335357666
+second training loop binary accuracy for epoch 37  is: tensor(81.1918)
+second training loop running loss for epoch 37  is: 31.306920051574707
+second training loop binary accuracy for epoch 38  is: tensor(81.1918)
+second training loop running loss for epoch 38  is: 31.30671003129747
+second training loop binary accuracy for epoch 39  is: tensor(81.1918)
+second training loop running loss for epoch 39  is: 31.306500328911675
+second training loop binary accuracy for epoch 40  is: tensor(81.1918)
+second training loop running loss for epoch 40  is: 31.306288613213432
+second training loop early stopping at epoch 40
+here is the evaluation results for training+validation dataset:
+epsilon ate: 3.274547966208233
+pehe: 30.11208251926607
+ps for treated and control: 0.27989933 0.1740399
+
+here is the evaluation results for test dataset:
+epsilon ate: 3.440030141170865
+pehe: 28.500630796384044
+ps for treated and control: 0.21198425 0.16996048
+
+currently running file 4 /home/mint/Desktop/dragonnet/dat/ihdp/csv/ihdp_npci_13.csv
+Is targeted regularization: True
+I am here making dragonnet
+binary accuracy for epoch 0  is: tensor(78.3985)
+running loss for epoch 0  is: 122.50797102186415
+binary accuracy for epoch 1  is: tensor(80.6331)
+running loss for epoch 1  is: 76.59256362915039
+binary accuracy for epoch 2  is: tensor(80.6331)
+running loss for epoch 2  is: 47.538246366712784
+binary accuracy for epoch 3  is: tensor(80.6331)
+running loss for epoch 3  is: 41.867697185940216
+binary accuracy for epoch 4  is: tensor(80.8194)
+running loss for epoch 4  is: 39.762812508477104
+binary accuracy for epoch 5  is: tensor(80.4469)
+running loss for epoch 5  is: 36.553427166408966
+binary accuracy for epoch 6  is: tensor(80.8194)
+running loss for epoch 6  is: 37.69452042049832
+binary accuracy for epoch 7  is: tensor(80.6331)
+running loss for epoch 7  is: 36.98514207204183
+binary accuracy for epoch 8  is: tensor(80.0745)
+running loss for epoch 8  is: 33.64937655131022
+binary accuracy for epoch 9  is: tensor(80.2607)
+running loss for epoch 9  is: 32.33895068698459
+binary accuracy for epoch 10  is: tensor(79.8883)
+running loss for epoch 10  is: 32.40344005160861
+binary accuracy for epoch 11  is: tensor(80.8194)
+running loss for epoch 11  is: 33.05206383599175
+early stopping at epoch 11
+second training loop binary accuracy for epoch 0  is: tensor(81.0056)
+second training loop running loss for epoch 0  is: 32.165915701124405
+second training loop binary accuracy for epoch 1  is: tensor(81.0056)
+second training loop running loss for epoch 1  is: 31.01337432861328
+second training loop binary accuracy for epoch 2  is: tensor(81.0056)
+second training loop running loss for epoch 2  is: 30.834091080559624
+second training loop binary accuracy for epoch 3  is: tensor(81.0056)
+second training loop running loss for epoch 3  is: 30.762254397074383
+second training loop binary accuracy for epoch 4  is: tensor(81.0056)
+second training loop running loss for epoch 4  is: 30.66888321770562
+second training loop binary accuracy for epoch 5  is: tensor(81.0056)
+second training loop running loss for epoch 5  is: 30.641185654534233
+second training loop binary accuracy for epoch 6  is: tensor(81.0056)
+second training loop running loss for epoch 6  is: 30.585775163438583
+second training loop binary accuracy for epoch 7  is: tensor(81.0056)
+second training loop running loss for epoch 7  is: 30.5389461517334
+second training loop binary accuracy for epoch 8  is: tensor(81.0056)
+second training loop running loss for epoch 8  is: 30.493424627516006
+second training loop binary accuracy for epoch 9  is: tensor(81.0056)
+second training loop running loss for epoch 9  is: 30.446865399678547
+second training loop binary accuracy for epoch 10  is: tensor(81.0056)
+second training loop running loss for epoch 10  is: 30.4020906024509
+second training loop binary accuracy for epoch 11  is: tensor(81.0056)
+second training loop running loss for epoch 11  is: 30.357479519314236
+second training loop binary accuracy for epoch 12  is: tensor(81.0056)
+second training loop running loss for epoch 12  is: 30.313506020439995
+second training loop binary accuracy for epoch 13  is: tensor(81.0056)
+second training loop running loss for epoch 13  is: 30.270055029127334
+second training loop binary accuracy for epoch 14  is: tensor(81.0056)
+second training loop running loss for epoch 14  is: 30.227016554938423
+second training loop binary accuracy for epoch 15  is: tensor(81.0056)
+second training loop running loss for epoch 15  is: 30.18440956539578
+second training loop binary accuracy for epoch 16  is: tensor(81.0056)
+second training loop running loss for epoch 16  is: 30.142192840576172
+second training loop binary accuracy for epoch 17  is: tensor(81.0056)
+second training loop running loss for epoch 17  is: 30.100352393256294
+second training loop binary accuracy for epoch 18  is: tensor(81.0056)
+second training loop running loss for epoch 18  is: 30.058877415127224
+second training loop binary accuracy for epoch 19  is: tensor(81.0056)
+second training loop running loss for epoch 19  is: 30.01775614420573
+second training loop binary accuracy for epoch 20  is: tensor(81.0056)
+second training loop running loss for epoch 20  is: 29.976978937784832
+second training loop binary accuracy for epoch 21  is: tensor(81.0056)
+second training loop running loss for epoch 21  is: 29.936535199483234
+second training loop binary accuracy for epoch 22  is: tensor(81.0056)
+second training loop running loss for epoch 22  is: 29.896416876051163
+second training loop binary accuracy for epoch 23  is: tensor(81.0056)
+second training loop running loss for epoch 23  is: 29.856624709235298
+second training loop binary accuracy for epoch 24  is: tensor(81.0056)
+second training loop running loss for epoch 24  is: 29.81714693705241
+second training loop binary accuracy for epoch 25  is: tensor(81.0056)
+second training loop running loss for epoch 25  is: 29.77798154619005
+second training loop binary accuracy for epoch 26  is: tensor(81.0056)
+second training loop running loss for epoch 26  is: 29.739124298095703
+second training loop binary accuracy for epoch 27  is: tensor(81.0056)
+second training loop running loss for epoch 27  is: 29.70056766933865
+second training loop binary accuracy for epoch 28  is: tensor(81.0056)
+second training loop running loss for epoch 28  is: 29.66231409708659
+second training loop binary accuracy for epoch 29  is: tensor(81.0056)
+second training loop running loss for epoch 29  is: 29.624355951944988
+second training loop binary accuracy for epoch 30  is: tensor(81.0056)
+second training loop running loss for epoch 30  is: 29.58669376373291
+second training loop binary accuracy for epoch 31  is: tensor(81.0056)
+second training loop running loss for epoch 31  is: 29.549322446187336
+second training loop binary accuracy for epoch 32  is: tensor(81.0056)
+second training loop running loss for epoch 32  is: 29.512241893344456
+second training loop binary accuracy for epoch 33  is: tensor(81.0056)
+second training loop running loss for epoch 33  is: 29.475450197855633
+second training loop binary accuracy for epoch 34  is: tensor(81.0056)
+second training loop running loss for epoch 34  is: 29.43894428677029
+second training loop binary accuracy for epoch 35  is: tensor(81.0056)
+second training loop running loss for epoch 35  is: 29.402725007798935
+second training loop binary accuracy for epoch 36  is: tensor(81.0056)
+second training loop running loss for epoch 36  is: 29.366788970099556
+second training loop binary accuracy for epoch 37  is: tensor(81.0056)
+second training loop running loss for epoch 37  is: 29.33113691541884
+second training loop binary accuracy for epoch 38  is: tensor(81.0056)
+second training loop running loss for epoch 38  is: 29.295765558878582
+second training loop binary accuracy for epoch 39  is: tensor(81.0056)
+second training loop running loss for epoch 39  is: 29.26067617204454
+second training loop binary accuracy for epoch 40  is: tensor(81.0056)
+second training loop running loss for epoch 40  is: 29.225866423712837
+second training loop binary accuracy for epoch 41  is: tensor(81.0056)
+second training loop running loss for epoch 41  is: 29.19133620791965
+second training loop early stopping at epoch 41
+here is the evaluation results for training+validation dataset:
+epsilon ate: 11.704592501630758
+pehe: 1453.7195876330218
+ps for treated and control: 0.28097832 0.17279014
+
+here is the evaluation results for test dataset:
+epsilon ate: 16.971293862765993
+pehe: 1161.2863434287196
+ps for treated and control: 0.21628891 0.1726076
+
+Is targeted regularization: False
+I am here making dragonnet
+binary accuracy for epoch 0  is: tensor(73.5568)
+running loss for epoch 0  is: 79.70423931545682
+binary accuracy for epoch 1  is: tensor(80.6331)
+running loss for epoch 1  is: 53.424684312608505
+binary accuracy for epoch 2  is: tensor(79.8883)
+running loss for epoch 2  is: 37.8092835744222
+binary accuracy for epoch 3  is: tensor(80.4469)
+running loss for epoch 3  is: 34.98433706495497
+binary accuracy for epoch 4  is: tensor(80.4469)
+running loss for epoch 4  is: 33.673674053616
+binary accuracy for epoch 5  is: tensor(81.0056)
+running loss for epoch 5  is: 31.510227733188206
+binary accuracy for epoch 6  is: tensor(80.6331)
+running loss for epoch 6  is: 31.98108524746365
+binary accuracy for epoch 7  is: tensor(80.2607)
+running loss for epoch 7  is: 31.607067108154297
+binary accuracy for epoch 8  is: tensor(80.2607)
+running loss for epoch 8  is: 30.180159250895183
+binary accuracy for epoch 9  is: tensor(80.2607)
+running loss for epoch 9  is: 29.447786543104385
+early stopping at epoch 9
+second training loop binary accuracy for epoch 0  is: tensor(80.4469)
+second training loop running loss for epoch 0  is: 28.85633436838786
+second training loop binary accuracy for epoch 1  is: tensor(80.4469)
+second training loop running loss for epoch 1  is: 28.748407469855415
+second training loop binary accuracy for epoch 2  is: tensor(80.2607)
+second training loop running loss for epoch 2  is: 28.6918609407213
+second training loop binary accuracy for epoch 3  is: tensor(80.6331)
+second training loop running loss for epoch 3  is: 28.679478115505642
+second training loop binary accuracy for epoch 4  is: tensor(80.6331)
+second training loop running loss for epoch 4  is: 28.66330846150716
+second training loop binary accuracy for epoch 5  is: tensor(80.8194)
+second training loop running loss for epoch 5  is: 28.641881730821396
+second training loop binary accuracy for epoch 6  is: tensor(80.8194)
+second training loop running loss for epoch 6  is: 28.62429290347629
+second training loop binary accuracy for epoch 7  is: tensor(80.8194)
+second training loop running loss for epoch 7  is: 28.609213723076714
+second training loop binary accuracy for epoch 8  is: tensor(80.8194)
+second training loop running loss for epoch 8  is: 28.583810382419163
+second training loop binary accuracy for epoch 9  is: tensor(80.8194)
+second training loop running loss for epoch 9  is: 28.575789133707683
+second training loop binary accuracy for epoch 10  is: tensor(80.8194)
+second training loop running loss for epoch 10  is: 28.567257987128365
+second training loop binary accuracy for epoch 11  is: tensor(80.8194)
+second training loop running loss for epoch 11  is: 28.55915535820855
+second training loop binary accuracy for epoch 12  is: tensor(80.8194)
+second training loop running loss for epoch 12  is: 28.55153210957845
+second training loop binary accuracy for epoch 13  is: tensor(80.8194)
+second training loop running loss for epoch 13  is: 28.5440337922838
+second training loop binary accuracy for epoch 14  is: tensor(80.8194)
+second training loop running loss for epoch 14  is: 28.53153196970622
+second training loop binary accuracy for epoch 15  is: tensor(80.8194)
+second training loop running loss for epoch 15  is: 28.527826203240288
+second training loop binary accuracy for epoch 16  is: tensor(80.8194)
+second training loop running loss for epoch 16  is: 28.523937119377983
+second training loop binary accuracy for epoch 17  is: tensor(80.8194)
+second training loop running loss for epoch 17  is: 28.520049624972874
+second training loop binary accuracy for epoch 18  is: tensor(80.8194)
+second training loop running loss for epoch 18  is: 28.516230159335667
+second training loop binary accuracy for epoch 19  is: tensor(80.8194)
+second training loop running loss for epoch 19  is: 28.51247543758816
+second training loop binary accuracy for epoch 20  is: tensor(80.8194)
+second training loop running loss for epoch 20  is: 28.506271574232315
+second training loop binary accuracy for epoch 21  is: tensor(80.8194)
+second training loop running loss for epoch 21  is: 28.50445662604438
+second training loop binary accuracy for epoch 22  is: tensor(80.8194)
+second training loop running loss for epoch 22  is: 28.502596219380695
+second training loop binary accuracy for epoch 23  is: tensor(80.8194)
+second training loop running loss for epoch 23  is: 28.500725534227158
+second training loop binary accuracy for epoch 24  is: tensor(80.8194)
+second training loop running loss for epoch 24  is: 28.498854955037434
+second training loop binary accuracy for epoch 25  is: tensor(80.8194)
+second training loop running loss for epoch 25  is: 28.496991793314617
+second training loop binary accuracy for epoch 26  is: tensor(80.8194)
+second training loop running loss for epoch 26  is: 28.493876881069607
+second training loop binary accuracy for epoch 27  is: tensor(80.8194)
+second training loop running loss for epoch 27  is: 28.492961671617294
+second training loop binary accuracy for epoch 28  is: tensor(80.8194)
+second training loop running loss for epoch 28  is: 28.492041693793404
+second training loop binary accuracy for epoch 29  is: tensor(80.8194)
+second training loop running loss for epoch 29  is: 28.49111811319987
+second training loop binary accuracy for epoch 30  is: tensor(80.8194)
+second training loop running loss for epoch 30  is: 28.490195168389214
+second training loop binary accuracy for epoch 31  is: tensor(80.8194)
+second training loop running loss for epoch 31  is: 28.489272011650932
+second training loop binary accuracy for epoch 32  is: tensor(80.8194)
+second training loop running loss for epoch 32  is: 28.48771646287706
+second training loop binary accuracy for epoch 33  is: tensor(80.8194)
+second training loop running loss for epoch 33  is: 28.4872596528795
+second training loop binary accuracy for epoch 34  is: tensor(80.8194)
+second training loop running loss for epoch 34  is: 28.48680157131619
+second training loop binary accuracy for epoch 35  is: tensor(80.8194)
+second training loop running loss for epoch 35  is: 28.486341264512802
+second training loop binary accuracy for epoch 36  is: tensor(80.8194)
+second training loop running loss for epoch 36  is: 28.485881699456108
+second training loop binary accuracy for epoch 37  is: tensor(80.8194)
+second training loop running loss for epoch 37  is: 28.485422134399414
+second training loop binary accuracy for epoch 38  is: tensor(80.8194)
+second training loop running loss for epoch 38  is: 28.484643300374348
+second training loop binary accuracy for epoch 39  is: tensor(80.8194)
+second training loop running loss for epoch 39  is: 28.48441505432129
+second training loop binary accuracy for epoch 40  is: tensor(80.8194)
+second training loop running loss for epoch 40  is: 28.484187020195854
+second training loop early stopping at epoch 40
+here is the evaluation results for training+validation dataset:
+epsilon ate: 11.688647991819414
+pehe: 1453.3548195012281
+ps for treated and control: 0.2806558 0.17487502
+
+here is the evaluation results for test dataset:
+epsilon ate: 16.967071389462518
+pehe: 1161.1433380576009
+ps for treated and control: 0.21475182 0.17198843
+
+currently running file 5 /home/mint/Desktop/dragonnet/dat/ihdp/csv/ihdp_npci_14.csv
+Is targeted regularization: True
+I am here making dragonnet
+binary accuracy for epoch 0  is: tensor(73.7430)
+running loss for epoch 0  is: 124.41671922471788
+binary accuracy for epoch 1  is: tensor(80.6331)
+running loss for epoch 1  is: 75.17466523912218
+binary accuracy for epoch 2  is: tensor(80.8194)
+running loss for epoch 2  is: 63.41699684990777
+binary accuracy for epoch 3  is: tensor(80.0745)
+running loss for epoch 3  is: 60.455503675672745
+early stopping at epoch 3
+second training loop binary accuracy for epoch 0  is: tensor(81.0056)
+second training loop running loss for epoch 0  is: 58.375509897867836
+second training loop binary accuracy for epoch 1  is: tensor(80.6331)
+second training loop running loss for epoch 1  is: 57.14690653483073
+second training loop binary accuracy for epoch 2  is: tensor(80.6331)
+second training loop running loss for epoch 2  is: 56.98149617513021
+second training loop binary accuracy for epoch 3  is: tensor(80.6331)
+second training loop running loss for epoch 3  is: 56.86538865831163
+second training loop binary accuracy for epoch 4  is: tensor(80.8194)
+second training loop running loss for epoch 4  is: 56.76575639512804
+second training loop binary accuracy for epoch 5  is: tensor(80.6331)
+second training loop running loss for epoch 5  is: 56.71050347222222
+second training loop binary accuracy for epoch 6  is: tensor(80.6331)
+second training loop running loss for epoch 6  is: 56.66967434353299
+second training loop binary accuracy for epoch 7  is: tensor(80.6331)
+second training loop running loss for epoch 7  is: 56.637947930230034
+second training loop binary accuracy for epoch 8  is: tensor(80.6331)
+second training loop running loss for epoch 8  is: 56.612174563937714
+second training loop binary accuracy for epoch 9  is: tensor(80.4469)
+second training loop running loss for epoch 9  is: 56.552437252468536
+second training loop binary accuracy for epoch 10  is: tensor(80.4469)
+second training loop running loss for epoch 10  is: 56.54189597235786
+second training loop binary accuracy for epoch 11  is: tensor(80.4469)
+second training loop running loss for epoch 11  is: 56.53172302246094
+second training loop binary accuracy for epoch 12  is: tensor(80.4469)
+second training loop running loss for epoch 12  is: 56.5218997531467
+second training loop binary accuracy for epoch 13  is: tensor(80.4469)
+second training loop running loss for epoch 13  is: 56.51239946153429
+second training loop binary accuracy for epoch 14  is: tensor(80.4469)
+second training loop running loss for epoch 14  is: 56.503192053900825
+second training loop binary accuracy for epoch 15  is: tensor(80.4469)
+second training loop running loss for epoch 15  is: 56.47622807820638
+second training loop binary accuracy for epoch 16  is: tensor(80.4469)
+second training loop running loss for epoch 16  is: 56.471895429823135
+second training loop binary accuracy for epoch 17  is: tensor(80.4469)
+second training loop running loss for epoch 17  is: 56.46758566962348
+second training loop binary accuracy for epoch 18  is: tensor(80.4469)
+second training loop running loss for epoch 18  is: 56.46330897013346
+second training loop binary accuracy for epoch 19  is: tensor(80.4469)
+second training loop running loss for epoch 19  is: 56.45907084147135
+second training loop binary accuracy for epoch 20  is: tensor(80.4469)
+second training loop running loss for epoch 20  is: 56.45487509833442
+second training loop binary accuracy for epoch 21  is: tensor(80.4469)
+second training loop running loss for epoch 21  is: 56.44179365370009
+second training loop binary accuracy for epoch 22  is: tensor(80.4469)
+second training loop running loss for epoch 22  is: 56.4397464328342
+second training loop binary accuracy for epoch 23  is: tensor(80.4469)
+second training loop running loss for epoch 23  is: 56.43769836425781
+second training loop binary accuracy for epoch 24  is: tensor(80.4469)
+second training loop running loss for epoch 24  is: 56.43566131591797
+second training loop binary accuracy for epoch 25  is: tensor(80.4469)
+second training loop running loss for epoch 25  is: 56.43362935384115
+second training loop binary accuracy for epoch 26  is: tensor(80.4469)
+second training loop running loss for epoch 26  is: 56.43160417344835
+second training loop binary accuracy for epoch 27  is: tensor(80.4469)
+second training loop running loss for epoch 27  is: 56.42515224880643
+second training loop binary accuracy for epoch 28  is: tensor(80.4469)
+second training loop running loss for epoch 28  is: 56.42414855957031
+second training loop binary accuracy for epoch 29  is: tensor(80.4469)
+second training loop running loss for epoch 29  is: 56.423150804307724
+second training loop binary accuracy for epoch 30  is: tensor(80.4469)
+second training loop running loss for epoch 30  is: 56.42215050591363
+second training loop binary accuracy for epoch 31  is: tensor(80.4469)
+second training loop running loss for epoch 31  is: 56.4211540222168
+second training loop binary accuracy for epoch 32  is: tensor(80.4469)
+second training loop running loss for epoch 32  is: 56.420158810085724
+second training loop binary accuracy for epoch 33  is: tensor(80.4469)
+second training loop running loss for epoch 33  is: 56.41695064968533
+second training loop binary accuracy for epoch 34  is: tensor(80.4469)
+second training loop running loss for epoch 34  is: 56.416455586751304
+second training loop binary accuracy for epoch 35  is: tensor(80.4469)
+second training loop running loss for epoch 35  is: 56.415960523817276
+second training loop binary accuracy for epoch 36  is: tensor(80.4469)
+second training loop running loss for epoch 36  is: 56.41546630859375
+second training loop binary accuracy for epoch 37  is: tensor(80.4469)
+second training loop running loss for epoch 37  is: 56.414970821804474
+second training loop binary accuracy for epoch 38  is: tensor(80.4469)
+second training loop running loss for epoch 38  is: 56.41447745429145
+second training loop binary accuracy for epoch 39  is: tensor(80.4469)
+second training loop running loss for epoch 39  is: 56.412877824571396
+second training loop binary accuracy for epoch 40  is: tensor(80.4469)
+second training loop running loss for epoch 40  is: 56.41263283623589
+second training loop binary accuracy for epoch 41  is: tensor(80.4469)
+second training loop running loss for epoch 41  is: 56.41238657633463
+second training loop early stopping at epoch 41
+here is the evaluation results for training+validation dataset:
+epsilon ate: 1.781591413299966
+pehe: 3.5862995908052016
+ps for treated and control: 0.2639518 0.17959559
+
+here is the evaluation results for test dataset:
+epsilon ate: 1.8336043322616806
+pehe: 3.6932051514581126
+ps for treated and control: 0.20763782 0.18054166
+
+Is targeted regularization: False
+I am here making dragonnet
+binary accuracy for epoch 0  is: tensor(75.4190)
+running loss for epoch 0  is: 74.262939453125
+binary accuracy for epoch 1  is: tensor(77.6536)
+running loss for epoch 1  is: 52.09144634670682
+binary accuracy for epoch 2  is: tensor(80.8194)
+running loss for epoch 2  is: 44.32576688130697
+binary accuracy for epoch 3  is: tensor(81.0056)
+running loss for epoch 3  is: 43.22817145453559
+binary accuracy for epoch 4  is: tensor(80.8194)
+running loss for epoch 4  is: 42.60717455546061
+binary accuracy for epoch 5  is: tensor(80.2607)
+running loss for epoch 5  is: 42.18684980604384
+binary accuracy for epoch 6  is: tensor(80.6331)
+running loss for epoch 6  is: 41.976749420166016
+binary accuracy for epoch 7  is: tensor(80.6331)
+running loss for epoch 7  is: 41.769259982638886
+early stopping at epoch 7
+second training loop binary accuracy for epoch 0  is: tensor(80.4469)
+second training loop running loss for epoch 0  is: 41.166714138454864
+second training loop binary accuracy for epoch 1  is: tensor(80.6331)
+second training loop running loss for epoch 1  is: 40.93175252278646
+second training loop binary accuracy for epoch 2  is: tensor(80.8194)
+second training loop running loss for epoch 2  is: 40.870463053385414
+second training loop binary accuracy for epoch 3  is: tensor(81.0056)
+second training loop running loss for epoch 3  is: 40.86499934726291
+second training loop binary accuracy for epoch 4  is: tensor(81.0056)
+second training loop running loss for epoch 4  is: 40.85260306464301
+second training loop binary accuracy for epoch 5  is: tensor(81.0056)
+second training loop running loss for epoch 5  is: 40.84289042154948
+second training loop binary accuracy for epoch 6  is: tensor(81.0056)
+second training loop running loss for epoch 6  is: 40.8374998304579
+second training loop binary accuracy for epoch 7  is: tensor(81.0056)
+second training loop running loss for epoch 7  is: 40.82216474745009
+second training loop binary accuracy for epoch 8  is: tensor(81.0056)
+second training loop running loss for epoch 8  is: 40.81988271077474
+second training loop binary accuracy for epoch 9  is: tensor(81.0056)
+second training loop running loss for epoch 9  is: 40.817623138427734
+second training loop binary accuracy for epoch 10  is: tensor(81.0056)
+second training loop running loss for epoch 10  is: 40.815433502197266
+second training loop binary accuracy for epoch 11  is: tensor(81.0056)
+second training loop running loss for epoch 11  is: 40.81330447726779
+second training loop binary accuracy for epoch 12  is: tensor(81.0056)
+second training loop running loss for epoch 12  is: 40.81121614244249
+second training loop binary accuracy for epoch 13  is: tensor(81.0056)
+second training loop running loss for epoch 13  is: 40.80375883314345
+second training loop binary accuracy for epoch 14  is: tensor(81.0056)
+second training loop running loss for epoch 14  is: 40.80275514390733
+second training loop binary accuracy for epoch 15  is: tensor(81.0056)
+second training loop running loss for epoch 15  is: 40.8017512427436
+second training loop binary accuracy for epoch 16  is: tensor(81.0056)
+second training loop running loss for epoch 16  is: 40.800750732421875
+second training loop binary accuracy for epoch 17  is: tensor(81.0056)
+second training loop running loss for epoch 17  is: 40.799754248725044
+second training loop binary accuracy for epoch 18  is: tensor(81.0056)
+second training loop running loss for epoch 18  is: 40.798763275146484
+second training loop binary accuracy for epoch 19  is: tensor(81.0056)
+second training loop running loss for epoch 19  is: 40.79507213168674
+second training loop binary accuracy for epoch 20  is: tensor(81.0056)
+second training loop running loss for epoch 20  is: 40.794584062364365
+second training loop binary accuracy for epoch 21  is: tensor(81.0056)
+second training loop running loss for epoch 21  is: 40.79409493340386
+second training loop binary accuracy for epoch 22  is: tensor(81.0056)
+second training loop running loss for epoch 22  is: 40.793606228298614
+second training loop binary accuracy for epoch 23  is: tensor(81.0056)
+second training loop running loss for epoch 23  is: 40.793119218614365
+second training loop binary accuracy for epoch 24  is: tensor(81.0056)
+second training loop running loss for epoch 24  is: 40.79263178507487
+second training loop binary accuracy for epoch 25  is: tensor(81.0056)
+second training loop running loss for epoch 25  is: 40.79079564412435
+second training loop binary accuracy for epoch 26  is: tensor(81.0056)
+second training loop running loss for epoch 26  is: 40.79055319892036
+second training loop binary accuracy for epoch 27  is: tensor(81.0056)
+second training loop running loss for epoch 27  is: 40.790311601426865
+second training loop binary accuracy for epoch 28  is: tensor(81.0056)
+second training loop running loss for epoch 28  is: 40.79007000393338
+second training loop binary accuracy for epoch 29  is: tensor(81.0056)
+second training loop running loss for epoch 29  is: 40.78982734680176
+second training loop binary accuracy for epoch 30  is: tensor(81.0056)
+second training loop running loss for epoch 30  is: 40.7895876566569
+second training loop binary accuracy for epoch 31  is: tensor(81.0056)
+second training loop running loss for epoch 31  is: 40.788671281602646
+second training loop binary accuracy for epoch 32  is: tensor(81.0056)
+second training loop running loss for epoch 32  is: 40.78855069478353
+second training loop binary accuracy for epoch 33  is: tensor(81.0056)
+second training loop running loss for epoch 33  is: 40.78843137953017
+second training loop binary accuracy for epoch 34  is: tensor(81.0056)
+second training loop running loss for epoch 34  is: 40.788309733072914
+second training loop binary accuracy for epoch 35  is: tensor(81.0056)
+second training loop running loss for epoch 35  is: 40.788189782036675
+second training loop binary accuracy for epoch 36  is: tensor(81.0056)
+second training loop running loss for epoch 36  is: 40.78806940714518
+second training loop binary accuracy for epoch 37  is: tensor(81.0056)
+second training loop running loss for epoch 37  is: 40.78761015997993
+second training loop binary accuracy for epoch 38  is: tensor(81.0056)
+second training loop running loss for epoch 38  is: 40.78755124409994
+second training loop binary accuracy for epoch 39  is: tensor(81.0056)
+second training loop running loss for epoch 39  is: 40.78748999701606
+second training loop binary accuracy for epoch 40  is: tensor(81.0056)
+second training loop running loss for epoch 40  is: 40.78743129306369
+second training loop early stopping at epoch 40
+here is the evaluation results for training+validation dataset:
+epsilon ate: 1.7929236506834054
+pehe: 3.6546750112823676
+ps for treated and control: 0.2773537 0.17698899
+
+here is the evaluation results for test dataset:
+epsilon ate: 1.8513006842666855
+pehe: 3.7914339656056733
+ps for treated and control: 0.21600159 0.1731873
+
+currently running file 6 /home/mint/Desktop/dragonnet/dat/ihdp/csv/ihdp_npci_15.csv
+Is targeted regularization: True
+I am here making dragonnet
+binary accuracy for epoch 0  is: tensor(77.4674)
+running loss for epoch 0  is: 132.27554617987738
+binary accuracy for epoch 1  is: tensor(79.3296)
+running loss for epoch 1  is: 84.79557800292969
+binary accuracy for epoch 2  is: tensor(81.0056)
+running loss for epoch 2  is: 61.862782372368706
+binary accuracy for epoch 3  is: tensor(80.6331)
+running loss for epoch 3  is: 55.94636366102431
+binary accuracy for epoch 4  is: tensor(80.8194)
+running loss for epoch 4  is: 52.84332148234049
+binary accuracy for epoch 5  is: tensor(80.6331)
+running loss for epoch 5  is: 49.654093424479164
+binary accuracy for epoch 6  is: tensor(80.4469)
+running loss for epoch 6  is: 49.22303793165419
+binary accuracy for epoch 7  is: tensor(80.2607)
+running loss for epoch 7  is: 47.26510323418511
+binary accuracy for epoch 8  is: tensor(80.4469)
+running loss for epoch 8  is: 46.68927362230089
+binary accuracy for epoch 9  is: tensor(80.6331)
+running loss for epoch 9  is: 45.080086178249786
+binary accuracy for epoch 10  is: tensor(80.2607)
+running loss for epoch 10  is: 44.915500217013886
+early stopping at epoch 10
+second training loop binary accuracy for epoch 0  is: tensor(80.4469)
+second training loop running loss for epoch 0  is: 44.395636240641274
+second training loop binary accuracy for epoch 1  is: tensor(80.4469)
+second training loop running loss for epoch 1  is: 44.300041410658096
+second training loop binary accuracy for epoch 2  is: tensor(80.4469)
+second training loop running loss for epoch 2  is: 44.237844467163086
+second training loop binary accuracy for epoch 3  is: tensor(80.4469)
+second training loop running loss for epoch 3  is: 44.210770501030815
+second training loop binary accuracy for epoch 4  is: tensor(80.4469)
+second training loop running loss for epoch 4  is: 44.183362325032554
+second training loop binary accuracy for epoch 5  is: tensor(80.4469)
+second training loop running loss for epoch 5  is: 44.150904973347984
+second training loop binary accuracy for epoch 6  is: tensor(80.6331)
+second training loop running loss for epoch 6  is: 44.115957260131836
+second training loop binary accuracy for epoch 7  is: tensor(80.6331)
+second training loop running loss for epoch 7  is: 44.025901794433594
+second training loop binary accuracy for epoch 8  is: tensor(80.6331)
+second training loop running loss for epoch 8  is: 44.0086612701416
+second training loop binary accuracy for epoch 9  is: tensor(80.6331)
+second training loop running loss for epoch 9  is: 43.98937839931912
+second training loop binary accuracy for epoch 10  is: tensor(80.6331)
+second training loop running loss for epoch 10  is: 43.97094959682889
+second training loop binary accuracy for epoch 11  is: tensor(80.6331)
+second training loop running loss for epoch 11  is: 43.95342720879449
+second training loop binary accuracy for epoch 12  is: tensor(80.6331)
+second training loop running loss for epoch 12  is: 43.93603642781576
+second training loop binary accuracy for epoch 13  is: tensor(80.6331)
+second training loop running loss for epoch 13  is: 43.89189041985406
+second training loop binary accuracy for epoch 14  is: tensor(80.6331)
+second training loop running loss for epoch 14  is: 43.88369517856174
+second training loop binary accuracy for epoch 15  is: tensor(80.6331)
+second training loop running loss for epoch 15  is: 43.87493027581109
+second training loop binary accuracy for epoch 16  is: tensor(80.6331)
+second training loop running loss for epoch 16  is: 43.86610073513455
+second training loop binary accuracy for epoch 17  is: tensor(80.6331)
+second training loop running loss for epoch 17  is: 43.85741212632921
+second training loop binary accuracy for epoch 18  is: tensor(80.6331)
+second training loop running loss for epoch 18  is: 43.84885830349393
+second training loop binary accuracy for epoch 19  is: tensor(80.6331)
+second training loop running loss for epoch 19  is: 43.826882468329536
+second training loop binary accuracy for epoch 20  is: tensor(80.6331)
+second training loop running loss for epoch 20  is: 43.82278060913086
+second training loop binary accuracy for epoch 21  is: tensor(80.6331)
+second training loop running loss for epoch 21  is: 43.81853167215983
+second training loop binary accuracy for epoch 22  is: tensor(80.6331)
+second training loop running loss for epoch 22  is: 43.81424458821615
+second training loop binary accuracy for epoch 23  is: tensor(80.6331)
+second training loop running loss for epoch 23  is: 43.8099676767985
+second training loop binary accuracy for epoch 24  is: tensor(80.6331)
+second training loop running loss for epoch 24  is: 43.80571068657769
+second training loop binary accuracy for epoch 25  is: tensor(80.6331)
+second training loop running loss for epoch 25  is: 43.79471397399902
+second training loop binary accuracy for epoch 26  is: tensor(80.6331)
+second training loop running loss for epoch 26  is: 43.792648527357315
+second training loop binary accuracy for epoch 27  is: tensor(80.6331)
+second training loop running loss for epoch 27  is: 43.790551291571724
+second training loop binary accuracy for epoch 28  is: tensor(80.6331)
+second training loop running loss for epoch 28  is: 43.78844536675347
+second training loop binary accuracy for epoch 29  is: tensor(80.6331)
+second training loop running loss for epoch 29  is: 43.78633499145508
+second training loop binary accuracy for epoch 30  is: tensor(80.6331)
+second training loop running loss for epoch 30  is: 43.78422970241971
+second training loop binary accuracy for epoch 31  is: tensor(80.6331)
+second training loop running loss for epoch 31  is: 43.77873314751519
+second training loop binary accuracy for epoch 32  is: tensor(80.6331)
+second training loop running loss for epoch 32  is: 43.77769343058268
+second training loop binary accuracy for epoch 33  is: tensor(80.6331)
+second training loop running loss for epoch 33  is: 43.77664799160428
+second training loop binary accuracy for epoch 34  is: tensor(80.6331)
+second training loop running loss for epoch 34  is: 43.77559937371148
+second training loop binary accuracy for epoch 35  is: tensor(80.6331)
+second training loop running loss for epoch 35  is: 43.77455096774631
+second training loop binary accuracy for epoch 36  is: tensor(80.6331)
+second training loop running loss for epoch 36  is: 43.77350319756402
+second training loop binary accuracy for epoch 37  is: tensor(80.6331)
+second training loop running loss for epoch 37  is: 43.770756827460396
+second training loop binary accuracy for epoch 38  is: tensor(80.6331)
+second training loop running loss for epoch 38  is: 43.77023569742838
+second training loop binary accuracy for epoch 39  is: tensor(80.6331)
+second training loop running loss for epoch 39  is: 43.769713719685875
+second training loop binary accuracy for epoch 40  is: tensor(80.6331)
+second training loop running loss for epoch 40  is: 43.7691904703776
+second training loop early stopping at epoch 40
+here is the evaluation results for training+validation dataset:
+epsilon ate: 2.5024972713538864
+pehe: 11.634858621524634
+ps for treated and control: 0.28196537 0.17580356
+
+here is the evaluation results for test dataset:
+epsilon ate: 2.66267370738111
+pehe: 10.37770806620807
+ps for treated and control: 0.21981311 0.17206484
+
+Is targeted regularization: False
+I am here making dragonnet
+binary accuracy for epoch 0  is: tensor(78.5847)
+running loss for epoch 0  is: 84.0044617123074
+binary accuracy for epoch 1  is: tensor(78.9572)
+running loss for epoch 1  is: 59.35880449083116
+binary accuracy for epoch 2  is: tensor(80.8194)
+running loss for epoch 2  is: 44.89940791659885
+binary accuracy for epoch 3  is: tensor(80.4469)
+running loss for epoch 3  is: 41.60388416714139
+binary accuracy for epoch 4  is: tensor(80.6331)
+running loss for epoch 4  is: 39.96073447333442
+binary accuracy for epoch 5  is: tensor(80.8194)
+running loss for epoch 5  is: 38.23297373453776
+binary accuracy for epoch 6  is: tensor(79.8883)
+running loss for epoch 6  is: 38.01786465115018
+binary accuracy for epoch 7  is: tensor(80.6331)
+running loss for epoch 7  is: 37.03575028313531
+binary accuracy for epoch 8  is: tensor(80.2607)
+running loss for epoch 8  is: 36.6571945614285
+binary accuracy for epoch 9  is: tensor(80.4469)
+running loss for epoch 9  is: 35.672361585828995
+binary accuracy for epoch 10  is: tensor(80.8194)
+running loss for epoch 10  is: 35.512045542399086
+early stopping at epoch 10
+second training loop binary accuracy for epoch 0  is: tensor(80.8194)
+second training loop running loss for epoch 0  is: 35.153795666164825
+second training loop binary accuracy for epoch 1  is: tensor(80.8194)
+second training loop running loss for epoch 1  is: 35.12562031216092
+second training loop binary accuracy for epoch 2  is: tensor(80.8194)
+second training loop running loss for epoch 2  is: 35.10545327928331
+second training loop binary accuracy for epoch 3  is: tensor(81.0056)
+second training loop running loss for epoch 3  is: 35.09181594848633
+second training loop binary accuracy for epoch 4  is: tensor(81.0056)
+second training loop running loss for epoch 4  is: 35.082139545016815
+second training loop binary accuracy for epoch 5  is: tensor(81.0056)
+second training loop running loss for epoch 5  is: 35.072389390733505
+second training loop binary accuracy for epoch 6  is: tensor(81.0056)
+second training loop running loss for epoch 6  is: 35.06236584981283
+second training loop binary accuracy for epoch 7  is: tensor(81.0056)
+second training loop running loss for epoch 7  is: 35.03350490993924
+second training loop binary accuracy for epoch 8  is: tensor(81.0056)
+second training loop running loss for epoch 8  is: 35.028664906819664
+second training loop binary accuracy for epoch 9  is: tensor(81.0056)
+second training loop running loss for epoch 9  is: 35.02342054578993
+second training loop binary accuracy for epoch 10  is: tensor(81.0056)
+second training loop running loss for epoch 10  is: 35.01811218261719
+second training loop binary accuracy for epoch 11  is: tensor(81.0056)
+second training loop running loss for epoch 11  is: 35.01287269592285
+second training loop binary accuracy for epoch 12  is: tensor(81.0056)
+second training loop running loss for epoch 12  is: 35.00770462883843
+second training loop binary accuracy for epoch 13  is: tensor(81.0056)
+second training loop running loss for epoch 13  is: 34.993011474609375
+second training loop binary accuracy for epoch 14  is: tensor(81.0056)
+second training loop running loss for epoch 14  is: 34.990528954399956
+second training loop binary accuracy for epoch 15  is: tensor(81.0056)
+second training loop running loss for epoch 15  is: 34.98797098795573
+second training loop binary accuracy for epoch 16  is: tensor(81.0056)
+second training loop running loss for epoch 16  is: 34.98539521959093
+second training loop binary accuracy for epoch 17  is: tensor(81.0056)
+second training loop running loss for epoch 17  is: 34.982828564114044
+second training loop binary accuracy for epoch 18  is: tensor(81.0056)
+second training loop running loss for epoch 18  is: 34.98027420043945
+second training loop binary accuracy for epoch 19  is: tensor(81.0056)
+second training loop running loss for epoch 19  is: 34.97293493482802
+second training loop binary accuracy for epoch 20  is: tensor(81.0056)
+second training loop running loss for epoch 20  is: 34.97169219122993
+second training loop binary accuracy for epoch 21  is: tensor(81.0056)
+second training loop running loss for epoch 21  is: 34.97043228149414
+second training loop binary accuracy for epoch 22  is: tensor(81.0056)
+second training loop running loss for epoch 22  is: 34.96916622585721
+second training loop binary accuracy for epoch 23  is: tensor(81.0056)
+second training loop running loss for epoch 23  is: 34.967899322509766
+second training loop binary accuracy for epoch 24  is: tensor(81.0056)
+second training loop running loss for epoch 24  is: 34.96663263108995
+second training loop binary accuracy for epoch 25  is: tensor(81.0056)
+second training loop running loss for epoch 25  is: 34.96296522352431
+second training loop binary accuracy for epoch 26  is: tensor(81.0056)
+second training loop running loss for epoch 26  is: 34.962340672810875
+second training loop binary accuracy for epoch 27  is: tensor(81.0056)
+second training loop running loss for epoch 27  is: 34.961712731255425
+second training loop binary accuracy for epoch 28  is: tensor(81.0056)
+second training loop running loss for epoch 28  is: 34.9610841539171
+second training loop binary accuracy for epoch 29  is: tensor(81.0056)
+second training loop running loss for epoch 29  is: 34.96045239766439
+second training loop binary accuracy for epoch 30  is: tensor(81.0056)
+second training loop running loss for epoch 30  is: 34.95982445610894
+second training loop binary accuracy for epoch 31  is: tensor(81.0056)
+second training loop running loss for epoch 31  is: 34.95799001057943
+second training loop binary accuracy for epoch 32  is: tensor(81.0056)
+second training loop running loss for epoch 32  is: 34.957676357693146
+second training loop binary accuracy for epoch 33  is: tensor(81.0056)
+second training loop running loss for epoch 33  is: 34.95736312866211
+second training loop binary accuracy for epoch 34  is: tensor(81.0056)
+second training loop running loss for epoch 34  is: 34.95704883999295
+second training loop binary accuracy for epoch 35  is: tensor(81.0056)
+second training loop running loss for epoch 35  is: 34.956735610961914
+second training loop binary accuracy for epoch 36  is: tensor(81.0056)
+second training loop running loss for epoch 36  is: 34.95642195807563
+second training loop binary accuracy for epoch 37  is: tensor(81.0056)
+second training loop running loss for epoch 37  is: 34.95550664265951
+second training loop binary accuracy for epoch 38  is: tensor(81.0056)
+second training loop running loss for epoch 38  is: 34.955349604288735
+second training loop binary accuracy for epoch 39  is: tensor(81.0056)
+second training loop running loss for epoch 39  is: 34.95519193013509
+second training loop binary accuracy for epoch 40  is: tensor(81.0056)
+second training loop running loss for epoch 40  is: 34.955035315619575
+second training loop early stopping at epoch 40
+here is the evaluation results for training+validation dataset:
+epsilon ate: 2.4873840214005822
+pehe: 11.545937470585606
+ps for treated and control: 0.2830356 0.1752928
+
+here is the evaluation results for test dataset:
+epsilon ate: 2.6514991040778364
+pehe: 10.312282050883129
+ps for treated and control: 0.21565059 0.17196518
+
+currently running file 7 /home/mint/Desktop/dragonnet/dat/ihdp/csv/ihdp_npci_16.csv
+Is targeted regularization: True
+I am here making dragonnet
+binary accuracy for epoch 0  is: tensor(80.8194)
+running loss for epoch 0  is: 111.26273769802518
+binary accuracy for epoch 1  is: tensor(80.2607)
+running loss for epoch 1  is: 71.40952385796442
+binary accuracy for epoch 2  is: tensor(80.6331)
+running loss for epoch 2  is: 58.65601136949327
+binary accuracy for epoch 3  is: tensor(80.8194)
+running loss for epoch 3  is: 52.86144489712186
+binary accuracy for epoch 4  is: tensor(80.4469)
+running loss for epoch 4  is: 49.86103312174479
+binary accuracy for epoch 5  is: tensor(80.6331)
+running loss for epoch 5  is: 49.1812309688992
+binary accuracy for epoch 6  is: tensor(80.6331)
+running loss for epoch 6  is: 48.486770417955185
+binary accuracy for epoch 7  is: tensor(80.4469)
+running loss for epoch 7  is: 47.67844729953342
+binary accuracy for epoch 8  is: tensor(80.8194)
+running loss for epoch 8  is: 46.952022552490234
+binary accuracy for epoch 9  is: tensor(80.8194)
+running loss for epoch 9  is: 46.22296439276801
+binary accuracy for epoch 10  is: tensor(80.8194)
+running loss for epoch 10  is: 45.72392315334744
+early stopping at epoch 10
+second training loop binary accuracy for epoch 0  is: tensor(80.6331)
+second training loop running loss for epoch 0  is: 44.62164603339301
+second training loop binary accuracy for epoch 1  is: tensor(80.6331)
+second training loop running loss for epoch 1  is: 44.346096674601235
+second training loop binary accuracy for epoch 2  is: tensor(80.6331)
+second training loop running loss for epoch 2  is: 44.20239024692111
+second training loop binary accuracy for epoch 3  is: tensor(80.6331)
+second training loop running loss for epoch 3  is: 44.1712449391683
+second training loop binary accuracy for epoch 4  is: tensor(80.6331)
+second training loop running loss for epoch 4  is: 44.14489618937174
+second training loop binary accuracy for epoch 5  is: tensor(80.6331)
+second training loop running loss for epoch 5  is: 44.109330071343315
+second training loop binary accuracy for epoch 6  is: tensor(80.6331)
+second training loop running loss for epoch 6  is: 44.08373345269097
+second training loop binary accuracy for epoch 7  is: tensor(80.8194)
+second training loop running loss for epoch 7  is: 44.023979398939346
+second training loop binary accuracy for epoch 8  is: tensor(80.6331)
+second training loop running loss for epoch 8  is: 44.013000064425995
+second training loop binary accuracy for epoch 9  is: tensor(80.6331)
+second training loop running loss for epoch 9  is: 44.00002924601237
+second training loop binary accuracy for epoch 10  is: tensor(80.6331)
+second training loop running loss for epoch 10  is: 43.988017823961044
+second training loop binary accuracy for epoch 11  is: tensor(80.6331)
+second training loop running loss for epoch 11  is: 43.97736040751139
+second training loop binary accuracy for epoch 12  is: tensor(80.6331)
+second training loop running loss for epoch 12  is: 43.9671196407742
+second training loop binary accuracy for epoch 13  is: tensor(80.6331)
+second training loop running loss for epoch 13  is: 43.9360154469808
+second training loop binary accuracy for epoch 14  is: tensor(80.6331)
+second training loop running loss for epoch 14  is: 43.93095609876845
+second training loop binary accuracy for epoch 15  is: tensor(80.6331)
+second training loop running loss for epoch 15  is: 43.92539935641818
+second training loop binary accuracy for epoch 16  is: tensor(80.6331)
+second training loop running loss for epoch 16  is: 43.919841554429794
+second training loop binary accuracy for epoch 17  is: tensor(80.6331)
+second training loop running loss for epoch 17  is: 43.91444969177246
+second training loop binary accuracy for epoch 18  is: tensor(80.6331)
+second training loop running loss for epoch 18  is: 43.909230126274956
+second training loop binary accuracy for epoch 19  is: tensor(80.6331)
+second training loop running loss for epoch 19  is: 43.89373376634386
+second training loop binary accuracy for epoch 20  is: tensor(80.6331)
+second training loop running loss for epoch 20  is: 43.891279220581055
+second training loop binary accuracy for epoch 21  is: tensor(80.6331)
+second training loop running loss for epoch 21  is: 43.88869984944662
+second training loop binary accuracy for epoch 22  is: tensor(80.6331)
+second training loop running loss for epoch 22  is: 43.8860838148329
+second training loop binary accuracy for epoch 23  is: tensor(80.6331)
+second training loop running loss for epoch 23  is: 43.88347244262695
+second training loop binary accuracy for epoch 24  is: tensor(80.6331)
+second training loop running loss for epoch 24  is: 43.88088141547309
+second training loop binary accuracy for epoch 25  is: tensor(80.6331)
+second training loop running loss for epoch 25  is: 43.873078028361
+second training loop binary accuracy for epoch 26  is: tensor(80.6331)
+second training loop running loss for epoch 26  is: 43.87183041042752
+second training loop binary accuracy for epoch 27  is: tensor(80.6331)
+second training loop running loss for epoch 27  is: 43.870558420817055
+second training loop binary accuracy for epoch 28  is: tensor(80.6331)
+second training loop running loss for epoch 28  is: 43.869278801812065
+second training loop binary accuracy for epoch 29  is: tensor(80.6331)
+second training loop running loss for epoch 29  is: 43.86800087822808
+second training loop binary accuracy for epoch 30  is: tensor(80.6331)
+second training loop running loss for epoch 30  is: 43.866722954644096
+second training loop binary accuracy for epoch 31  is: tensor(80.6331)
+second training loop running loss for epoch 31  is: 43.862822426689995
+second training loop binary accuracy for epoch 32  is: tensor(80.6331)
+second training loop running loss for epoch 32  is: 43.862194273206924
+second training loop binary accuracy for epoch 33  is: tensor(80.6331)
+second training loop running loss for epoch 33  is: 43.861560609605576
+second training loop binary accuracy for epoch 34  is: tensor(80.6331)
+second training loop running loss for epoch 34  is: 43.86092525058322
+second training loop binary accuracy for epoch 35  is: tensor(80.6331)
+second training loop running loss for epoch 35  is: 43.86029137505425
+second training loop binary accuracy for epoch 36  is: tensor(80.6331)
+second training loop running loss for epoch 36  is: 43.85965474446615
+second training loop binary accuracy for epoch 37  is: tensor(80.6331)
+second training loop running loss for epoch 37  is: 43.857706493801544
+second training loop binary accuracy for epoch 38  is: tensor(80.6331)
+second training loop running loss for epoch 38  is: 43.8573915693495
+second training loop binary accuracy for epoch 39  is: tensor(80.6331)
+second training loop running loss for epoch 39  is: 43.85707516140408
+second training loop binary accuracy for epoch 40  is: tensor(80.6331)
+second training loop running loss for epoch 40  is: 43.856760025024414
+second training loop early stopping at epoch 40
+here is the evaluation results for training+validation dataset:
+epsilon ate: 2.8188215299838624
+pehe: 9.976977979340578
+ps for treated and control: 0.27797377 0.1755653
+
+here is the evaluation results for test dataset:
+epsilon ate: 3.0523086396874834
+pehe: 10.803661112236977
+ps for treated and control: 0.20826143 0.17238282
+
+Is targeted regularization: False
+I am here making dragonnet
+binary accuracy for epoch 0  is: tensor(75.9777)
+running loss for epoch 0  is: 71.61316299438477
+binary accuracy for epoch 1  is: tensor(79.5158)
+running loss for epoch 1  is: 51.6075373755561
+binary accuracy for epoch 2  is: tensor(80.8194)
+running loss for epoch 2  is: 44.24006652832031
+binary accuracy for epoch 3  is: tensor(80.6331)
+running loss for epoch 3  is: 40.1132926940918
+binary accuracy for epoch 4  is: tensor(80.0745)
+running loss for epoch 4  is: 38.29850726657443
+binary accuracy for epoch 5  is: tensor(81.0056)
+running loss for epoch 5  is: 37.42339070638021
+binary accuracy for epoch 6  is: tensor(80.4469)
+running loss for epoch 6  is: 37.04261991712782
+early stopping at epoch 6
+second training loop binary accuracy for epoch 0  is: tensor(80.8194)
+second training loop running loss for epoch 0  is: 36.47615263197157
+second training loop binary accuracy for epoch 1  is: tensor(80.4469)
+second training loop running loss for epoch 1  is: 36.056760999891495
+second training loop binary accuracy for epoch 2  is: tensor(80.4469)
+second training loop running loss for epoch 2  is: 35.98250367906358
+second training loop binary accuracy for epoch 3  is: tensor(80.2607)
+second training loop running loss for epoch 3  is: 35.91719839307997
+second training loop binary accuracy for epoch 4  is: tensor(80.2607)
+second training loop running loss for epoch 4  is: 35.892182456122505
+second training loop binary accuracy for epoch 5  is: tensor(80.2607)
+second training loop running loss for epoch 5  is: 35.88703367445204
+second training loop binary accuracy for epoch 6  is: tensor(80.2607)
+second training loop running loss for epoch 6  is: 35.87522951761881
+second training loop binary accuracy for epoch 7  is: tensor(80.2607)
+second training loop running loss for epoch 7  is: 35.847778956095375
+second training loop binary accuracy for epoch 8  is: tensor(80.2607)
+second training loop running loss for epoch 8  is: 35.84144825405545
+second training loop binary accuracy for epoch 9  is: tensor(80.2607)
+second training loop running loss for epoch 9  is: 35.835379706488716
+second training loop binary accuracy for epoch 10  is: tensor(80.2607)
+second training loop running loss for epoch 10  is: 35.82965087890625
+second training loop binary accuracy for epoch 11  is: tensor(80.2607)
+second training loop running loss for epoch 11  is: 35.82419628567166
+second training loop binary accuracy for epoch 12  is: tensor(80.2607)
+second training loop running loss for epoch 12  is: 35.818897035386826
+second training loop binary accuracy for epoch 13  is: tensor(80.2607)
+second training loop running loss for epoch 13  is: 35.80731434292264
+second training loop binary accuracy for epoch 14  is: tensor(80.2607)
+second training loop running loss for epoch 14  is: 35.804768880208336
+second training loop binary accuracy for epoch 15  is: tensor(80.2607)
+second training loop running loss for epoch 15  is: 35.80212593078613
+second training loop binary accuracy for epoch 16  is: tensor(80.2607)
+second training loop running loss for epoch 16  is: 35.79946284823947
+second training loop binary accuracy for epoch 17  is: tensor(80.2607)
+second training loop running loss for epoch 17  is: 35.79680887858073
+second training loop binary accuracy for epoch 18  is: tensor(80.2607)
+second training loop running loss for epoch 18  is: 35.79417864481608
+second training loop binary accuracy for epoch 19  is: tensor(80.2607)
+second training loop running loss for epoch 19  is: 35.78834131028917
+second training loop binary accuracy for epoch 20  is: tensor(80.2607)
+second training loop running loss for epoch 20  is: 35.787071228027344
+second training loop binary accuracy for epoch 21  is: tensor(80.2607)
+second training loop running loss for epoch 21  is: 35.78578186035156
+second training loop binary accuracy for epoch 22  is: tensor(80.2607)
+second training loop running loss for epoch 22  is: 35.78448719448514
+second training loop binary accuracy for epoch 23  is: tensor(80.2607)
+second training loop running loss for epoch 23  is: 35.783195071750214
+second training loop binary accuracy for epoch 24  is: tensor(80.2607)
+second training loop running loss for epoch 24  is: 35.781906339857315
+second training loop binary accuracy for epoch 25  is: tensor(80.2607)
+second training loop running loss for epoch 25  is: 35.77899063958062
+second training loop binary accuracy for epoch 26  is: tensor(80.2607)
+second training loop running loss for epoch 26  is: 35.77835612826877
+second training loop binary accuracy for epoch 27  is: tensor(80.2607)
+second training loop running loss for epoch 27  is: 35.777717378404404
+second training loop binary accuracy for epoch 28  is: tensor(80.2607)
+second training loop running loss for epoch 28  is: 35.77707544962565
+second training loop binary accuracy for epoch 29  is: tensor(80.2607)
+second training loop running loss for epoch 29  is: 35.77643712361654
+second training loop binary accuracy for epoch 30  is: tensor(80.2607)
+second training loop running loss for epoch 30  is: 35.77579773796929
+second training loop binary accuracy for epoch 31  is: tensor(80.2607)
+second training loop running loss for epoch 31  is: 35.77433988783095
+second training loop binary accuracy for epoch 32  is: tensor(80.2607)
+second training loop running loss for epoch 32  is: 35.7740224202474
+second training loop binary accuracy for epoch 33  is: tensor(80.2607)
+second training loop running loss for epoch 33  is: 35.77370389302572
+second training loop binary accuracy for epoch 34  is: tensor(80.2607)
+second training loop running loss for epoch 34  is: 35.77338663736979
+second training loop binary accuracy for epoch 35  is: tensor(80.2607)
+second training loop running loss for epoch 35  is: 35.773067474365234
+second training loop binary accuracy for epoch 36  is: tensor(80.2607)
+second training loop running loss for epoch 36  is: 35.7727485232883
+second training loop binary accuracy for epoch 37  is: tensor(80.2607)
+second training loop running loss for epoch 37  is: 35.77202055189345
+second training loop binary accuracy for epoch 38  is: tensor(80.2607)
+second training loop running loss for epoch 38  is: 35.77186139424642
+second training loop binary accuracy for epoch 39  is: tensor(80.2607)
+second training loop running loss for epoch 39  is: 35.77170329623752
+second training loop binary accuracy for epoch 40  is: tensor(80.2607)
+second training loop running loss for epoch 40  is: 35.77154350280762
+second training loop early stopping at epoch 40
+here is the evaluation results for training+validation dataset:
+epsilon ate: 2.7606179454249555
+pehe: 9.653413668141653
+ps for treated and control: 0.28091604 0.17575216
+
+here is the evaluation results for test dataset:
+epsilon ate: 2.9926561292034237
+pehe: 10.443804836473046
+ps for treated and control: 0.21532239 0.17201577
+
+currently running file 8 /home/mint/Desktop/dragonnet/dat/ihdp/csv/ihdp_npci_17.csv
+Is targeted regularization: True
+I am here making dragonnet
+binary accuracy for epoch 0  is: tensor(75.9777)
+running loss for epoch 0  is: 132.20403035481772
+binary accuracy for epoch 1  is: tensor(80.8194)
+running loss for epoch 1  is: 76.21479225158691
+binary accuracy for epoch 2  is: tensor(80.8194)
+running loss for epoch 2  is: 53.268090354071724
+binary accuracy for epoch 3  is: tensor(80.6331)
+running loss for epoch 3  is: 47.74672720167372
+binary accuracy for epoch 4  is: tensor(80.8194)
+running loss for epoch 4  is: 41.484841664632164
+binary accuracy for epoch 5  is: tensor(80.2607)
+running loss for epoch 5  is: 39.899178398980034
+binary accuracy for epoch 6  is: tensor(80.2607)
+running loss for epoch 6  is: 38.409173753526474
+binary accuracy for epoch 7  is: tensor(80.4469)
+running loss for epoch 7  is: 37.8816769917806
+early stopping at epoch 7
+second training loop binary accuracy for epoch 0  is: tensor(80.2607)
+second training loop running loss for epoch 0  is: 36.52396138509115
+second training loop binary accuracy for epoch 1  is: tensor(80.4469)
+second training loop running loss for epoch 1  is: 36.26180383894179
+second training loop binary accuracy for epoch 2  is: tensor(80.4469)
+second training loop running loss for epoch 2  is: 36.13246462080214
+second training loop binary accuracy for epoch 3  is: tensor(80.6331)
+second training loop running loss for epoch 3  is: 36.06805207994249
+second training loop binary accuracy for epoch 4  is: tensor(80.6331)
+second training loop running loss for epoch 4  is: 36.01196002960205
+second training loop binary accuracy for epoch 5  is: tensor(80.6331)
+second training loop running loss for epoch 5  is: 35.96104939778646
+second training loop binary accuracy for epoch 6  is: tensor(80.6331)
+second training loop running loss for epoch 6  is: 35.91120285458035
+second training loop binary accuracy for epoch 7  is: tensor(80.6331)
+second training loop running loss for epoch 7  is: 35.860009829203285
+second training loop binary accuracy for epoch 8  is: tensor(80.6331)
+second training loop running loss for epoch 8  is: 35.7588136461046
+second training loop binary accuracy for epoch 9  is: tensor(80.6331)
+second training loop running loss for epoch 9  is: 35.73436578114828
+second training loop binary accuracy for epoch 10  is: tensor(80.6331)
+second training loop running loss for epoch 10  is: 35.70937527550591
+second training loop binary accuracy for epoch 11  is: tensor(80.6331)
+second training loop running loss for epoch 11  is: 35.684501224093964
+second training loop binary accuracy for epoch 12  is: tensor(80.6331)
+second training loop running loss for epoch 12  is: 35.659960428873696
+second training loop binary accuracy for epoch 13  is: tensor(80.6331)
+second training loop running loss for epoch 13  is: 35.63571124606662
+second training loop binary accuracy for epoch 14  is: tensor(80.6331)
+second training loop running loss for epoch 14  is: 35.5871393415663
+second training loop binary accuracy for epoch 15  is: tensor(80.6331)
+second training loop running loss for epoch 15  is: 35.57533221774631
+second training loop binary accuracy for epoch 16  is: tensor(80.6331)
+second training loop running loss for epoch 16  is: 35.563395182291664
+second training loop binary accuracy for epoch 17  is: tensor(80.6331)
+second training loop running loss for epoch 17  is: 35.55144140455458
+second training loop binary accuracy for epoch 18  is: tensor(80.6331)
+second training loop running loss for epoch 18  is: 35.53952492607964
+second training loop binary accuracy for epoch 19  is: tensor(80.6331)
+second training loop running loss for epoch 19  is: 35.52765962812636
+second training loop binary accuracy for epoch 20  is: tensor(80.6331)
+second training loop running loss for epoch 20  is: 35.503738509284126
+second training loop binary accuracy for epoch 21  is: tensor(80.6331)
+second training loop running loss for epoch 21  is: 35.4978936513265
+second training loop binary accuracy for epoch 22  is: tensor(80.6331)
+second training loop running loss for epoch 22  is: 35.49202240837945
+second training loop binary accuracy for epoch 23  is: tensor(80.6331)
+second training loop running loss for epoch 23  is: 35.48615031772189
+second training loop binary accuracy for epoch 24  is: tensor(80.6331)
+second training loop running loss for epoch 24  is: 35.48028055826823
+second training loop binary accuracy for epoch 25  is: tensor(80.6331)
+second training loop running loss for epoch 25  is: 35.47442203097873
+second training loop binary accuracy for epoch 26  is: tensor(80.6331)
+second training loop running loss for epoch 26  is: 35.462557050916885
+second training loop binary accuracy for epoch 27  is: tensor(80.6331)
+second training loop running loss for epoch 27  is: 35.459650145636665
+second training loop binary accuracy for epoch 28  is: tensor(80.6331)
+second training loop running loss for epoch 28  is: 35.45673741234673
+second training loop binary accuracy for epoch 29  is: tensor(80.6331)
+second training loop running loss for epoch 29  is: 35.45382075839572
+second training loop binary accuracy for epoch 30  is: tensor(80.6331)
+second training loop running loss for epoch 30  is: 35.4509080251058
+second training loop binary accuracy for epoch 31  is: tensor(80.6331)
+second training loop running loss for epoch 31  is: 35.44799444410536
+second training loop binary accuracy for epoch 32  is: tensor(80.6331)
+second training loop running loss for epoch 32  is: 35.442089292738174
+second training loop binary accuracy for epoch 33  is: tensor(80.6331)
+second training loop running loss for epoch 33  is: 35.440636528862846
+second training loop binary accuracy for epoch 34  is: tensor(80.6331)
+second training loop running loss for epoch 34  is: 35.43918535444472
+second training loop binary accuracy for epoch 35  is: tensor(80.6331)
+second training loop running loss for epoch 35  is: 35.437733014424644
+second training loop binary accuracy for epoch 36  is: tensor(80.6331)
+second training loop running loss for epoch 36  is: 35.436279932657875
+second training loop binary accuracy for epoch 37  is: tensor(80.6331)
+second training loop running loss for epoch 37  is: 35.434827698601616
+second training loop binary accuracy for epoch 38  is: tensor(80.6331)
+second training loop running loss for epoch 38  is: 35.43188222249349
+second training loop binary accuracy for epoch 39  is: tensor(80.6331)
+second training loop running loss for epoch 39  is: 35.431158701578774
+second training loop binary accuracy for epoch 40  is: tensor(80.6331)
+second training loop running loss for epoch 40  is: 35.43043433295356
+second training loop early stopping at epoch 40
+here is the evaluation results for training+validation dataset:
+epsilon ate: 2.7968082405666874
+pehe: 29.19206853394488
+ps for treated and control: 0.27815214 0.17429903
+
+here is the evaluation results for test dataset:
+epsilon ate: 2.725592124901117
+pehe: 29.2949115393484
+ps for treated and control: 0.21612166 0.17203137
+
+Is targeted regularization: False
+I am here making dragonnet
+binary accuracy for epoch 0  is: tensor(78.9572)
+running loss for epoch 0  is: 85.73933961656358
+binary accuracy for epoch 1  is: tensor(78.5847)
+running loss for epoch 1  is: 55.10083262125651
+binary accuracy for epoch 2  is: tensor(80.8194)
+running loss for epoch 2  is: 41.17262861463759
+binary accuracy for epoch 3  is: tensor(80.4469)
+running loss for epoch 3  is: 37.04597886403402
+binary accuracy for epoch 4  is: tensor(80.2607)
+running loss for epoch 4  is: 34.31742911868625
+binary accuracy for epoch 5  is: tensor(80.4469)
+running loss for epoch 5  is: 32.80112542046441
+binary accuracy for epoch 6  is: tensor(80.2607)
+running loss for epoch 6  is: 32.25876967112223
+early stopping at epoch 6
+second training loop binary accuracy for epoch 0  is: tensor(80.8194)
+second training loop running loss for epoch 0  is: 31.34888479444716
+second training loop binary accuracy for epoch 1  is: tensor(81.0056)
+second training loop running loss for epoch 1  is: 31.298840946621365
+second training loop binary accuracy for epoch 2  is: tensor(81.0056)
+second training loop running loss for epoch 2  is: 31.263204998440212
+second training loop binary accuracy for epoch 3  is: tensor(80.8194)
+second training loop running loss for epoch 3  is: 31.238791465759277
+second training loop binary accuracy for epoch 4  is: tensor(80.6331)
+second training loop running loss for epoch 4  is: 31.21872827741835
+second training loop binary accuracy for epoch 5  is: tensor(80.6331)
+second training loop running loss for epoch 5  is: 31.200428538852268
+second training loop binary accuracy for epoch 6  is: tensor(80.6331)
+second training loop running loss for epoch 6  is: 31.183412657843697
+second training loop binary accuracy for epoch 7  is: tensor(80.6331)
+second training loop running loss for epoch 7  is: 31.151700973510742
+second training loop binary accuracy for epoch 8  is: tensor(80.6331)
+second training loop running loss for epoch 8  is: 31.143898646036785
+second training loop binary accuracy for epoch 9  is: tensor(80.6331)
+second training loop running loss for epoch 9  is: 31.1361509958903
+second training loop binary accuracy for epoch 10  is: tensor(80.6331)
+second training loop running loss for epoch 10  is: 31.128483560350205
+second training loop binary accuracy for epoch 11  is: tensor(80.6331)
+second training loop running loss for epoch 11  is: 31.12090343899197
+second training loop binary accuracy for epoch 12  is: tensor(80.6331)
+second training loop running loss for epoch 12  is: 31.11340840657552
+second training loop binary accuracy for epoch 13  is: tensor(80.6331)
+second training loop running loss for epoch 13  is: 31.098367267184788
+second training loop binary accuracy for epoch 14  is: tensor(80.6331)
+second training loop running loss for epoch 14  is: 31.094708972507053
+second training loop binary accuracy for epoch 15  is: tensor(80.6331)
+second training loop running loss for epoch 15  is: 31.091051949395073
+second training loop binary accuracy for epoch 16  is: tensor(80.6331)
+second training loop running loss for epoch 16  is: 31.087401496039497
+second training loop binary accuracy for epoch 17  is: tensor(80.6331)
+second training loop running loss for epoch 17  is: 31.08376587761773
+second training loop binary accuracy for epoch 18  is: tensor(80.6331)
+second training loop running loss for epoch 18  is: 31.080143610636394
+second training loop binary accuracy for epoch 19  is: tensor(80.6331)
+second training loop running loss for epoch 19  is: 31.072737058003742
+second training loop binary accuracy for epoch 20  is: tensor(80.6331)
+second training loop running loss for epoch 20  is: 31.07094340854221
+second training loop binary accuracy for epoch 21  is: tensor(80.6331)
+second training loop running loss for epoch 21  is: 31.06915018293593
+second training loop binary accuracy for epoch 22  is: tensor(80.6331)
+second training loop running loss for epoch 22  is: 31.06735791100396
+second training loop binary accuracy for epoch 23  is: tensor(80.6331)
+second training loop running loss for epoch 23  is: 31.06556987762451
+second training loop binary accuracy for epoch 24  is: tensor(80.6331)
+second training loop running loss for epoch 24  is: 31.06378353966607
+second training loop binary accuracy for epoch 25  is: tensor(80.6331)
+second training loop running loss for epoch 25  is: 31.06010564168294
+second training loop binary accuracy for epoch 26  is: tensor(80.6331)
+second training loop running loss for epoch 26  is: 31.059217347039116
+second training loop binary accuracy for epoch 27  is: tensor(80.6331)
+second training loop running loss for epoch 27  is: 31.058327462938095
+second training loop binary accuracy for epoch 28  is: tensor(80.6331)
+second training loop running loss for epoch 28  is: 31.057440545823837
+second training loop binary accuracy for epoch 29  is: tensor(80.6331)
+second training loop running loss for epoch 29  is: 31.056551509433323
+second training loop binary accuracy for epoch 30  is: tensor(80.6331)
+second training loop running loss for epoch 30  is: 31.05566469828288
+second training loop binary accuracy for epoch 31  is: tensor(80.6331)
+second training loop running loss for epoch 31  is: 31.05383120642768
+second training loop binary accuracy for epoch 32  is: tensor(80.6331)
+second training loop running loss for epoch 32  is: 31.053388807508682
+second training loop binary accuracy for epoch 33  is: tensor(80.6331)
+second training loop running loss for epoch 33  is: 31.0529449250963
+second training loop binary accuracy for epoch 34  is: tensor(80.6331)
+second training loop running loss for epoch 34  is: 31.052504115634495
+second training loop binary accuracy for epoch 35  is: tensor(80.6331)
+second training loop running loss for epoch 35  is: 31.052061398824055
+second training loop binary accuracy for epoch 36  is: tensor(80.6331)
+second training loop running loss for epoch 36  is: 31.05161974165175
+second training loop binary accuracy for epoch 37  is: tensor(80.6331)
+second training loop running loss for epoch 37  is: 31.050704956054688
+second training loop binary accuracy for epoch 38  is: tensor(80.6331)
+second training loop running loss for epoch 38  is: 31.050483491685654
+second training loop binary accuracy for epoch 39  is: tensor(80.6331)
+second training loop running loss for epoch 39  is: 31.05026255713569
+second training loop binary accuracy for epoch 40  is: tensor(80.6331)
+second training loop running loss for epoch 40  is: 31.05004119873047
+second training loop early stopping at epoch 40
+here is the evaluation results for training+validation dataset:
+epsilon ate: 2.8098829639051295
+pehe: 29.225297312435064
+ps for treated and control: 0.27924708 0.17553549
+
+here is the evaluation results for test dataset:
+epsilon ate: 2.732434800110162
+pehe: 29.290983964262598
+ps for treated and control: 0.21375602 0.17285557
+
+currently running file 9 /home/mint/Desktop/dragonnet/dat/ihdp/csv/ihdp_npci_18.csv
+Is targeted regularization: True
+I am here making dragonnet
+binary accuracy for epoch 0  is: tensor(74.3017)
+running loss for epoch 0  is: 134.77712122599283
+binary accuracy for epoch 1  is: tensor(80.8194)
+running loss for epoch 1  is: 70.63020367092557
+binary accuracy for epoch 2  is: tensor(80.8194)
+running loss for epoch 2  is: 52.717360178629555
+binary accuracy for epoch 3  is: tensor(80.6331)
+running loss for epoch 3  is: 46.50447294447157
+binary accuracy for epoch 4  is: tensor(80.6331)
+running loss for epoch 4  is: 41.7313109503852
+binary accuracy for epoch 5  is: tensor(80.4469)
+running loss for epoch 5  is: 40.883403566148544
+binary accuracy for epoch 6  is: tensor(80.2607)
+running loss for epoch 6  is: 40.71134948730469
+binary accuracy for epoch 7  is: tensor(80.0745)
+running loss for epoch 7  is: 39.534798516167534
+binary accuracy for epoch 8  is: tensor(80.0745)
+running loss for epoch 8  is: 39.3849843343099
+binary accuracy for epoch 9  is: tensor(79.8883)
+running loss for epoch 9  is: 38.75540775722928
+binary accuracy for epoch 10  is: tensor(80.0745)
+running loss for epoch 10  is: 38.04910469055176
+binary accuracy for epoch 11  is: tensor(79.8883)
+running loss for epoch 11  is: 37.54426829020182
+binary accuracy for epoch 12  is: tensor(80.2607)
+running loss for epoch 12  is: 37.30628437466092
+early stopping at epoch 12
+second training loop binary accuracy for epoch 0  is: tensor(80.6331)
+second training loop running loss for epoch 0  is: 36.98572900560167
+second training loop binary accuracy for epoch 1  is: tensor(80.6331)
+second training loop running loss for epoch 1  is: 36.891317791408966
+second training loop binary accuracy for epoch 2  is: tensor(80.6331)
+second training loop running loss for epoch 2  is: 36.84828832414415
+second training loop binary accuracy for epoch 3  is: tensor(80.6331)
+second training loop running loss for epoch 3  is: 36.83569155799018
+second training loop binary accuracy for epoch 4  is: tensor(80.6331)
+second training loop running loss for epoch 4  is: 36.80868763393826
+second training loop binary accuracy for epoch 5  is: tensor(80.6331)
+second training loop running loss for epoch 5  is: 36.78600385453966
+second training loop binary accuracy for epoch 6  is: tensor(80.6331)
+second training loop running loss for epoch 6  is: 36.7665565278795
+second training loop binary accuracy for epoch 7  is: tensor(80.6331)
+second training loop running loss for epoch 7  is: 36.714937422010635
+second training loop binary accuracy for epoch 8  is: tensor(80.6331)
+second training loop running loss for epoch 8  is: 36.703650580512154
+second training loop binary accuracy for epoch 9  is: tensor(80.6331)
+second training loop running loss for epoch 9  is: 36.691259172227646
+second training loop binary accuracy for epoch 10  is: tensor(80.6331)
+second training loop running loss for epoch 10  is: 36.6799643834432
+second training loop binary accuracy for epoch 11  is: tensor(80.6331)
+second training loop running loss for epoch 11  is: 36.66937022738986
+second training loop binary accuracy for epoch 12  is: tensor(80.6331)
+second training loop running loss for epoch 12  is: 36.658667140536835
+second training loop binary accuracy for epoch 13  is: tensor(80.6331)
+second training loop running loss for epoch 13  is: 36.63281377156576
+second training loop binary accuracy for epoch 14  is: tensor(80.6331)
+second training loop running loss for epoch 14  is: 36.627618153889976
+second training loop binary accuracy for epoch 15  is: tensor(80.6331)
+second training loop running loss for epoch 15  is: 36.62201436360677
+second training loop binary accuracy for epoch 16  is: tensor(80.6331)
+second training loop running loss for epoch 16  is: 36.616435050964355
+second training loop binary accuracy for epoch 17  is: tensor(80.6331)
+second training loop running loss for epoch 17  is: 36.61101065741645
+second training loop binary accuracy for epoch 18  is: tensor(80.6331)
+second training loop running loss for epoch 18  is: 36.605702294243706
+second training loop binary accuracy for epoch 19  is: tensor(80.6331)
+second training loop running loss for epoch 19  is: 36.59286541408963
+second training loop binary accuracy for epoch 20  is: tensor(80.6331)
+second training loop running loss for epoch 20  is: 36.59030373891195
+second training loop binary accuracy for epoch 21  is: tensor(80.6331)
+second training loop running loss for epoch 21  is: 36.5876284705268
+second training loop binary accuracy for epoch 22  is: tensor(80.6331)
+second training loop running loss for epoch 22  is: 36.5849273469713
+second training loop binary accuracy for epoch 23  is: tensor(80.6331)
+second training loop running loss for epoch 23  is: 36.58223417070177
+second training loop binary accuracy for epoch 24  is: tensor(80.6331)
+second training loop running loss for epoch 24  is: 36.579562505086265
+second training loop binary accuracy for epoch 25  is: tensor(80.6331)
+second training loop running loss for epoch 25  is: 36.573110050625274
+second training loop binary accuracy for epoch 26  is: tensor(80.6331)
+second training loop running loss for epoch 26  is: 36.57181739807129
+second training loop binary accuracy for epoch 27  is: tensor(80.6331)
+second training loop running loss for epoch 27  is: 36.57049984402127
+second training loop binary accuracy for epoch 28  is: tensor(80.6331)
+second training loop running loss for epoch 28  is: 36.56917593214247
+second training loop binary accuracy for epoch 29  is: tensor(80.6331)
+second training loop running loss for epoch 29  is: 36.56785032484267
+second training loop binary accuracy for epoch 30  is: tensor(80.8194)
+second training loop running loss for epoch 30  is: 36.566526095072426
+second training loop binary accuracy for epoch 31  is: tensor(80.8194)
+second training loop running loss for epoch 31  is: 36.56329536437988
+second training loop binary accuracy for epoch 32  is: tensor(80.8194)
+second training loop running loss for epoch 32  is: 36.5626433690389
+second training loop binary accuracy for epoch 33  is: tensor(80.8194)
+second training loop running loss for epoch 33  is: 36.56198649936252
+second training loop binary accuracy for epoch 34  is: tensor(80.8194)
+second training loop running loss for epoch 34  is: 36.56132878197564
+second training loop binary accuracy for epoch 35  is: tensor(80.8194)
+second training loop running loss for epoch 35  is: 36.56066968705919
+second training loop binary accuracy for epoch 36  is: tensor(80.8194)
+second training loop running loss for epoch 36  is: 36.56001006232368
+second training loop binary accuracy for epoch 37  is: tensor(80.8194)
+second training loop running loss for epoch 37  is: 36.558395597669815

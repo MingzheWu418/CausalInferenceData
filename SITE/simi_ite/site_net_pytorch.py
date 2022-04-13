@@ -142,6 +142,7 @@ class InputLayers(nn.Module):
     def __init__(self, dims, dropout_in, FLAGS):
         self.FLAGS = FLAGS
         super(InputLayers, self).__init__()
+        # print(FLAGS)
         if FLAGS['nonlin'].lower() == 'elu':
             nonlin = torch.nn.ELU()
         else:

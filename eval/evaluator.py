@@ -29,7 +29,7 @@ class Evaluator:
         pass
 
     # ITE and ITE prediction
-    def PEHE(self, y0, y1, y0_hat, y1_hat):
+    def PEHE(self, y0, y1, yf_hat, ycf_hat, t):
         """Compute Precision in Estimation of Heterogeneous Effect.
 
         Args:
@@ -40,7 +40,21 @@ class Evaluator:
           - PEHE_val: computed PEHE
         """
         # PEHE_val = np.mean(np.abs((y[:, 1] - y[:, 0]) - (y_hat[:, 1] - y_hat[:, 0])))
-        PEHE_val = np.sqrt(np.mean(np.square((y1 - y0) - (y1_hat - y0_hat))))
+        eff_pred = ycf_hat - yf_hat
+        eff_pred[t > 0] = -eff_pred[t > 0]
+        # mu0 = y0 * (1 - t) + y1 * t
+        # mu1 = y1 * (1 - t) + y0 * t
+
+        # print("Sanity Check")
+        # print(np.mean((y0)), np.std((y0)), y0.shape)
+        # print(np.mean((y1)), np.std((y1)), y1.shape)
+        # print(np.mean(yf_hat), np.std(yf_hat), yf_hat.shape)
+        # print(np.mean(ycf_hat), np.std(ycf_hat), ycf_hat.shape)
+        # print(np.mean((mu1)), np.std((mu1)), mu1.shape)
+        # print(np.mean((mu0)), np.std((mu0)), mu0.shape)
+        # print(np.mean(eff_pred), np.std(eff_pred), eff_pred.shape)
+        PEHE_val = np.sqrt(np.mean(np.square((y1 - y0) - eff_pred)))
+        # PEHE_val = np.sqrt(np.mean(np.square((y1 - y0) - (y1_hat - y0_hat))))
         return PEHE_val
 
     def ATE(self, y0, y1, y0_hat, y1_hat):

@@ -11,6 +11,8 @@ from SITE.simi_ite.util_pytorch import *
 from SITE.simi_ite.site_net_pytorch import SiteNet, pddmTransformation
 from SITE.simi_ite.loss_pytorch import lossCalc
 from torch.optim.lr_scheduler import StepLR
+# from simi_ite.util_pytorch import load_data
+
 from data.data_loader import load_data, load_batch
 
 ''' Define parameter flags '''
@@ -39,7 +41,7 @@ FLAGS.add_argument('--weight_init', type=float, default=0.01, help="""Weight ini
 FLAGS.add_argument('--lrate_decay', type=float, default=0.97, help="""Decay of learning rate every 100 iterations """)
 FLAGS.add_argument('--varsel', type=int, default=0, help="""Whether the first layer performs variable selection. """)
 FLAGS.add_argument('--outdir', type=str, default='./results/ihdp', help="""Output directory. """)
-FLAGS.add_argument('--datadir', type=str, default='./data/', help="""data directory. """)
+FLAGS.add_argument('--datadir', type=str, default='../datasets/', help="""data directory. """)
 FLAGS.add_argument('--dataform', type=str, default='ihdp_npci_1-100.train.npz',
                    help="""Training data filename form. (ihdp_npci_1-100.train.npz/twins_train_preprocessed.npz/jobs_DW_bin.train.npz)""")
 FLAGS.add_argument('--data_test', type=str, default='ihdp_npci_1-100.test.npz', help="""Test data filename form. """)
@@ -105,190 +107,190 @@ def add_weight_decay(net, l2_value, skip_list=()):
     return [{'params': no_decay, 'weight_decay': 0.}, {'params': decay, 'weight_decay': l2_value}]
 
 
-def train(site_model, optimizer, D, I_valid, loss_calculator, D_test, logfile, i_exp, scheduler):
-
-    """ Train/validation split """
-    n = D['x'].shape[0]
-    I = range(n)
-    I_train = list(set(I) - set(I_valid))
-    n_train = len(I_train)
-
-    x_train = D['x'][I_train, :]
-    x_val = D['x'][I_valid, :]
-    t_train = D['t'][I_train, :]
-    t_val = D['t'][I_valid, :]
-    yf_train = D['yf'][I_train, :]
-    yf_val = D['yf'][I_valid, :]
-
-    if D['HAVE_TRUTH']:
-        x_cf = x_train
-        t_cf = 1 - t_train
-        y_cf = D['ycf'][I_train, :]
-
-    ''' Compute treatment probability'''
-    p_treated = np.mean(t_train)
-
-    ''' Set up three pairs for calculating losses'''
-    p_t = p_treated
-    # print(p_t)
-    three_pairs_train, _, _, _, three_pairs_simi_train = three_pair_extration(
-        x_train, t_train, yf_train, FLAGS.propensity_dir)
-
-    if FLAGS.val_part > 0:
-        three_pairs_valid, _, _, _, three_pairs_simi_valid = three_pair_extration(
-            x_val, t_val, yf_val, FLAGS.propensity_dir)
-
-    ''' Set up for storing predictions '''
-    preds_train = []
-    preds_test = []
-    losses = []
-
-    objnan = False
-
-    reps = []
-    reps_test = []
-    valid_list = []
-    # print(random.sample(range(0, n_train), FLAGS.batch_size))
-    for i in range(FLAGS.iterations):
-        ''' Fetch sample '''
-        t_index = 0
-
-        while t_index < 0.05 or t_index > 0.95:
-            I = random.sample(range(0, n_train), FLAGS.batch_size)
-            x_batch = x_train[I, :]
-            t_batch = t_train[I]
-            y_batch = yf_train[I]
-            t_index = np.mean(t_batch)
-
-        ''' Do one step of gradient descent '''
-        if not objnan:
-            site_model.train()
-            for param in site_model.parameters():
-                param.requires_grad = True
-
-            ''' Extract three-pairs for training'''
-            three_pairs_batch, _, _, _, three_pairs_simi = three_pair_extration(
-                x_batch, t_batch, y_batch, FLAGS.propensity_dir)
-            # print(three_pairs_batch)
-            ''' Make a prediction '''
-            y_pred_batch, _= site_model(torch.Tensor(x_batch), torch.Tensor(t_batch))
-
-            ''' Calculate losses'''
-            # print(three_pairs_batch)
-            pddm_loss, mid_loss = site_model.pddm_mid_loss(torch.Tensor(three_pairs_batch),
-                                                           torch.Tensor(three_pairs_simi))
-            loss = loss_calculator.calc_loss(t_batch, p_t, torch.Tensor(y_batch), y_pred_batch, pddm_loss, mid_loss)
-            # print(t_batch)
-            # print(loss_calculator.pred_loss)
-            ''' Optimize '''
-            optimizer.zero_grad()
-            loss.backward()
-            optimizer.step()
-            scheduler.step()
-            site_model.eval()
-            for param in site_model.parameters():
-                param.requires_grad = False
-
-        if i % FLAGS.output_delay == 0 or i == FLAGS.iterations - 1:
-
-            ''' Make a prediction '''
-            y_pred_f, rep = site_model(torch.Tensor(x_train), torch.Tensor(t_train))
-            # print(rep)
-            pddm_loss, mid_loss = site_model.pddm_mid_loss(torch.Tensor(three_pairs_train),
-                                                           torch.Tensor(three_pairs_simi_train))
-
-            ''' Calculate the loss '''
-            obj_loss = loss_calculator.calc_loss(t_train, p_t, torch.Tensor(yf_train), y_pred_f, pddm_loss, mid_loss)
-
-            f_error = loss_calculator.pred_loss
-            pddm_loss_batch = pddm_loss
-            mid_dist_batch = mid_loss
-
-            cf_error = np.nan
-            valid_obj = np.nan
-            valid_f_error = np.nan
-
-            if D['HAVE_TRUTH']:
-                y_pred_cf, _ = site_model(torch.Tensor(x_cf), torch.Tensor(t_cf))
-                pddm_loss, mid_loss = site_model.pddm_mid_loss(torch.Tensor(three_pairs_train),
-                                                               torch.Tensor(three_pairs_simi_train))
-                loss_calculator.calc_loss(t_cf, np.nan, torch.Tensor(y_cf), y_pred_cf, pddm_loss, mid_loss)
-                cf_error = loss_calculator.pred_loss
-
-            if FLAGS.val_part > 0:
-                y_pred_valf, _= site_model(torch.Tensor(x_val), torch.Tensor(t_val))
-                pddm_loss, mid_loss = site_model.pddm_mid_loss(torch.Tensor(three_pairs_valid),
-                                                               torch.Tensor(three_pairs_simi_valid))
-                loss_calculator.calc_loss(t_val, p_t, torch.Tensor(yf_val), y_pred_valf, pddm_loss, mid_loss)
-                valid_obj, valid_f_error = loss_calculator.tot_loss, loss_calculator.pred_loss
-
-            ''' Print and save the losses '''
-            # print(obj_loss)
-            # print([obj_loss, f_error, cf_error, valid_f_error, valid_obj])
-            try:
-                obj_loss_detach = obj_loss.detach()
-                f_error_detach = f_error.detach()
-                cf_error_detach = cf_error.detach()
-                valid_f_error_detach = valid_f_error.detach()
-                valid_obj_detach = valid_obj.detach()
-                losses.append([obj_loss_detach, f_error_detach, cf_error_detach, valid_f_error_detach, valid_obj_detach])
-                loss_str = str(i) + '\tObj: %.3f,\tF: %.3f,\tCf: %.3f,\tPDDM: %.2g,\tmid_p: %.2g,\tVal: %.3f,\tValObj: %.2f' \
-                           % (obj_loss_detach, f_error_detach, cf_error_detach, pddm_loss_batch, mid_dist_batch, valid_f_error_detach, valid_obj_detach)
-            except AttributeError:
-                print("Loss Has NaN")
-                losses.append([obj_loss, f_error, cf_error, valid_f_error, valid_obj])
-                loss_str = str(i) + '\tObj: %.3f,\tF: %.3f,\tCf: %.3f,\tPDDM: %.2g,\tmid_p: %.2g,\tVal: %.3f,\tValObj: %.2f' \
-                           % (obj_loss, f_error, cf_error, pddm_loss_batch, mid_dist_batch, valid_f_error, valid_obj)
-            # print losses
-            valid_list.append(valid_f_error)
-            if FLAGS.loss == 'log':
-                y_pred, _= site_model(torch.Tensor(x_batch), torch.Tensor(t_batch))
-                y_pred = 1.0 * (y_pred > 0.5)
-                acc = 100 * (1 - np.mean(np.abs(y_batch - y_pred.numpy())))
-                loss_str += ',\tAcc: %.2f%%' % acc
-
-            log(logfile, loss_str)
-
-            if torch.isnan(obj_loss):
-                log(logfile, 'Experiment %d: Objective is NaN. Skipping.' % i_exp)
-                objnan = True
-
-        ''' Compute predictions every M iterations '''
-        if (FLAGS.pred_output_delay > 0 and i % FLAGS.pred_output_delay == 0) or i == FLAGS.iterations - 1:
-
-            y_pred_f, _ = site_model(torch.Tensor(D['x']), torch.Tensor(D['t']))
-            # for name, param in site_model.named_parameters():
-            #     print(name, param)
-            y_pred_cf, _ = site_model(torch.Tensor(D['x']), torch.Tensor(1-D['t']))
-            # print(y_pred_f)
-
-            preds_train.append(np.concatenate((y_pred_f.detach(), y_pred_cf.detach()), axis=1))
-            # print(preds_train)
-            if D_test is not None:
-
-                # print(D_test['x'])
-                y_pred_f_test, _ = site_model(torch.Tensor(D_test['x']), torch.Tensor(D_test['t']))
-                y_pred_cf_test, _ = site_model(torch.Tensor(D_test['x']), torch.Tensor(1-D_test['t']))
-                preds_test.append(np.concatenate((y_pred_f_test.detach(), y_pred_cf_test.detach()), axis=1))
-
-            if FLAGS.save_rep and i_exp == 1:
-                # The D['t'] here does not affect the result, since reps_i only depend on D['x']
-                _, reps_i = site_model(torch.Tensor(D['x']), torch.Tensor(D['t']))
-                reps.append(reps_i)
-
-                if D_test is not None:
-                    # The D_test['t'] here does not affect the result
-                    _, reps_test_i = site_model(torch.Tensor(D_test['x']), torch.Tensor(D_test['t']))
-                    reps_test.append(reps_test_i)
-
-            # A rudimentary way to calculate pehe
-            # print(pehe_nn(y_pred_f.detach().numpy(), y_pred_cf.detach().numpy(), D['yf'], D['x'], D['t']))
-
-    # fig, ax = plt.subplots(figsize=(10,5))
-    # ax.plot(range(len(valid_list)), valid_list, '-b',label='validation')
-    # plt.show()
-
-    return losses, preds_train, preds_test, reps, reps_test
+# def train(site_model, optimizer, D, I_valid, loss_calculator, D_test, logfile, i_exp, scheduler):
+#
+#     """ Train/validation split """
+#     n = D['x'].shape[0]
+#     I = range(n)
+#     I_train = list(set(I) - set(I_valid))
+#     n_train = len(I_train)
+#
+#     x_train = D['x'][I_train, :]
+#     x_val = D['x'][I_valid, :]
+#     t_train = D['t'][I_train, :]
+#     t_val = D['t'][I_valid, :]
+#     yf_train = D['yf'][I_train, :]
+#     yf_val = D['yf'][I_valid, :]
+#
+#     if D['HAVE_TRUTH']:
+#         x_cf = x_train
+#         t_cf = 1 - t_train
+#         y_cf = D['ycf'][I_train, :]
+#
+#     ''' Compute treatment probability'''
+#     p_treated = np.mean(t_train)
+#
+#     ''' Set up three pairs for calculating losses'''
+#     p_t = p_treated
+#     # print(p_t)
+#     three_pairs_train, _, _, _, three_pairs_simi_train = three_pair_extration(
+#         x_train, t_train, yf_train, FLAGS.propensity_dir)
+#
+#     if FLAGS.val_part > 0:
+#         three_pairs_valid, _, _, _, three_pairs_simi_valid = three_pair_extration(
+#             x_val, t_val, yf_val, FLAGS.propensity_dir)
+#
+#     ''' Set up for storing predictions '''
+#     preds_train = []
+#     preds_test = []
+#     losses = []
+#
+#     objnan = False
+#
+#     reps = []
+#     reps_test = []
+#     valid_list = []
+#     # print(random.sample(range(0, n_train), FLAGS.batch_size))
+#     for i in range(FLAGS.iterations):
+#         ''' Fetch sample '''
+#         t_index = 0
+#
+#         while t_index < 0.05 or t_index > 0.95:
+#             I = random.sample(range(0, n_train), FLAGS.batch_size)
+#             x_batch = x_train[I, :]
+#             t_batch = t_train[I]
+#             y_batch = yf_train[I]
+#             t_index = np.mean(t_batch)
+#
+#         ''' Do one step of gradient descent '''
+#         if not objnan:
+#             site_model.train()
+#             for param in site_model.parameters():
+#                 param.requires_grad = True
+#
+#             ''' Extract three-pairs for training'''
+#             three_pairs_batch, _, _, _, three_pairs_simi = three_pair_extration(
+#                 x_batch, t_batch, y_batch, FLAGS.propensity_dir)
+#             # print(three_pairs_batch)
+#             ''' Make a prediction '''
+#             y_pred_batch, _= site_model(torch.Tensor(x_batch), torch.Tensor(t_batch))
+#
+#             ''' Calculate losses'''
+#             # print(three_pairs_batch)
+#             pddm_loss, mid_loss = site_model.pddm_mid_loss(torch.Tensor(three_pairs_batch),
+#                                                            torch.Tensor(three_pairs_simi))
+#             loss = loss_calculator.calc_loss(t_batch, p_t, torch.Tensor(y_batch), y_pred_batch, pddm_loss, mid_loss)
+#             # print(t_batch)
+#             # print(loss_calculator.pred_loss)
+#             ''' Optimize '''
+#             optimizer.zero_grad()
+#             loss.backward()
+#             optimizer.step()
+#             scheduler.step()
+#             site_model.eval()
+#             for param in site_model.parameters():
+#                 param.requires_grad = False
+#
+#         if i % FLAGS.output_delay == 0 or i == FLAGS.iterations - 1:
+#
+#             ''' Make a prediction '''
+#             y_pred_f, rep = site_model(torch.Tensor(x_train), torch.Tensor(t_train))
+#             # print(rep)
+#             pddm_loss, mid_loss = site_model.pddm_mid_loss(torch.Tensor(three_pairs_train),
+#                                                            torch.Tensor(three_pairs_simi_train))
+#
+#             ''' Calculate the loss '''
+#             obj_loss = loss_calculator.calc_loss(t_train, p_t, torch.Tensor(yf_train), y_pred_f, pddm_loss, mid_loss)
+#
+#             f_error = loss_calculator.pred_loss
+#             pddm_loss_batch = pddm_loss
+#             mid_dist_batch = mid_loss
+#
+#             cf_error = np.nan
+#             valid_obj = np.nan
+#             valid_f_error = np.nan
+#
+#             if D['HAVE_TRUTH']:
+#                 y_pred_cf, _ = site_model(torch.Tensor(x_cf), torch.Tensor(t_cf))
+#                 pddm_loss, mid_loss = site_model.pddm_mid_loss(torch.Tensor(three_pairs_train),
+#                                                                torch.Tensor(three_pairs_simi_train))
+#                 loss_calculator.calc_loss(t_cf, np.nan, torch.Tensor(y_cf), y_pred_cf, pddm_loss, mid_loss)
+#                 cf_error = loss_calculator.pred_loss
+#
+#             if FLAGS.val_part > 0:
+#                 y_pred_valf, _= site_model(torch.Tensor(x_val), torch.Tensor(t_val))
+#                 pddm_loss, mid_loss = site_model.pddm_mid_loss(torch.Tensor(three_pairs_valid),
+#                                                                torch.Tensor(three_pairs_simi_valid))
+#                 loss_calculator.calc_loss(t_val, p_t, torch.Tensor(yf_val), y_pred_valf, pddm_loss, mid_loss)
+#                 valid_obj, valid_f_error = loss_calculator.tot_loss, loss_calculator.pred_loss
+#
+#             ''' Print and save the losses '''
+#             # print(obj_loss)
+#             # print([obj_loss, f_error, cf_error, valid_f_error, valid_obj])
+#             try:
+#                 obj_loss_detach = obj_loss.detach()
+#                 f_error_detach = f_error.detach()
+#                 cf_error_detach = cf_error.detach()
+#                 valid_f_error_detach = valid_f_error.detach()
+#                 valid_obj_detach = valid_obj.detach()
+#                 losses.append([obj_loss_detach, f_error_detach, cf_error_detach, valid_f_error_detach, valid_obj_detach])
+#                 loss_str = str(i) + '\tObj: %.3f,\tF: %.3f,\tCf: %.3f,\tPDDM: %.2g,\tmid_p: %.2g,\tVal: %.3f,\tValObj: %.2f' \
+#                            % (obj_loss_detach, f_error_detach, cf_error_detach, pddm_loss_batch, mid_dist_batch, valid_f_error_detach, valid_obj_detach)
+#             except AttributeError:
+#                 print("Loss Has NaN")
+#                 losses.append([obj_loss, f_error, cf_error, valid_f_error, valid_obj])
+#                 loss_str = str(i) + '\tObj: %.3f,\tF: %.3f,\tCf: %.3f,\tPDDM: %.2g,\tmid_p: %.2g,\tVal: %.3f,\tValObj: %.2f' \
+#                            % (obj_loss, f_error, cf_error, pddm_loss_batch, mid_dist_batch, valid_f_error, valid_obj)
+#             # print losses
+#             valid_list.append(valid_f_error)
+#             if FLAGS.loss == 'log':
+#                 y_pred, _= site_model(torch.Tensor(x_batch), torch.Tensor(t_batch))
+#                 y_pred = 1.0 * (y_pred > 0.5)
+#                 acc = 100 * (1 - np.mean(np.abs(y_batch - y_pred.numpy())))
+#                 loss_str += ',\tAcc: %.2f%%' % acc
+#
+#             log(logfile, loss_str)
+#
+#             if torch.isnan(obj_loss):
+#                 log(logfile, 'Experiment %d: Objective is NaN. Skipping.' % i_exp)
+#                 objnan = True
+#
+#         ''' Compute predictions every M iterations '''
+#         if (FLAGS.pred_output_delay > 0 and i % FLAGS.pred_output_delay == 0) or i == FLAGS.iterations - 1:
+#
+#             y_pred_f, _ = site_model(torch.Tensor(D['x']), torch.Tensor(D['t']))
+#             # for name, param in site_model.named_parameters():
+#             #     print(name, param)
+#             y_pred_cf, _ = site_model(torch.Tensor(D['x']), torch.Tensor(1-D['t']))
+#             # print(y_pred_f)
+#
+#             preds_train.append(np.concatenate((y_pred_f.detach(), y_pred_cf.detach()), axis=1))
+#             # print(preds_train)
+#             if D_test is not None:
+#
+#                 # print(D_test['x'])
+#                 y_pred_f_test, _ = site_model(torch.Tensor(D_test['x']), torch.Tensor(D_test['t']))
+#                 y_pred_cf_test, _ = site_model(torch.Tensor(D_test['x']), torch.Tensor(1-D_test['t']))
+#                 preds_test.append(np.concatenate((y_pred_f_test.detach(), y_pred_cf_test.detach()), axis=1))
+#
+#             if FLAGS.save_rep and i_exp == 1:
+#                 # The D['t'] here does not affect the result, since reps_i only depend on D['x']
+#                 _, reps_i = site_model(torch.Tensor(D['x']), torch.Tensor(D['t']))
+#                 reps.append(reps_i)
+#
+#                 if D_test is not None:
+#                     # The D_test['t'] here does not affect the result
+#                     _, reps_test_i = site_model(torch.Tensor(D_test['x']), torch.Tensor(D_test['t']))
+#                     reps_test.append(reps_test_i)
+#
+#             # A rudimentary way to calculate pehe
+#             # print(pehe_nn(y_pred_f.detach().numpy(), y_pred_cf.detach().numpy(), D['yf'], D['x'], D['t']))
+#
+#     # fig, ax = plt.subplots(figsize=(10,5))
+#     # ax.plot(range(len(valid_list)), valid_list, '-b',label='validation')
+#     # plt.show()
+#
+#     return losses, preds_train, preds_test, reps, reps_test
 
 
 def site(x_train, t_train, yf_train, dim, parameters):
@@ -367,10 +369,12 @@ def train(model, optimizer, scheduler, lossCalculator, x_train, t_train, yf_trai
             ''' Calculate losses'''
             # print(three_pairs_batch)
             pddm_loss, mid_loss = model.pddm_mid_loss(torch.Tensor(three_pairs_batch),
-                                                           torch.Tensor(three_pairs_simi))
+                                                    torch.Tensor(three_pairs_simi))
+            # print(pddm_loss, mid_loss)
             loss = lossCalculator.calc_loss(t_batch, p_t, torch.Tensor(y_batch), y_pred_batch, pddm_loss, mid_loss)
+            # print(loss)
             # print(t_batch)
-            # print(loss_calculator.pred_loss)
+            # print(lossCalculator.pred_loss)
             ''' Optimize '''
             optimizer.zero_grad()
             loss.backward()
@@ -430,7 +434,7 @@ def train(model, optimizer, scheduler, lossCalculator, x_train, t_train, yf_trai
                 losses.append([obj_loss, f_error, cf_error, valid_f_error, valid_obj])
                 loss_str = str(i) + '\tObj: %.3f,\tF: %.3f,\tCf: %.3f,\tPDDM: %.2g,\tmid_p: %.2g,\tVal: %.3f,\tValObj: %.2f' \
                            % (obj_loss, f_error, cf_error, pddm_loss_batch, mid_dist_batch, valid_f_error, valid_obj)
-            # print losses
+            # print(losses)
             valid_list.append(valid_f_error)
             if FLAGS.loss == 'log':
                 y_pred, _ = model(torch.Tensor(x_batch), torch.Tensor(t_batch))
@@ -444,7 +448,6 @@ def train(model, optimizer, scheduler, lossCalculator, x_train, t_train, yf_trai
             # if torch.isnan(obj_loss):
             #     log(logfile, 'Objective is NaN. Skipping.')
             #     objnan = True
-
     return model
 
 
@@ -485,7 +488,6 @@ def run(outdir):
     ''' Set random seeds '''
     random.seed(FLAGS.seed)
     np.random.seed(FLAGS.seed)
-    torch.manual_seed(FLAGS.seed)
 
     ''' Save parameters '''
     save_config(outdir + 'config.txt', FLAGS)
@@ -547,7 +549,7 @@ def run(outdir):
     ''' Run for all repeated experiments '''
     for i_exp in range(1, n_experiments + 1):
 
-        site_model = SiteNet(dims, dropout_in=FLAGS.dropout_in, dropout_out=FLAGS.dropout_out, FLAGS=FLAGS)
+        site_model = SiteNet(dims, dropout_in=FLAGS.dropout_in, dropout_out=FLAGS.dropout_out, FLAGS=vars(FLAGS))
 
         # print(site_model.inLayers.layers.parameters())
         # pddm_model = pddmTransformation(dims, FLAGS)
@@ -581,6 +583,9 @@ def run(outdir):
             if npz_input:
                 D_exp = {}
                 D_exp['x'] = D['x'][:, :, i_exp - 1]
+
+                print(D_exp['x'])
+                print(D_exp['x'].shape)
                 D_exp['t'] = D['t'][:, i_exp - 1:i_exp]
                 D_exp['yf'] = D['yf'][:, i_exp - 1:i_exp]
                 if D['HAVE_TRUTH']:

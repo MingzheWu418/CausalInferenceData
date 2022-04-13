@@ -52,7 +52,7 @@ def log(logfile,str):
     """ Log a string in a file """
     with open(logfile,'a') as f:
         f.write(str+'\n')
-    print str
+    print(str)
 
 def save_config(fname):
     """ Save configuration """
@@ -171,8 +171,8 @@ def similarity_error_cal(x, h_rep_norm):
     p_x = p_x/sum(p_x)
     p_h = distance_matrix_h[il2]
     p_h = p_h / sum(p_h)
-    print p_x
-    print p_h
+    print(p_x)
+    print(p_h)
     k_l = entropy(p_x, p_h)
 
     return k_l

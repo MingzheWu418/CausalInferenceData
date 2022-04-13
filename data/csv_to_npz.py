@@ -125,6 +125,20 @@ class format_processor:
         """
 
         # Read in raw_data
+        raw_data = np.loadtxt("../raw_data/IHDP/csv/ihdp_npci_3.csv", delimiter=",")
+        # print(raw_data)
+        treatment = raw_data[:, 0].astype(int)
+        # print(treatment)
+        yf = raw_data[:, 1]
+        ycf = raw_data[:, 2]
+        x = raw_data[:, 3:]
+        # print(treatment.shape, yf.shape, ycf.shape, x.shape)
+        data = {'x': x,
+                't': treatment.reshape(-1,1),
+                'yf': yf.reshape(-1,1),
+                'ycf': ycf.reshape(-1,1)}
+        return data
+        """
 
         data_train = np.load(self.filename + "ihdp_npci_1-100.train.npz")
         data_test = np.load(self.filename + "ihdp_npci_1-100.test.npz")
@@ -136,6 +150,7 @@ class format_processor:
         except:
             data['ycf'] = None
         return data
+        """
 
     def __load_JOBS(self):
         """
@@ -246,9 +261,12 @@ if __name__ == "__main__":
     loader.load_data("TWINS")
     dct = loader.data
     np.savez("./datasets/twins", **dct)
-    """
     loader = format_processor()
     loader.load_data("LaLonde")
     dct = loader.data
-    print(dct)
     np.savez("../datasets/lalonde", **dct)
+    """
+    loader = format_processor()
+    loader.load_data("IHDP")
+    dct = loader.data
+    np.savez("../datasets/ihdp1", **dct)

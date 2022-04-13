@@ -149,6 +149,6 @@ def train(model, optimizer, scheduler, lossCalculator, x_train, t_train, yf_trai
     return model
 
 
-def site_predict(model, x, t):
+def cfrnet_predict(model, x, t):
     y_pred, _ = model(x, t)
     return y_pred.detach().numpy()

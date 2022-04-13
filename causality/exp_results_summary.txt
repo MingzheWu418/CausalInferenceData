@@ -1,0 +1,23 @@
+setting: 
+        splitting dataset: randomly split dataset into 10% test set, 90% train set, where 20% of train set is validation set
+        dataset: ihdp
+
+file 0 result:
+                    train           test
+    epsilon ate:    2.18           2.26    
+    pehe:           5.74           5.84
+    ps for treated: 0.286          0.215
+    ps for control: 0.175          0.174
+
+
+# pytorch epsilon ate results from running ihdp_ate.py:
+The back door adjustment result is below
+'dragonnet': {'baseline': 3.464364273319722, 'targeted_regularization': 3.4709080789731206}
+the tmle estimator result is this 
+'dragonnet': {'baseline': 3.4911076884473404, 'targeted_regularization': 3.4946761137789792}
+
+# tf epsilon ate results from running ihdp_ate.py:
+The back door adjustment result is below
+'dragonnet': {'baseline': 0.21072458373421094, 'targeted_regularization': 0.18117153074570835}
+the tmle estimator result is this 
+'dragonnet': {'baseline': 0.16598553293232257, 'targeted_regularization': 0.15273430266410534}

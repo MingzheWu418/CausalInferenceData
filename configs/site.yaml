@@ -1,4 +1,4 @@
-iterations: 1000
+iterations: 2000
 batch_size: 100
 optimizer: 'Adam'
 output_delay: 200
@@ -9,8 +9,8 @@ optim:
   decay: 0.3
 loss:
   loss: 'l2'
-  p_pddm: 0.1
-  p_mid_point_mini: 10.0
+  p_pddm: 0.0
+  p_mid_point_mini: 0.0
   p_lambda: 0
   reweight_sample: 1
 model:
