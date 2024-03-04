@@ -1,7 +1,7 @@
 
 ### Code explanation
 
-(1) csv_to_npz.py
+(1) ogbg_data.py
 - Transform raw data to a desired format
 
 (2) main.py
